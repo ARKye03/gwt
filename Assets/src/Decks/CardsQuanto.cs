@@ -11,6 +11,7 @@ public class CardsQuanto : MonoBehaviour
      */
     private readonly List<Card> CardsOfIdanai = new()
     {
+
     };
     private readonly List<Card> CardsOfCelai = new()
     {
