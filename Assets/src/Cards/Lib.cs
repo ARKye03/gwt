@@ -1,8 +1,7 @@
-using UnityEngine;
-
-public class Lib : MonoBehaviour
+public class Lib
 {
 
+    public delegate bool Effect(Scope scope);
     public enum TypeofUnit
     {
         Melee,

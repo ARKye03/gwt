@@ -7,16 +7,16 @@ public abstract class Card : MonoBehaviour
     public bool IsVoidCard { get; }
     public TypeofCard TypeofCard { get; }
     public Faction Faction { get; }
+    public Effect Effect { get; }
 
-    public delegate bool Effect(Scope scope);
-
-    public Card(string name, string description, TypeofCard typeOfCard, Faction faction, bool isVoidCard = false)
+    public Card(string name, string description, TypeofCard typeOfCard, Faction faction, Effect effect, bool isVoidCard = false)
     {
         Name = name;
         Description = description;
         IsVoidCard = isVoidCard;
         TypeofCard = typeOfCard;
         Faction = faction;
+        Effect = effect;
     }
 
 }

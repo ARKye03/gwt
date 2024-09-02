@@ -1,16 +1,10 @@
-using UnityEngine;
-
-public class BaitCard : MonoBehaviour
+using static Lib;
+public class BaitCard : Card
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public BaitCard(string name,
+                    string description,
+                    TypeofCard typeOfCard,
+                    Faction faction,
+                    Effect effect,
+                    bool isVoidCard = false) : base(name, description, typeOfCard, faction, effect, isVoidCard) { }
 }
