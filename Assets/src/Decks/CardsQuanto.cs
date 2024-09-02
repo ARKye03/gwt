@@ -9,13 +9,13 @@ public class CardsQuanto : MonoBehaviour
     /*
      * Singleton is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.
      */
-    List<Card> CardsOfIdanai = new()
+    private readonly List<Card> CardsOfIdanai = new()
     {
     };
-    List<Card> CardsOfCelai = new()
+    private readonly List<Card> CardsOfCelai = new()
     {
     };
-    List<Card> CardsOfYudivain = new()
+    private readonly List<Card> CardsOfYudivain = new()
     {
     };
 }
