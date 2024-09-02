@@ -15,7 +15,7 @@ public class Board : MonoBehaviour
     int RoundsPlayed = 0;
     bool KeepPlaying = true;
 
-    public Lib.Faction WhoIsPlaying = Lib.Faction.Idanai;
+    public Faction WhoIsPlaying = Faction.Idanai;
 
     // Start is called before the first frame update
     void Start()
