@@ -1,5 +1,3 @@
-using static Lib;
-
 public class UnitCard : Card
 {
     public float initialDmg = 0;

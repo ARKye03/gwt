@@ -1,4 +1,3 @@
-using static Lib;
 public class BaitCard : Card
 {
     public BaitCard(string name,

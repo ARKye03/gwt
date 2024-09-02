@@ -1,5 +1,4 @@
 using UnityEngine;
-using static Lib;
 public abstract class Card : MonoBehaviour
 {
     public string Name { get; }
