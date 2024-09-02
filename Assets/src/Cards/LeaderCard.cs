@@ -6,9 +6,5 @@ public class LeaderCard : Card
                       Faction faction,
                       Effect effect) : base(name, description, TypeofCard.Leader, faction, effect, false)
     {
-        Name = name;
-        Description = description;
-        Faction = faction;
-        Effect = effect;
     }
 }

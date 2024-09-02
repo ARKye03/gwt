@@ -1,12 +1,12 @@
 using UnityEngine;
 public abstract class Card : MonoBehaviour
 {
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public bool IsVoidCard { get; set; }
-    public TypeofCard TypeofCard { get; set; }
-    public Faction Faction { get; set; }
-    public Effect Effect { get; set; }
+    public string Name { get; }
+    public string Description { get; }
+    public bool IsVoidCard { get; }
+    public TypeofCard TypeofCard { get; }
+    public Faction Faction { get; }
+    public Effect Effect { get; }
 
     public Card(string name, string description, TypeofCard typeOfCard, Faction faction, Effect effect, bool isVoidCard = false)
     {
