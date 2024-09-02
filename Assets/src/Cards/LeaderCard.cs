@@ -4,7 +4,7 @@ public class LeaderCard : Card
                       string description,
                       TypeofCard typeOfCard,
                       Faction faction,
-                      Effect effect) : base(name, description, TypeofCard.Leader, faction, effect, false)
+                      Effect effect) : base()
     {
     }
 }

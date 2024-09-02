@@ -5,5 +5,5 @@ public class BaitCard : Card
                     TypeofCard typeOfCard,
                     Faction faction,
                     Effect effect,
-                    bool isVoidCard = false) : base(name, description, typeOfCard, faction, effect, isVoidCard) { }
+                    bool isVoidCard = false) : base() { }
 }

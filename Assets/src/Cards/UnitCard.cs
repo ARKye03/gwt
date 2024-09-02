@@ -15,7 +15,7 @@ public class UnitCard : Card
                     Rarity rarity,
                     float initialDmg,
                     Effect effect,
-                    bool isVoidCard = false) : base(name, description, typeOfCard, faction, effect, isVoidCard)
+                    bool isVoidCard = false) : base()
     {
         this.initialDmg = initialDmg;
         dmg = initialDmg;
