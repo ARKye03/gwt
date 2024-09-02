@@ -1,5 +1,5 @@
 using UnityEngine;
-public abstract class Card : MonoBehaviour
+public class Card : MonoBehaviour
 {
     public string Name { get; }
     public string Description { get; }

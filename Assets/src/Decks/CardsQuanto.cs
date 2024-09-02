@@ -11,6 +11,7 @@ public class CardsQuanto : MonoBehaviour
      */
     private readonly List<Card> CardsOfIdanai = new()
     {
+        new LeaderCard("Idanai", "Idanai", TypeofCard.Leader, Faction.Idanai, null),
 
     };
     private readonly List<Card> CardsOfCelai = new()
