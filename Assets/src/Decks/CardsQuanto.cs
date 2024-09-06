@@ -23,9 +23,9 @@ public class CardsQuanto : MonoBehaviour
         }
     }
 
-    public List<UnitCard> CardsOfIdanai;
-    public List<UnitCard> CardsOfCelai;
-    public List<UnitCard> CardsOfYudivain;
+    public List<Card> CardsOfIdanai;
+    public List<Card> CardsOfCelai;
+    public List<Card> CardsOfYudivain;
 
     private void Awake()
     {
@@ -44,8 +44,9 @@ public class CardsQuanto : MonoBehaviour
 
     private void InitializeCards()
     {
-        CardsOfIdanai = new List<UnitCard>
+        CardsOfIdanai = new List<Card>
         {
+            CreateUnitCard("Idanai", "Idanai", TypeofCard.Leader, Faction.Idanai, Rarity.Gold, 0, null),
             CreateUnitCard("Prasalaas", "How ARKye was supposed to be", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 10, null),
             CreateUnitCard("Prasanthrangan", "HyDe creator, where dots unleash the pain", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 8, null),
             CreateUnitCard("Aylur", "TSX is not the limit", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 8, null),
@@ -54,14 +55,15 @@ public class CardsQuanto : MonoBehaviour
             CreateUnitCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
         };
 
-        CardsOfCelai = new List<UnitCard>
+        CardsOfCelai = new List<Card>
         {
+            CreateUnitCard("Celai", "Celai", TypeofCard.Leader, Faction.Celai, Rarity.Gold, 0, null),
             CreateUnitCard("Vinceliuice", "Designer Linuxer 来自中国, 喜欢用linux的设计师!", TypeofCard.Unit, Faction.Celai, Rarity.Gold, 10, null),
             CreateUnitCard("Pheralb", "The one who can't be stopped", TypeofCard.Unit, Faction.Celai, Rarity.Silver, 8, null),
             CreateUnitCard("Farther", "The one who can't be stopped", TypeofCard.Unit, Faction.Celai, Rarity.Silver, 8, null),
         };
 
-        CardsOfYudivain = new List<UnitCard>
+        CardsOfYudivain = new List<Card>
         {
             CreateUnitCard("Yudivain", "Yudivain", TypeofCard.Leader, Faction.Yudivain, Rarity.Gold, 0, null),
         };
