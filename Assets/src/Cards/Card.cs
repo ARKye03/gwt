@@ -1,5 +1,7 @@
 using UnityEngine;
 
+public delegate bool Effect(Scope scope);
+
 [CreateAssetMenu(fileName = "NewCard", menuName = "Card")]
 public class Card : ScriptableObject
 {
