@@ -1,36 +1,76 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CardsQuanto : MonoBehaviour
 {
-    // needs to be a singleton <= idk wtf is this
-    // Edit:
-    /*
-     * Singleton is a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance.
-     */
-    private readonly List<Card> CardsOfIdanai = new()
-    {
-        new LeaderCard("Idanai", "Idanai", TypeofCard.Leader, Faction.Idanai, null),
-        new UnitCard("Prasalaas", "How ARKye was supposed to be", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 10, null),
-        new UnitCard("Prasanthrangan", "HyDe creator, where dots unleash the pain", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 8, null), // Hey if you read this, your dots are awesome mate
-        new UnitCard("Aylur", "TSX is not the limit", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 8, null),
+    private static CardsQuanto instance;
 
-        new UnitCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
-        new UnitCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
-        new UnitCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
+    public static CardsQuanto Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<CardsQuanto>();
+                if (instance == null)
+                {
+                    GameObject singleton = new(typeof(CardsQuanto).Name);
+                    instance = singleton.AddComponent<CardsQuanto>();
+                    DontDestroyOnLoad(singleton);
+                }
+            }
+            return instance;
+        }
+    }
 
-    };
-    private readonly List<Card> CardsOfCelai = new()
+    public List<UnitCard> CardsOfIdanai;
+    public List<UnitCard> CardsOfCelai;
+    public List<UnitCard> CardsOfYudivain;
+
+    private void Awake()
     {
-        new LeaderCard("Celai", "Celai", TypeofCard.Leader, Faction.Celai, null),
-        new UnitCard("Vinceliuice", "Designer Linuxer 来自中国, 喜欢用linux的设计师!", TypeofCard.Unit, Faction.Celai, Rarity.Gold, 10, null),
-        //CREATE RANDOM CARDS
-        new UnitCard("Pheralb", "The one who can't be stopped", TypeofCard.Unit, Faction.Celai, Rarity.Silver, 8, null),
-        new UnitCard("Farther", "The one who can't be stopped", TypeofCard.Unit, Faction.Celai, Rarity.Silver, 8, null),
-    };
-    private readonly List<Card> CardsOfYudivain = new()
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        InitializeCards();
+    }
+
+    private void InitializeCards()
     {
-        new LeaderCard("Yudivain", "Yudivain", TypeofCard.Leader, Faction.Yudivain, null),
-    };
+        CardsOfIdanai = new List<UnitCard>
+        {
+            CreateUnitCard("Prasalaas", "How ARKye was supposed to be", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 10, null),
+            CreateUnitCard("Prasanthrangan", "HyDe creator, where dots unleash the pain", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 8, null),
+            CreateUnitCard("Aylur", "TSX is not the limit", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 8, null),
+            CreateUnitCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
+            CreateUnitCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
+            CreateUnitCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
+        };
+
+        CardsOfCelai = new List<UnitCard>
+        {
+            CreateUnitCard("Vinceliuice", "Designer Linuxer 来自中国, 喜欢用linux的设计师!", TypeofCard.Unit, Faction.Celai, Rarity.Gold, 10, null),
+            CreateUnitCard("Pheralb", "The one who can't be stopped", TypeofCard.Unit, Faction.Celai, Rarity.Silver, 8, null),
+            CreateUnitCard("Farther", "The one who can't be stopped", TypeofCard.Unit, Faction.Celai, Rarity.Silver, 8, null),
+        };
+
+        CardsOfYudivain = new List<UnitCard>
+        {
+            CreateUnitCard("Yudivain", "Yudivain", TypeofCard.Leader, Faction.Yudivain, Rarity.Gold, 0, null),
+        };
+    }
+
+    private UnitCard CreateUnitCard(string name, string description, TypeofCard typeOfCard, Faction faction, Rarity rarity, float initialDmg, Effect effect)
+    {
+        UnitCard unitCard = ScriptableObject.CreateInstance<UnitCard>();
+        unitCard.Initialize(name, description, typeOfCard, faction, rarity, initialDmg, effect);
+        return unitCard;
+    }
 }

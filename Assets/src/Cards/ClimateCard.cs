@@ -1,18 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ClimateCard : MonoBehaviour
+[CreateAssetMenu(fileName = "NewClimateCard", menuName = "Card/ClimateCard")]
+public class ClimateCard : Card
 {
-    // Start is called before the first frame update
-    void Start()
+    public RowType AffectedRow;
+    public int StrengthReduction;
+
+    public void ApplyEffect(Board board)
     {
-        
+        switch (AffectedRow)
+        {
+            case RowType.Melee:
+                ApplyEffectToRow(board.allyMeleeSlots);
+                ApplyEffectToRow(board.enemyMeleeSlots);
+                break;
+            case RowType.Ranged:
+                ApplyEffectToRow(board.allyRangedSlots);
+                ApplyEffectToRow(board.enemyRangedSlots);
+                break;
+            case RowType.Siege:
+                ApplyEffectToRow(board.allySiegeSlots);
+                ApplyEffectToRow(board.enemySiegeSlots);
+                break;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ApplyEffectToRow(CardSlot[] slots)
     {
-        
+        foreach (var slot in slots)
+        {
+            if (slot.IsOccupied && slot.CurrentCard is UnitCard unitCard)
+            {
+                unitCard.ModDmg -= StrengthReduction;
+            }
+        }
     }
 }
