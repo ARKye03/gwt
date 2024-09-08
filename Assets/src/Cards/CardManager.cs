@@ -18,7 +18,7 @@ public class CardManager : MonoBehaviour
         }
     }
 
-    void UpdateCardUI()
+    public void UpdateCardUI()
     {
         NameofCard.text = cardData.Name;
         Description.text = cardData.Description;
