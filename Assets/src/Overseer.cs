@@ -27,17 +27,23 @@ public class Board : MonoBehaviour
     public Deck enemyDeck;
     public Stack<Card> enemyGraveyard = new();
 
+    public Player player1;
+    public Player player2;
+
     void Awake()
     {
         if (allyDeck == null)
         {
-            allyDeck = new Deck();
+            allyDeck = new GameObject("AllyDeck").AddComponent<Deck>();
         }
 
         if (enemyDeck == null)
         {
-            enemyDeck = new Deck();
+            enemyDeck = new GameObject("EnemyDeck").AddComponent<Deck>();
         }
+
+        player1 = new GameObject("Player1").AddComponent<Player>();
+        player2 = new GameObject("Player2").AddComponent<Player>();
     }
 
     void Start()
@@ -50,22 +56,43 @@ public class Board : MonoBehaviour
             return;
         }
 
-        if (cardsQuanto.CardsOfIdanai == null || cardsQuanto.CardsOfYudivain == null)
+        if (cardsQuanto.CardsOfIdanai == null || cardsQuanto.CardsOfYudivain == null || cardsQuanto.CardsOfCelai == null)
         {
             Debug.LogError("CardsQuanto card lists are not initialized");
             return;
         }
 
-        allyDeck.cards = new Stack<Card>(cardsQuanto.CardsOfIdanai);
-        enemyDeck.cards = new Stack<Card>(cardsQuanto.CardsOfYudivain);
+        List<List<Card>> decks = new()
+        {
+            cardsQuanto.CardsOfIdanai,
+            cardsQuanto.CardsOfCelai,
+            cardsQuanto.CardsOfYudivain
+        };
+        System.Random random = new();
 
+        // Assign random decks to players
+        int deckIndex1 = random.Next(decks.Count);
+        player1.Name = "Player 1";
+        allyDeck.cards = new Stack<Card>(decks[deckIndex1]);
+        decks.RemoveAt(deckIndex1);
+
+        int deckIndex2 = random.Next(decks.Count);
+        player2.Name = "Player 2";
+        enemyDeck.cards = new Stack<Card>(decks[deckIndex2]);
+
+        // Initialize player hands
+        player1.DrawCards(allyDeck, 10);
+        player2.DrawCards(enemyDeck, 10);
+
+        // Shuffle decks
         allyDeck.Shuffle();
+        enemyDeck.Shuffle();
+
         foreach (var item in allyDeck.cards)
         {
             Debug.Log("Ally Card: " + item);
         }
 
-        enemyDeck.Shuffle();
         foreach (var item in enemyDeck.cards)
         {
             Debug.Log("Enemy Card: " + item);
