@@ -46,105 +46,102 @@ public class CardsQuanto : MonoBehaviour
     {
         CardsOfIdanai = new List<Card>
         {
-            CreateLeaderCard("Idanai", "Idanai", Faction.Idanai, null, "Idanai.png"),
-            CreateUnitCard("Prasalaas", "How ARKye was supposed to be", Faction.Idanai, Rarity.Gold, 10, null, "Prasalaas.png"),
-            CreateUnitCard("Prasanthrangan", "HyDe creator, where dots unleash the pain", Faction.Idanai, Rarity.Gold, 8, null, "Prasanthrangan.png"),
-            CreateUnitCard("Aylur", "TSX is not the limit", Faction.Idanai, Rarity.Gold, 8, null, "Aylur.png"),
+            CreateLeaderCard("Idanai", "Idanai", Faction.Idanai, null, "Idanai/Idanai"),
+            CreateUnitCard("Prasalaas", "How ARKye was supposed to be", Faction.Neutral, Rarity.Gold, 15, null, "Neutral/Prasalaas"),
+            CreateUnitCard("Prasanthrangan", "HyDe creator, where dots unleash the pain", Faction.Idanai, Rarity.Gold, 8, null, "Idanai/ScarTheScorched"),
+            CreateUnitCard("Aylur", "TSX is not the limit", Faction.Idanai, Rarity.Gold, 8, null, "Idanai/ColourlessSonic"),
 
-            CreateUnitCard("Kuruthi", "The one who can't be stopped", Faction.Idanai, Rarity.Silver, 8, null, "Kuruthi.png"),
-            CreateUnitCard("Kuruthi", "The one who can't be stopped", Faction.Idanai, Rarity.Silver, 8, null, "Kuruthi.png"),
-            CreateUnitCard("Kuruthi", "The one who can't be stopped", Faction.Idanai, Rarity.Silver, 8, null, "Kuruthi.png"),
-            CreateUnitCard("Vikram", "The strategist", Faction.Idanai, Rarity.Silver, 7, null, "Vikram.png"),
-            CreateUnitCard("Vikram", "The strategist", Faction.Idanai, Rarity.Silver, 7, null, "Vikram.png"),
-            CreateUnitCard("Vikram", "The strategist", Faction.Idanai, Rarity.Silver, 7, null, "Vikram.png"),
-            CreateUnitCard("Arjun", "The silent warrior", Faction.Idanai, Rarity.Silver, 6, null, "Arjun.png"),
-            CreateUnitCard("Arjun", "The silent warrior", Faction.Idanai, Rarity.Silver, 6, null, "Arjun.png"),
-            CreateUnitCard("Arjun", "The silent warrior", Faction.Idanai, Rarity.Silver, 6, null, "Arjun.png"),
+            CreateUnitCard("OtterSoldier", "The one who can't be stopped", Faction.Idanai, Rarity.Silver, 8, null, "Idanai/OtterSoldier"),
+            CreateUnitCard("OtterSoldier", "The one who can't be stopped", Faction.Idanai, Rarity.Silver, 8, null, "Idanai/OtterSoldier"),
+            CreateUnitCard("OtterSoldier", "The one who can't be stopped", Faction.Idanai, Rarity.Silver, 8, null, "Idanai/OtterSoldier"),
+            CreateUnitCard("PrimePeacock", "The strategist", Faction.Idanai, Rarity.Silver, 7, null, "Idanai/PrimePeacock"),
+            CreateUnitCard("PrimePeacock", "The strategist", Faction.Idanai, Rarity.Silver, 7, null, "Idanai/PrimePeacock"),
+            CreateUnitCard("PrimePeacock", "The strategist", Faction.Idanai, Rarity.Silver, 7, null, "Idanai/PrimePeacock"),
+            CreateUnitCard("DracoBlue", "The silent warrior", Faction.Idanai, Rarity.Silver, 6, null, "Idanai/DracoBlue"),
+            CreateUnitCard("DracoBlue", "The silent warrior", Faction.Idanai, Rarity.Silver, 6, null, "Idanai/DracoBlue"),
+            CreateUnitCard("DracoBlue", "The silent warrior", Faction.Idanai, Rarity.Silver, 6, null, "Idanai/DracoBlue"),
 
-            CreateUnitCard("Ravi", "The quick thinker", Faction.Idanai, Rarity.Silver, 5, null, "Ravi.png"),
-            CreateUnitCard("Ravi", "The quick thinker", Faction.Idanai, Rarity.Silver, 5, null, "Ravi.png"),
-            CreateUnitCard("Ravi", "The quick thinker", Faction.Idanai, Rarity.Silver, 5, null, "Ravi.png"),
-            CreateUnitCard("Suresh", "The shield", Faction.Idanai, Rarity.Silver, 4, null, "Suresh.png"),
-            CreateUnitCard("Suresh", "The shield", Faction.Idanai, Rarity.Silver, 4, null, "Suresh.png"),
-            CreateUnitCard("Suresh", "The shield", Faction.Idanai, Rarity.Silver, 4, null, "Suresh.png"),
+            CreateUnitCard("Figures", "The quick thinker", Faction.Idanai, Rarity.Silver, 5, null, "Idanai/Figures"),
+            CreateUnitCard("Figures", "The quick thinker", Faction.Idanai, Rarity.Silver, 5, null, "Idanai/Figures"),
+            CreateUnitCard("Figures", "The quick thinker", Faction.Idanai, Rarity.Silver, 5, null, "Idanai/Figures"),
+            CreateUnitCard("SpartanRaptor", "The shield", Faction.Idanai, Rarity.Silver, 4, null, "Idanai/SpartanRaptor"),
+            CreateUnitCard("SpartanRaptor", "The shield", Faction.Idanai, Rarity.Silver, 4, null, "Idanai/SpartanRaptor"),
+            CreateUnitCard("SpartanRaptor", "The shield", Faction.Idanai, Rarity.Silver, 4, null, "Idanai/SpartanRaptor"),
 
-            CreateBaitCard("Decoy", "A simple bait", Faction.Idanai, 0, null, "Decoy.png"),
-            CreateBaitCard("Decoy", "A simple bait", Faction.Idanai, 0, null, "Decoy.png"),
-            CreateBaitCard("Decoy", "A simple bait", Faction.Idanai, 0, null, "Decoy.png"),
+            CreateBaitCard("BaitFish", "A simple bait", Faction.Idanai, 0, null, "Idanai/BaitFish"),
+            CreateBaitCard("BaitSe", "A simple bait", Faction.Idanai, 0, null, "Idanai/BaitSe"),
+            CreateBaitCard("BaitSoldier", "A simple bait", Faction.Idanai, 0, null, "Idanai/BaitSoldier"),
 
-            CreateBonusCard("Boost", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Melee, "Boost.png"),
-            CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Idanai, 2, null, RowType.Ranged, "Boost.png"),
-            CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Siege, "Boost.png"),
+            CreateBonusCard("Melee Boost", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Melee, "Idanai/Boost"),
+            CreateBonusCard("Ranged Boost" , "Aumenta la fuerza de todas las unidades", Faction.Idanai, 2, null, RowType.Ranged, "Idanai/Boost"),
+            CreateBonusCard("Siege Boost", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Siege, "Idanai/Boost"),
 
-            CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Idanai, null, RowType.Melee, "foo.png"),
-            CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Idanai, null, RowType.Melee, "foo.png.png"),
-            CreateClimateCard("Rain", "Reduces strength of siege units", Faction.Idanai, null, RowType.Melee, "foo.png")
+            CreateClimateCard("EndOfLight", "Reduces strength of melee units", Faction.Idanai, null, RowType.Melee, "Idanai/EndOfLight"),
+            CreateClimateCard("AgainstTheCurrent", "Reduces strength of ranged units", Faction.Idanai, null, RowType.Ranged, "Idanai/AgainstTheCurrent"),
+            CreateClimateCard("StormOfSiege", "Reduces strength of siege units", Faction.Idanai, null, RowType.Siege, "Idanai/StormOfSiege")
         };
 
         CardsOfCelai = new List<Card>
         {
-            CreateLeaderCard("Celai", "Celai", Faction.Celai, null, "Celai.png"),
-            CreateUnitCard("Vinceliuice", "Designer Linuxer 来自中国, 喜欢用linux的设计师!", Faction.Celai, Rarity.Gold, 10, null, "foo.png"),
-            CreateUnitCard("Aurelius", "The golden warrior", Faction.Celai, Rarity.Gold, 9, null, "foo.png"),
-            CreateUnitCard("Lysandra", "The fierce protector", Faction.Celai, Rarity.Gold, 8, null, "foo.png"),
+            CreateLeaderCard("Celai", "Celai", Faction.Celai, null, "Celai/Celai"),
+            CreateUnitCard("Vinceliuice", "Designer Linuxer", Faction.Celai, Rarity.Gold, 10, null, "Celai/Beauttyfly"), // It used to be "Designer Linuxer 来自中国, 喜欢用linux的设计师!" but yk this shit won't render unless I import this and man fr I need to find her :(
+            CreateUnitCard("Aurelius", "The golden warrior", Faction.Celai, Rarity.Gold, 9, null, "Celai/Dratini"),
+            CreateUnitCard("Lysandra", "The fierce protector", Faction.Celai, Rarity.Gold, 8, null, "Celai/GeometricalKitty"),
 
-            CreateUnitCard("Pheralb", "The one who can't be stopped", Faction.Celai, Rarity.Silver, 8, null, "foo.png"),
-            CreateUnitCard("Pheralb", "The one who can't be stopped", Faction.Celai, Rarity.Silver, 8, null, "foo.png"),
-            CreateUnitCard("Pheralb", "The one who can't be stopped", Faction.Celai, Rarity.Silver, 8, null, "foo.png"),
-            CreateUnitCard("Farther", "The wise elder", Faction.Celai, Rarity.Silver, 7, null, "foo.png"),
-            CreateUnitCard("Farther", "The wise elder", Faction.Celai, Rarity.Silver, 7, null, "foo.png"),
-            CreateUnitCard("Farther", "The wise elder", Faction.Celai, Rarity.Silver, 7, null, "foo.png"),
-            CreateUnitCard("Selene", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null, "foo.png"),
-            CreateUnitCard("Selene", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null, "foo.png"),
-            CreateUnitCard("Selene", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null, "foo.png"),
+            CreateUnitCard("GoldenGriffin", "The one who can't be stopped", Faction.Celai, Rarity.Silver, 8, null, "Celai/GoldenGriffin"),
+            CreateUnitCard("GoldenGriffin", "The one who can't be stopped", Faction.Celai, Rarity.Silver, 8, null, "Celai/GoldenGriffin"),
+            CreateUnitCard("GoldenGriffin", "The one who can't be stopped", Faction.Celai, Rarity.Silver, 8, null, "Celai/GoldenGriffin"),
+            CreateUnitCard("SwampThing", "The wise elder", Faction.Celai, Rarity.Silver, 7, null, "Celai/idk"),
+            CreateUnitCard("SwampThing", "The wise elder", Faction.Celai, Rarity.Silver, 7, null, "Celai/idk"),
+            CreateUnitCard("SwampThing", "The wise elder", Faction.Celai, Rarity.Silver, 7, null, "Celai/idk"),
+            CreateUnitCard("LSDCaiman", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null, "Celai/LSDCaiman"), // Feeling skibidi atm
+            CreateUnitCard("LSDCaiman", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null, "Celai/LSDCaiman"),
+            CreateUnitCard("LSDCaiman", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null, "Celai/LSDCaiman"),
 
-            CreateBaitCard("Decoy", "A simple bait", Faction.Celai, 0, null, "foo.png"),
-            CreateBaitCard("Decoy", "A simple bait", Faction.Celai, 0, null, "foo.png"),
-            CreateBaitCard("Decoy", "A simple bait", Faction.Celai, 0, null, "foo.png"),
+            CreateBaitCard("Decoy", "A simple bait", Faction.Celai, 0, null, "Celai/"),
+            CreateBaitCard("Decoy", "A simple bait", Faction.Celai, 0, null, "Celai/"),
+            CreateBaitCard("Decoy", "A simple bait", Faction.Celai, 0, null, "Celai/"),
 
-            CreateBonusCard("Boost", "Boosts strength of all units", Faction.Celai, 2, null, RowType.Melee, "foo.png"),
-            CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Celai, 2, null, RowType.Ranged, "foo.png"),
-            CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Celai, 2, null, RowType.Siege, "foo.png"),
+            CreateBonusCard("Boost", "Boosts strength of all units", Faction.Celai, 2, null, RowType.Melee, "Celai/"),
+            CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Celai, 2, null, RowType.Ranged, "Celai/"),
+            CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Celai, 2, null, RowType.Siege, "Celai/"),
 
-            CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Celai,null, RowType.Melee, "foo.png"),
-            CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Celai,null, RowType.Melee, "foo.png"),
-            CreateClimateCard("Rain", "Reduces strength of siege units", Faction.Celai,null, RowType.Melee, "foo.png"),
-            CreateClimateCard("Storm", "Reduces strength of all units", Faction.Celai,null, RowType.Melee, "foo.png"),
-            CreateClimateCard("Blizzard", "Freezes all units", Faction.Celai,null, RowType.Melee, "foo.png"),
-            CreateClimateCard("Heatwave", "Burns all units", Faction.Celai,null, RowType.Melee, "foo.png")
+            CreateClimateCard("Zoore", "Reduces strength of melee units", Faction.Celai,null, RowType.Melee, "Celai/Zoore"),
+            CreateClimateCard("DownTheArchers", "Reduces strength of ranged units", Faction.Celai,null, RowType.Ranged, "Celai/DownTheArchers"),
+            CreateClimateCard("Weatherstorm", "Reduces strength of siege units", Faction.Celai,null, RowType.Siege, "Celai/Weatherstorm"),
         };
 
         CardsOfYudivain = new List<Card>
         {
-            CreateLeaderCard("Yudivain", "Yudivain", Faction.Yudivain, null, "foo.png"),
-            CreateUnitCard("Eldor", "The ancient sage", Faction.Yudivain, Rarity.Gold, 10, null, "foo.png"),
-            CreateUnitCard("Thalor", "The mighty warrior", Faction.Yudivain, Rarity.Gold, 9, null, "foo.png"),
-            CreateUnitCard("Morgana", "The dark sorceress", Faction.Yudivain, Rarity.Gold, 8, null, "foo.png"),
+            CreateLeaderCard("Yudivain", "Yudivain", Faction.Yudivain, null, "Yudivain/Yudivain"),
+            CreateUnitCard("Eldor", "The ancient sage", Faction.Yudivain, Rarity.Gold, 10, null, "Yudivain/"),
+            CreateUnitCard("Thalor", "The mighty warrior", Faction.Yudivain, Rarity.Gold, 9, null, "Yudivain/"),
+            CreateUnitCard("Morgana", "The dark sorceress", Faction.Yudivain, Rarity.Gold, 8, null, "Yudivain/"),
 
-            CreateUnitCard("Lorian", "The swift archer", Faction.Yudivain, Rarity.Silver, 8, null, "foo.png"),
-            CreateUnitCard("Lorian", "The swift archer", Faction.Yudivain, Rarity.Silver, 8, null, "foo.png"),
-            CreateUnitCard("Lorian", "The swift archer", Faction.Yudivain, Rarity.Silver, 8, null, "foo.png"),
-            CreateUnitCard("Gareth", "The brave knight", Faction.Yudivain, Rarity.Silver, 7, null, "foo.png"),
-            CreateUnitCard("Gareth", "The brave knight", Faction.Yudivain, Rarity.Silver, 7, null, "foo.png"),
-            CreateUnitCard("Gareth", "The brave knight", Faction.Yudivain, Rarity.Silver, 7, null, "foo.png"),
-            CreateUnitCard("Elara", "The healer", Faction.Yudivain, Rarity.Silver, 6, null, "foo.png"),
-            CreateUnitCard("Elara", "The healer", Faction.Yudivain, Rarity.Silver, 6, null, "foo.png"),
-            CreateUnitCard("Elara", "The healer", Faction.Yudivain, Rarity.Silver, 6, null, "foo.png"),
+            CreateUnitCard("Lorian", "The swift archer", Faction.Yudivain, Rarity.Silver, 8, null, "Yudivain/"),
+            CreateUnitCard("Lorian", "The swift archer", Faction.Yudivain, Rarity.Silver, 8, null, "Yudivain/"),
+            CreateUnitCard("Lorian", "The swift archer", Faction.Yudivain, Rarity.Silver, 8, null, "Yudivain/"),
+            CreateUnitCard("Gareth", "The brave knight", Faction.Yudivain, Rarity.Silver, 7, null, "Yudivain/"),
+            CreateUnitCard("Gareth", "The brave knight", Faction.Yudivain, Rarity.Silver, 7, null, "Yudivain/"),
+            CreateUnitCard("Gareth", "The brave knight", Faction.Yudivain, Rarity.Silver, 7, null, "Yudivain/"),
+            CreateUnitCard("Elara", "The healer", Faction.Yudivain, Rarity.Silver, 6, null, "Yudivain/"),
+            CreateUnitCard("Elara", "The healer", Faction.Yudivain, Rarity.Silver, 6, null, "Yudivain/"),
+            CreateUnitCard("Elara", "The healer", Faction.Yudivain, Rarity.Silver, 6, null, "Yudivain/"),
 
-            CreateBaitCard("Decoy", "A simple bait", Faction.Yudivain, 0, null, "foo.png"),
-            CreateBaitCard("Decoy", "A simple bait", Faction.Yudivain, 0, null, "foo.png"),
-            CreateBaitCard("Decoy", "A simple bait", Faction.Yudivain, 0, null, "foo.png"),
+            CreateBaitCard("Decoy", "A simple bait", Faction.Yudivain, 0, null, "Yudivain/"),
+            CreateBaitCard("Decoy", "A simple bait", Faction.Yudivain, 0, null, "Yudivain/"),
+            CreateBaitCard("Decoy", "A simple bait", Faction.Yudivain, 0, null, "Yudivain/"),
 
-            CreateBonusCard("Boost", "Boosts strength of all units", Faction.Yudivain, 2, null, RowType.Melee, "foo.png"),
-            CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Yudivain, 2, null, RowType.Ranged, "foo.png"),
-            CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Yudivain, 2, null, RowType.Siege, "foo.png"),
+            CreateBonusCard("Boost", "Boosts strength of all units", Faction.Yudivain, 2, null, RowType.Melee, "Yudivain/"),
+            CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Yudivain, 2, null, RowType.Ranged, "Yudivain/"),
+            CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Yudivain, 2, null, RowType.Siege, "Yudivain/"),
 
-            CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Yudivain,null, RowType.Melee, "foo.png"),
-            CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Yudivain,null, RowType.Melee, "foo.png"),
-            CreateClimateCard("Rain", "Reduces strength of siege units", Faction.Yudivain,null, RowType.Melee, "foo.png"),
-            CreateClimateCard("Storm", "Reduces strength of all units", Faction.Yudivain,null, RowType.Melee, "foo.png"),
-            CreateClimateCard("Blizzard", "Freezes all units", Faction.Yudivain,null, RowType.Melee, "foo.png"),
-            CreateClimateCard("Heatwave", "Burns all units", Faction.Yudivain,null, RowType.Melee, "foo.png")
+            CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
+            CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
+            CreateClimateCard("Rain", "Reduces strength of siege units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
+            CreateClimateCard("Storm", "Reduces strength of all units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
+            CreateClimateCard("Blizzard", "Freezes all units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
+            CreateClimateCard("Heatwave", "Burns all units", Faction.Yudivain,null, RowType.Melee, "Yudivain/")
         };
 
 
@@ -154,7 +151,7 @@ public class CardsQuanto : MonoBehaviour
     {
         UnitCard unitCard = ScriptableObject.CreateInstance<UnitCard>();
         unitCard.Initialize(name, description, TypeofCard.Unit, faction, rarity, initialDmg, effect);
-        unitCard.CardImage = Resources.Load<Sprite>($"CardImages/{imageName}");
+        unitCard.CardImage = Resources.Load<Sprite>($"{imageName}");
         return unitCard;
     }
 
@@ -162,7 +159,7 @@ public class CardsQuanto : MonoBehaviour
     {
         LeaderCard leaderCard = ScriptableObject.CreateInstance<LeaderCard>();
         leaderCard.Initialize(name, description, TypeofCard.Leader, faction, effect);
-        leaderCard.CardImage = Resources.Load<Sprite>($"CardImages/{imageName}");
+        leaderCard.CardImage = Resources.Load<Sprite>($"{imageName}");
         return leaderCard;
     }
 
@@ -170,7 +167,7 @@ public class CardsQuanto : MonoBehaviour
     {
         BaitCard baitCard = ScriptableObject.CreateInstance<BaitCard>();
         baitCard.Initialize(name, description, TypeofCard.Bait, faction, initialDmg, effect);
-        baitCard.CardImage = Resources.Load<Sprite>($"CardImages/{imageName}");
+        baitCard.CardImage = Resources.Load<Sprite>($"{imageName}");
         return baitCard;
     }
 
@@ -178,7 +175,7 @@ public class CardsQuanto : MonoBehaviour
     {
         ClimateCard climateCard = ScriptableObject.CreateInstance<ClimateCard>();
         climateCard.Initialize(name, description, TypeofCard.Climate, faction, effect, affectedRow);
-        climateCard.CardImage = Resources.Load<Sprite>($"CardImages/{imageName}");
+        climateCard.CardImage = Resources.Load<Sprite>($"{imageName}");
         return climateCard;
     }
 
@@ -186,7 +183,7 @@ public class CardsQuanto : MonoBehaviour
     {
         BonusCard bonusCard = ScriptableObject.CreateInstance<BonusCard>();
         bonusCard.Initialize(name, description, TypeofCard.Bonus, faction, initialBoost, effect, targetRow);
-        bonusCard.CardImage = Resources.Load<Sprite>($"CardImages/{imageName}");
+        bonusCard.CardImage = Resources.Load<Sprite>($"{imageName}");
         return bonusCard;
     }
 }
