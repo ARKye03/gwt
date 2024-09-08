@@ -28,12 +28,6 @@ public class Player : MonoBehaviour
 
     private void UpdateHandUI()
     {
-        if (handPanel == null)
-        {
-            Debug.LogError("Hand Panel is not assigned.");
-            return;
-        }
-
         // Clear existing cards in the hand panel
         foreach (Transform child in handPanel.transform)
         {
@@ -48,8 +42,7 @@ public class Player : MonoBehaviour
 
             if (cardManager != null)
             {
-                cardManager.cardData = card;
-                cardManager.UpdateCardUI();
+                cardManager.CardData = card;
             }
             else
             {

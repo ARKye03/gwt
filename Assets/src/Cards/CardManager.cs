@@ -4,24 +4,33 @@ using UnityEngine.UI;
 
 public class CardManager : MonoBehaviour
 {
-    public Card cardData;
-    public Image img;
-    public TextMeshProUGUI NameofCard;
-    public Image TypeofUnit;
-    public TextMeshProUGUI Description;
+    [SerializeField] private Image ImageOfCard;
+    [SerializeField] private TextMeshProUGUI NameOfCard;
+    [SerializeField] private TextMeshProUGUI DescriptionOfCard;
+    [SerializeField] private Image TypeOfUnit;
 
-    void Start()
+    private Card cardData;
+    public Card CardData
     {
-        if (cardData != null)
+        get => cardData;
+        set
         {
-            UpdateCardUI();
+            cardData = value;
+            if (cardData != null)
+            {
+                UpdateCardUI();
+            }
         }
     }
 
     public void UpdateCardUI()
     {
-        NameofCard.text = cardData.Name;
-        Description.text = cardData.Description;
-        img.sprite = cardData.CardImage;
+        if (cardData != null)
+        {
+            NameOfCard.text = cardData.Name;
+            DescriptionOfCard.text = cardData.Description;
+            ImageOfCard.sprite = cardData.CardImage;
+            // Update TypeofUnit TODO!
+        }
     }
 }
