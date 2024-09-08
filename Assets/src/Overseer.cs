@@ -87,13 +87,14 @@ public class Board : MonoBehaviour
         enemyPlayer.Name = "Enemy Player";
         enemyDeck.cards = new Stack<Card>(decks[deckIndex2]);
 
+        // Shuffle decks
+        allyDeck.Shuffle();
+        enemyDeck.Shuffle();
+
         // Initialize player hands
         allyPlayer.DrawCards(allyDeck, 10);
         enemyPlayer.DrawCards(enemyDeck, 10);
 
-        // Shuffle decks
-        allyDeck.Shuffle();
-        enemyDeck.Shuffle();
 
         foreach (var item in allyDeck.cards)
         {
