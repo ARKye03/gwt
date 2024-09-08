@@ -73,12 +73,12 @@ public class CardsQuanto : MonoBehaviour
             CreateBaitCard("Decoy", "A simple bait", Faction.Idanai, 0, null, "Decoy.png"),
 
             CreateBonusCard("Boost", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Melee, "Boost.png"),
-            CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Idanai, 2, null, RowType.Ranged, "AUMENTO.png"),
-            CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Siege, "BoostSiege.png"),
+            CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Idanai, 2, null, RowType.Ranged, "Boost.png"),
+            CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Siege, "Boost.png"),
 
-            CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Idanai, null, RowType.Melee, "Frost.png"),
-            CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Idanai, null, RowType.Melee, "Fog.png"),
-            CreateClimateCard("Rain", "Reduces strength of siege units", Faction.Idanai, null, RowType.Melee, "Rain.png")
+            CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Idanai, null, RowType.Melee, "foo.png"),
+            CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Idanai, null, RowType.Melee, "foo.png.png"),
+            CreateClimateCard("Rain", "Reduces strength of siege units", Faction.Idanai, null, RowType.Melee, "foo.png")
         };
 
         CardsOfCelai = new List<Card>
