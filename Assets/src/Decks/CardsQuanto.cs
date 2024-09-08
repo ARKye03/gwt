@@ -111,7 +111,7 @@ public class CardsQuanto : MonoBehaviour
             CreateClimateCard("Rain", "Reduces strength of siege units", Faction.Celai,null, RowType.Melee, "foo.png"),
             CreateClimateCard("Storm", "Reduces strength of all units", Faction.Celai,null, RowType.Melee, "foo.png"),
             CreateClimateCard("Blizzard", "Freezes all units", Faction.Celai,null, RowType.Melee, "foo.png"),
-            CreateClimateCard("Heatwave", "Burns all units", Faction.Celai,null, RowType.Melee, "something")
+            CreateClimateCard("Heatwave", "Burns all units", Faction.Celai,null, RowType.Melee, "foo.png")
         };
 
         CardsOfYudivain = new List<Card>
@@ -150,18 +150,6 @@ public class CardsQuanto : MonoBehaviour
 
     }
 
-    private Card CreateCard(string name, string description, Faction faction, Effect effect, string imageName)
-    {
-        Card card = ScriptableObject.CreateInstance<Card>();
-        card.Name = name;
-        card.Description = description;
-        card.TypeofCard = TypeofCard.Unit;
-        card.Faction = faction;
-        card.Effect = effect;
-        card.CardImage = Resources.Load<Sprite>($"CardImages/{imageName}");
-        return card;
-    }
-
     private UnitCard CreateUnitCard(string name, string description, Faction faction, Rarity rarity, float initialDmg, Effect effect, string imageName)
     {
         UnitCard unitCard = ScriptableObject.CreateInstance<UnitCard>();
@@ -189,7 +177,7 @@ public class CardsQuanto : MonoBehaviour
     private ClimateCard CreateClimateCard(string name, string description, Faction faction, Effect effect, RowType affectedRow, string imageName)
     {
         ClimateCard climateCard = ScriptableObject.CreateInstance<ClimateCard>();
-        climateCard.Initialize(name, description, TypeofCard.Climate, faction, 0, effect, affectedRow);
+        climateCard.Initialize(name, description, TypeofCard.Climate, faction, effect, affectedRow);
         climateCard.CardImage = Resources.Load<Sprite>($"CardImages/{imageName}");
         return climateCard;
     }
