@@ -30,6 +30,10 @@ public class Board : MonoBehaviour
     public Player player1;
     public Player player2;
 
+    public GameObject player1HandPanel; // Reference to Player 1's hand panel
+    public GameObject player2HandPanel; // Reference to Player 2's hand panel
+    public GameObject cardPrefab; // Reference to the card prefab
+
     void Awake()
     {
         if (allyDeck == null)
@@ -44,6 +48,12 @@ public class Board : MonoBehaviour
 
         player1 = new GameObject("Player1").AddComponent<Player>();
         player2 = new GameObject("Player2").AddComponent<Player>();
+
+        // Assign hand panels and card prefab to players
+        player1.handPanel = player1HandPanel;
+        player1.cardPrefab = cardPrefab;
+        player2.handPanel = player2HandPanel;
+        player2.cardPrefab = cardPrefab;
     }
 
     void Start()
