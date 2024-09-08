@@ -22,5 +22,6 @@ public class CardManager : MonoBehaviour
     {
         NameofCard.text = cardData.Name;
         Description.text = cardData.Description;
+        img.sprite = cardData.CardImage;
     }
 }
