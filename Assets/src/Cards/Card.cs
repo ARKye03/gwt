@@ -11,4 +11,5 @@ public class Card : ScriptableObject
     public TypeofCard TypeofCard;
     public Faction Faction;
     public Effect Effect;
+    public Sprite CardImage;
 }
