@@ -72,6 +72,10 @@ public class CardsQuanto : MonoBehaviour
             CreateBaitCard("Decoy", "A simple bait", Faction.Idanai, 0, null),
             CreateBaitCard("Decoy", "A simple bait", Faction.Idanai, 0, null),
 
+            CreateBonusCard("Boost", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Melee),
+            CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Idanai, 2, null, RowType.Ranged),
+            CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Siege),
+
             CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Idanai,null, RowType.Melee),
             CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Idanai,null, RowType.Melee),
             CreateClimateCard("Rain", "Reduces strength of siege units", Faction.Idanai,null, RowType.Melee)
@@ -97,6 +101,10 @@ public class CardsQuanto : MonoBehaviour
             CreateBaitCard("Decoy", "A simple bait", Faction.Celai, 0, null),
             CreateBaitCard("Decoy", "A simple bait", Faction.Celai, 0, null),
             CreateBaitCard("Decoy", "A simple bait", Faction.Celai, 0, null),
+
+            CreateBonusCard("Boost", "Boosts strength of all units", Faction.Celai, 2, null, RowType.Melee),
+            CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Celai, 2, null, RowType.Ranged),
+            CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Celai, 2, null, RowType.Siege),
 
             CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Celai,null, RowType.Melee),
             CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Celai,null, RowType.Melee),
@@ -126,6 +134,10 @@ public class CardsQuanto : MonoBehaviour
             CreateBaitCard("Decoy", "A simple bait", Faction.Yudivain, 0, null),
             CreateBaitCard("Decoy", "A simple bait", Faction.Yudivain, 0, null),
             CreateBaitCard("Decoy", "A simple bait", Faction.Yudivain, 0, null),
+
+            CreateBonusCard("Boost", "Boosts strength of all units", Faction.Yudivain, 2, null, RowType.Melee),
+            CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Yudivain, 2, null, RowType.Ranged),
+            CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Yudivain, 2, null, RowType.Siege),
 
             CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Yudivain,null, RowType.Melee),
             CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Yudivain,null, RowType.Melee),
