@@ -3,7 +3,7 @@ public enum TypeofCard
     Unit,
     Bonus,
     Leader,
-    Weather,
+    Climate,
     Clear,
-    Baity
+    Bait
 }
