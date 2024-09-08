@@ -123,6 +123,108 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &38136657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 38136661}
+  - component: {fileID: 38136660}
+  - component: {fileID: 38136659}
+  - component: {fileID: 38136658}
+  m_Layer: 5
+  m_Name: EnemyHandPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &38136658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38136657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 5
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &38136659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38136657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &38136660
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38136657}
+  m_CullTransparentMesh: 1
+--- !u!224 &38136661
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38136657}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.0025259983, y: 0.010133536, z: 0.015314185}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0, y: 19.96}
+  m_SizeDelta: {x: 1453.18, y: 647}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &42389520 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7767118196535985100, guid: b8678375610cd9a4bb731a9c839a3eb7, type: 3}
@@ -1082,7 +1184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe597d45d40d98489e22643c36489f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allyDeck: {fileID: 0}
+  allyDeck: {fileID: 931497451}
   allyMeleeSlots:
   - {fileID: 1616195315}
   - {fileID: 288531207}
@@ -1105,16 +1207,34 @@ MonoBehaviour:
   - {fileID: 1438251603}
   allySiegeBonusSlot: {fileID: 838409215}
   allyLeaderSlot: {fileID: 1130917116}
-  enemyMeleeSlots: []
-  enemyMeleeBonusSlot: {fileID: 0}
-  enemyRangedSlots: []
-  enemyRangedBonusSlot: {fileID: 0}
-  enemySiegeSlots: []
-  enemySiegeBonusSlot: {fileID: 0}
-  enemyLeaderSlot: {fileID: 0}
-  enemyDeck: {fileID: 0}
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  enemyMeleeSlots:
+  - {fileID: 495189230}
+  - {fileID: 508353830}
+  - {fileID: 717992321}
+  - {fileID: 1012841043}
+  - {fileID: 2080314993}
+  enemyMeleeBonusSlot: {fileID: 1413894465}
+  enemyRangedSlots:
+  - {fileID: 1618923452}
+  - {fileID: 273343878}
+  - {fileID: 975944395}
+  - {fileID: 1968252629}
+  - {fileID: 1709352141}
+  enemyRangedBonusSlot: {fileID: 278350749}
+  enemySiegeSlots:
+  - {fileID: 1863316891}
+  - {fileID: 1026102577}
+  - {fileID: 86138234}
+  - {fileID: 1466427688}
+  - {fileID: 921469714}
+  enemySiegeBonusSlot: {fileID: 1164946330}
+  enemyLeaderSlot: {fileID: 757063949}
+  enemyDeck: {fileID: 1823733879}
+  player1: {fileID: 1847078149}
+  player2: {fileID: 1943209936}
+  player1HandPanel: {fileID: 2040403704}
+  player2HandPanel: {fileID: 38136657}
+  cardPrefab: {fileID: 7804543116378727302, guid: b8678375610cd9a4bb731a9c839a3eb7, type: 3}
 --- !u!1 &687746814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2643,6 +2763,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowedCardType: 0
+--- !u!1 &1943209935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1943209937}
+  - component: {fileID: 1943209936}
+  m_Layer: 0
+  m_Name: EnemyPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1943209936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943209935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14b79b7ee59524408d8c3d8efc4fc16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: []
+  handPanel: {fileID: 2040403704}
+  cardPrefab: {fileID: 7804543116378727302, guid: b8678375610cd9a4bb731a9c839a3eb7, type: 3}
+--- !u!4 &1943209937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943209935}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.000013664365, y: -5.3031726, z: -0.14117116}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1968252627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,7 +2913,7 @@ GameObject:
   - component: {fileID: 2040403706}
   - component: {fileID: 2040403705}
   m_Layer: 5
-  m_Name: HandPanel
+  m_Name: AllyHandPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3052,4 +3219,6 @@ SceneRoots:
   - {fileID: 766151192}
   - {fileID: 1987135106336116804}
   - {fileID: 2040403708}
+  - {fileID: 38136661}
   - {fileID: 1847078150}
+  - {fileID: 1943209937}
