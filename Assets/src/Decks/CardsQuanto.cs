@@ -46,30 +46,30 @@ public class CardsQuanto : MonoBehaviour
     {
         CardsOfIdanai = new List<Card>
         {
-            CreateUnitCard("Idanai", "Idanai", TypeofCard.Leader, Faction.Idanai, Rarity.Gold, 0, null),
-            CreateUnitCard("Prasalaas", "How ARKye was supposed to be", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 10, null),
-            CreateUnitCard("Prasanthrangan", "HyDe creator, where dots unleash the pain", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 8, null),
-            CreateUnitCard("Aylur", "TSX is not the limit", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 8, null),
-            CreateUnitCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
-            CreateUnitCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
-            CreateUnitCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
+            GenerateCard("Idanai", "Idanai", TypeofCard.Leader, Faction.Idanai, Rarity.Gold, 0, null),
+            GenerateCard("Prasalaas", "How ARKye was supposed to be", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 10, null),
+            GenerateCard("Prasanthrangan", "HyDe creator, where dots unleash the pain", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 8, null),
+            GenerateCard("Aylur", "TSX is not the limit", TypeofCard.Unit, Faction.Idanai, Rarity.Gold, 8, null),
+            GenerateCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
+            GenerateCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
+            GenerateCard("Kuruthi", "The one who can't be stopped", TypeofCard.Unit, Faction.Idanai, Rarity.Silver, 8, null),
         };
 
         CardsOfCelai = new List<Card>
         {
-            CreateUnitCard("Celai", "Celai", TypeofCard.Leader, Faction.Celai, Rarity.Gold, 0, null),
-            CreateUnitCard("Vinceliuice", "Designer Linuxer 来自中国, 喜欢用linux的设计师!", TypeofCard.Unit, Faction.Celai, Rarity.Gold, 10, null),
-            CreateUnitCard("Pheralb", "The one who can't be stopped", TypeofCard.Unit, Faction.Celai, Rarity.Silver, 8, null),
-            CreateUnitCard("Farther", "The one who can't be stopped", TypeofCard.Unit, Faction.Celai, Rarity.Silver, 8, null),
+            GenerateCard("Celai", "Celai", TypeofCard.Leader, Faction.Celai, Rarity.Gold, 0, null),
+            GenerateCard("Vinceliuice", "Designer Linuxer 来自中国, 喜欢用linux的设计师!", TypeofCard.Unit, Faction.Celai, Rarity.Gold, 10, null),
+            GenerateCard("Pheralb", "The one who can't be stopped", TypeofCard.Unit, Faction.Celai, Rarity.Silver, 8, null),
+            GenerateCard("Farther", "The one who can't be stopped", TypeofCard.Unit, Faction.Celai, Rarity.Silver, 8, null),
         };
 
         CardsOfYudivain = new List<Card>
         {
-            CreateUnitCard("Yudivain", "Yudivain", TypeofCard.Leader, Faction.Yudivain, Rarity.Gold, 0, null),
+            GenerateCard("Yudivain", "Yudivain", TypeofCard.Leader, Faction.Yudivain, Rarity.Gold, 0, null),
         };
     }
 
-    private UnitCard CreateUnitCard(string name, string description, TypeofCard typeOfCard, Faction faction, Rarity rarity, float initialDmg, Effect effect)
+    private UnitCard GenerateCard(string name, string description, TypeofCard typeOfCard, Faction faction, Rarity rarity, float initialDmg, Effect effect)
     {
         UnitCard unitCard = ScriptableObject.CreateInstance<UnitCard>();
         unitCard.Initialize(name, description, typeOfCard, faction, rarity, initialDmg, effect);
