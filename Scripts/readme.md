@@ -1,3 +1,3 @@
-# Why there is a ->png and a ->jpg... because I want
+# Why are there both a `->.png` and a `->.jpg`? I want both.
 
-> Even tho pngs has alpha channel, I wasn't using it so I migrated all to jpgs. Improving disk usage, consuming up to 10 times less!
+> Though PNGs have an alpha channel, I wasn't using it so I migrated all to JPGs. I was improving disk usage, consuming up to 10 times less!
