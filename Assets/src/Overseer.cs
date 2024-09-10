@@ -95,15 +95,56 @@ public class Board : MonoBehaviour
         allyPlayer.DrawCards(allyDeck, 10);
         enemyPlayer.DrawCards(enemyDeck, 10);
 
+        // Place leader cards in the respective slots
+        PlaceLeaderCard(allyPlayer, allyDeck, allyLeaderSlot);
+        PlaceLeaderCard(enemyPlayer, enemyDeck, enemyLeaderSlot);
+    }
 
-        foreach (var item in allyDeck.cards)
+    private void PlaceLeaderCard(Player player, Deck deck, CardSlot leaderSlot)
+    {
+        Card leaderCard = null;
+        Stack<Card> tempStack = new Stack<Card>();
+
+        // Find the leader card in the deck
+        while (deck.cards.Count > 0)
         {
-            Debug.Log("Ally Card: " + item);
+            Card card = deck.cards.Pop();
+            if (card is LeaderCard)
+            {
+                leaderCard = card;
+                break;
+            }
+            else
+            {
+                tempStack.Push(card);
+            }
         }
 
-        foreach (var item in enemyDeck.cards)
+        // Put the remaining cards back into the deck
+        while (tempStack.Count > 0)
         {
-            Debug.Log("Enemy Card: " + item);
+            deck.cards.Push(tempStack.Pop());
+        }
+
+        if (leaderCard != null)
+        {
+            // Instantiate the card prefab and place it in the leader slot
+            GameObject leaderCardObject = Instantiate(cardPrefab, leaderSlot.transform);
+            CardManager cardManager = leaderCardObject.GetComponent<CardManager>();
+
+            if (cardManager != null)
+            {
+                cardManager.CardData = leaderCard;
+                leaderSlot.PlaceCard(leaderCard, leaderCardObject);
+            }
+            else
+            {
+                Debug.LogError("CardManager component not found on card prefab.");
+            }
+        }
+        else
+        {
+            Debug.LogError($"{player.Name} does not have a leader card in the deck.");
         }
     }
 }
