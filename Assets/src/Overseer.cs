@@ -69,7 +69,7 @@ public class Board : MonoBehaviour
             return;
         }
 
-        List<List<Card>> decks = new()
+        List<Stack<Card>> decks = new()
         {
             cardsQuanto.CardsOfIdanai,
             cardsQuanto.CardsOfCelai,
@@ -80,12 +80,16 @@ public class Board : MonoBehaviour
         // Assign random decks to players
         int deckIndex1 = random.Next(decks.Count);
         allyPlayer.Name = "Ally Player";
-        allyDeck.cards = new Stack<Card>(decks[deckIndex1]);
+        allyDeck.cards = decks[deckIndex1];
         decks.RemoveAt(deckIndex1);
 
         int deckIndex2 = random.Next(decks.Count);
         enemyPlayer.Name = "Enemy Player";
-        enemyDeck.cards = new Stack<Card>(decks[deckIndex2]);
+        enemyDeck.cards = decks[deckIndex2];
+
+        // Place leader cards in the respective slots
+        PlaceLeaderCard(allyPlayer, allyDeck, allyLeaderSlot);
+        PlaceLeaderCard(enemyPlayer, enemyDeck, enemyLeaderSlot);
 
         // Shuffle decks
         allyDeck.Shuffle();
@@ -94,40 +98,15 @@ public class Board : MonoBehaviour
         // Initialize player hands
         allyPlayer.DrawCards(allyDeck, 10);
         enemyPlayer.DrawCards(enemyDeck, 10);
-
-        // Place leader cards in the respective slots
-        PlaceLeaderCard(allyPlayer, allyDeck, allyLeaderSlot);
-        PlaceLeaderCard(enemyPlayer, enemyDeck, enemyLeaderSlot);
     }
 
     private void PlaceLeaderCard(Player player, Deck deck, CardSlot leaderSlot)
     {
-        Card leaderCard = null;
-        Stack<Card> tempStack = new Stack<Card>();
-
-        // Find the leader card in the deck
-        while (deck.cards.Count > 0)
+        if (deck.cards.Count > 0 && deck.cards.Peek() is LeaderCard leaderCard)
         {
-            Card card = deck.cards.Pop();
-            if (card is LeaderCard)
-            {
-                leaderCard = card;
-                break;
-            }
-            else
-            {
-                tempStack.Push(card);
-            }
-        }
+            // Pop the leader card from the deck
+            deck.cards.Pop();
 
-        // Put the remaining cards back into the deck
-        while (tempStack.Count > 0)
-        {
-            deck.cards.Push(tempStack.Pop());
-        }
-
-        if (leaderCard != null)
-        {
             // Instantiate the card prefab and place it in the leader slot
             GameObject leaderCardObject = Instantiate(cardPrefab, leaderSlot.transform);
             CardManager cardManager = leaderCardObject.GetComponent<CardManager>();

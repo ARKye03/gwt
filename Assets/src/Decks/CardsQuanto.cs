@@ -23,9 +23,9 @@ public class CardsQuanto : MonoBehaviour
         }
     }
 
-    public List<Card> CardsOfIdanai;
-    public List<Card> CardsOfCelai;
-    public List<Card> CardsOfYudivain;
+    public Stack<Card> CardsOfIdanai;
+    public Stack<Card> CardsOfCelai;
+    public Stack<Card> CardsOfYudivain;
 
     private void Awake()
     {
@@ -44,9 +44,9 @@ public class CardsQuanto : MonoBehaviour
 
     private void InitializeCards()
     {
-        CardsOfIdanai = new List<Card>
+        CardsOfIdanai = new Stack<Card>(new List<Card>
         {
-            CreateLeaderCard("Idanai", "Idanai", Faction.Idanai, null, "Idanai/Idanai"),
+
             CreateUnitCard("Prasalaas", "How ARKye was supposed to be", Faction.Neutral, Rarity.Gold, 15, null, "Neutral/Prasalaas"),
             CreateUnitCard("Prasanthrangan", "HyDe creator, where dots unleash the pain", Faction.Idanai, Rarity.Gold, 8, null, "Idanai/ScarTheScorched"),
             CreateUnitCard("Aylur", "TSX is not the limit", Faction.Idanai, Rarity.Gold, 8, null, "Idanai/ColourlessSonic"),
@@ -78,12 +78,14 @@ public class CardsQuanto : MonoBehaviour
 
             CreateClimateCard("EndOfLight", "Reduces strength of melee units", Faction.Idanai, null, RowType.Melee, "Idanai/EndOfLight"),
             CreateClimateCard("AgainstTheCurrent", "Reduces strength of ranged units", Faction.Idanai, null, RowType.Ranged, "Idanai/AgainstTheCurrent"),
-            CreateClimateCard("StormOfSiege", "Reduces strength of siege units", Faction.Idanai, null, RowType.Siege, "Idanai/StormOfSiege")
-        };
+            CreateClimateCard("StormOfSiege", "Reduces strength of siege units", Faction.Idanai, null, RowType.Siege, "Idanai/StormOfSiege"),
 
-        CardsOfCelai = new List<Card>
+            CreateLeaderCard("Idanai", "Idanai", Faction.Idanai, null, "Idanai/Idanai"),
+        });
+
+        CardsOfCelai = new Stack<Card>(new List<Card>
         {
-            CreateLeaderCard("Celai", "Celai", Faction.Celai, null, "Celai/Celai"),
+
             CreateUnitCard("Vinceliuice", "Designer Linuxer", Faction.Celai, Rarity.Gold, 10, null, "Celai/Beauttyfly"), // It used to be "Designer Linuxer 来自中国, 喜欢用linux的设计师!" but yk this shit won't render unless I import this and man fr I need to find her :(
             CreateUnitCard("Aurelius", "The golden warrior", Faction.Celai, Rarity.Gold, 9, null, "Celai/Dratini"),
             CreateUnitCard("Lysandra", "The fierce protector", Faction.Celai, Rarity.Gold, 8, null, "Celai/GeometricalKitty"),
@@ -109,11 +111,13 @@ public class CardsQuanto : MonoBehaviour
             CreateClimateCard("Zoore", "Reduces strength of melee units", Faction.Celai,null, RowType.Melee, "Celai/Zoore"),
             CreateClimateCard("DownTheArchers", "Reduces strength of ranged units", Faction.Celai,null, RowType.Ranged, "Celai/DownTheArchers"),
             CreateClimateCard("Weatherstorm", "Reduces strength of siege units", Faction.Celai,null, RowType.Siege, "Celai/Weatherstorm"),
-        };
 
-        CardsOfYudivain = new List<Card>
+            CreateLeaderCard("Celai", "Celai", Faction.Celai, null, "Celai/Celai"),
+        });
+
+        CardsOfYudivain = new Stack<Card>(new List<Card>
         {
-            CreateLeaderCard("Yudivain", "Yudivain", Faction.Yudivain, null, "Yudivain/Yudivain"),
+
             CreateUnitCard("Eldor", "The ancient sage", Faction.Yudivain, Rarity.Gold, 15, null, "Yudivain/StrongestGodzillaOfAllTimes"),
             CreateUnitCard("Thalor", "The mighty warrior", Faction.Yudivain, Rarity.Gold, 9, null, "Yudivain/WarAxolotl"),
             CreateUnitCard("Morgana", "The dark sorceress", Faction.Yudivain, Rarity.Gold, 8, null, "Yudivain/ShenLong"),
@@ -141,8 +145,10 @@ public class CardsQuanto : MonoBehaviour
             CreateClimateCard("Rain", "Reduces strength of siege units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
             CreateClimateCard("Storm", "Reduces strength of all units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
             CreateClimateCard("Blizzard", "Freezes all units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
-            CreateClimateCard("Heatwave", "Burns all units", Faction.Yudivain,null, RowType.Melee, "Yudivain/")
-        };
+            CreateClimateCard("Heatwave", "Burns all units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
+
+            CreateLeaderCard("Yudivain", "Yudivain", Faction.Yudivain, null, "Yudivain/Yudivain"),
+        });
 
 
     }
