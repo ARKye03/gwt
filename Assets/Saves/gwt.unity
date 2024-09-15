@@ -1292,49 +1292,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe597d45d40d98489e22643c36489f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 322938415}
   allyDeck: {fileID: 1383235441}
+  climateSlot: {fileID: 178847149}
   allyMeleeSlots:
-  - {fileID: 645714197}
-  - {fileID: 724760127}
   - {fileID: 1162850578}
+  - {fileID: 724760127}
   - {fileID: 1475195319}
   - {fileID: 2081307067}
+  - {fileID: 645714197}
   allyMeleeBonusSlot: {fileID: 472296562}
   allyRangedSlots:
-  - {fileID: 959598420}
-  - {fileID: 99087573}
   - {fileID: 1019100332}
+  - {fileID: 99087573}
   - {fileID: 1261386137}
   - {fileID: 1840917105}
+  - {fileID: 959598420}
   allyRangedBonusSlot: {fileID: 191048292}
   allySiegeSlots:
-  - {fileID: 1205612020}
-  - {fileID: 1993011686}
   - {fileID: 922904942}
+  - {fileID: 1993011686}
   - {fileID: 1723416374}
   - {fileID: 1150203180}
+  - {fileID: 1205612020}
   allySiegeBonusSlot: {fileID: 1756621476}
   allyLeaderSlot: {fileID: 1814681498}
   enemyMeleeSlots:
-  - {fileID: 206111233}
-  - {fileID: 1755731623}
   - {fileID: 1093560713}
+  - {fileID: 1755731623}
   - {fileID: 1439893085}
   - {fileID: 2109946129}
+  - {fileID: 206111233}
   enemyMeleeBonusSlot: {fileID: 1097154549}
   enemyRangedSlots:
-  - {fileID: 1903900790}
-  - {fileID: 1902191103}
   - {fileID: 514569966}
+  - {fileID: 1902191103}
   - {fileID: 23512095}
   - {fileID: 980897194}
+  - {fileID: 1903900790}
   enemyRangedBonusSlot: {fileID: 1183472748}
   enemySiegeSlots:
-  - {fileID: 2101922897}
-  - {fileID: 1009235841}
   - {fileID: 541447838}
+  - {fileID: 1009235841}
   - {fileID: 1638213127}
   - {fileID: 708670072}
+  - {fileID: 2101922897}
   enemySiegeBonusSlot: {fileID: 898980079}
   enemyLeaderSlot: {fileID: 2051420856}
   enemyDeck: {fileID: 874847090}
@@ -1343,6 +1345,7 @@ MonoBehaviour:
   player1HandPanel: {fileID: 1878995633}
   player2HandPanel: {fileID: 2005737851}
   cardPrefab: {fileID: 8485208469373318605, guid: 21b5e5189d75e9e42ad40bee957689f1, type: 3}
+  allyPlayerIsPlaying: 1
 --- !u!1 &922904940
 GameObject:
   m_ObjectHideFlags: 0
@@ -2188,6 +2191,7 @@ MonoBehaviour:
   hand: []
   handPanel: {fileID: 2005737851}
   cardPrefab: {fileID: 0}
+  board: {fileID: 0}
 --- !u!1 &1439893083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,6 +2341,7 @@ MonoBehaviour:
   hand: []
   handPanel: {fileID: 1878995633}
   cardPrefab: {fileID: 8485208469373318605, guid: 21b5e5189d75e9e42ad40bee957689f1, type: 3}
+  board: {fileID: 0}
 --- !u!1 &1638213125
 GameObject:
   m_ObjectHideFlags: 0
