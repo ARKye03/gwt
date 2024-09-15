@@ -47,26 +47,26 @@ public class CardsQuanto : MonoBehaviour
         CardsOfIdanai = new Stack<Card>(new List<Card>
         {
 
-            CreateUnitCard("Prasalaas", "How ARKye was supposed to be", Faction.Neutral, Rarity.Gold, 15, null, "Neutral/Prasalaas"),
-            CreateUnitCard("Prasanthrangan", "HyDe creator, where dots unleash the pain", Faction.Idanai, Rarity.Gold, 8, null, "Idanai/ScarTheScorched"),
-            CreateUnitCard("Aylur", "TSX is not the limit", Faction.Idanai, Rarity.Gold, 8, null, "Idanai/ColourlessSonic"),
+            CreateUnitCard("Prasalaas", "How ARKye was supposed to be", Faction.Neutral, Rarity.Gold, 15, null,TypeofUnit.Melee, "Neutral/Prasalaas"),
+            CreateUnitCard("Prasanthrangan", "HyDe creator, where dots unleash the pain", Faction.Idanai, Rarity.Gold, 8, null,TypeofUnit.Melee, "Idanai/ScarTheScorched"),
+            CreateUnitCard("Aylur", "TSX is not the limit", Faction.Idanai, Rarity.Gold, 8, null,TypeofUnit.Melee, "Idanai/ColourlessSonic"),
 
-            CreateUnitCard("OtterSoldier", "The one who can't be stopped", Faction.Idanai, Rarity.Silver, 8, null, "Idanai/OtterSoldier"),
-            CreateUnitCard("OtterSoldier", "The one who can't be stopped", Faction.Idanai, Rarity.Silver, 8, null, "Idanai/OtterSoldier"),
-            CreateUnitCard("OtterSoldier", "The one who can't be stopped", Faction.Idanai, Rarity.Silver, 8, null, "Idanai/OtterSoldier"),
-            CreateUnitCard("PrimePeacock", "The strategist", Faction.Idanai, Rarity.Silver, 7, null, "Idanai/PrimePeacock"),
-            CreateUnitCard("PrimePeacock", "The strategist", Faction.Idanai, Rarity.Silver, 7, null, "Idanai/PrimePeacock"),
-            CreateUnitCard("PrimePeacock", "The strategist", Faction.Idanai, Rarity.Silver, 7, null, "Idanai/PrimePeacock"),
-            CreateUnitCard("DracoBlue", "The silent warrior", Faction.Idanai, Rarity.Silver, 6, null, "Idanai/DracoBlue"),
-            CreateUnitCard("DracoBlue", "The silent warrior", Faction.Idanai, Rarity.Silver, 6, null, "Idanai/DracoBlue"),
-            CreateUnitCard("DracoBlue", "The silent warrior", Faction.Idanai, Rarity.Silver, 6, null, "Idanai/DracoBlue"),
+            CreateUnitCard("OtterSoldier", "The one who can't be stopped", Faction.Idanai, Rarity.Silver, 8, null,TypeofUnit.Ranged, "Idanai/OtterSoldier"),
+            CreateUnitCard("OtterSoldier", "The one who can't be stopped", Faction.Idanai, Rarity.Silver, 8, null,TypeofUnit.Ranged, "Idanai/OtterSoldier"),
+            CreateUnitCard("OtterSoldier", "The one who can't be stopped", Faction.Idanai, Rarity.Silver, 8, null,TypeofUnit.Ranged, "Idanai/OtterSoldier"),
+            CreateUnitCard("PrimePeacock", "The strategist", Faction.Idanai, Rarity.Silver, 7, null,TypeofUnit.Melee, "Idanai/PrimePeacock"),
+            CreateUnitCard("PrimePeacock", "The strategist", Faction.Idanai, Rarity.Silver, 7, null,TypeofUnit.Melee, "Idanai/PrimePeacock"),
+            CreateUnitCard("PrimePeacock", "The strategist", Faction.Idanai, Rarity.Silver, 7, null,TypeofUnit.Melee, "Idanai/PrimePeacock"),
+            CreateUnitCard("DracoBlue", "The silent warrior", Faction.Idanai, Rarity.Silver, 6, null,TypeofUnit.Siege, "Idanai/DracoBlue"),
+            CreateUnitCard("DracoBlue", "The silent warrior", Faction.Idanai, Rarity.Silver, 6, null,TypeofUnit.Siege, "Idanai/DracoBlue"),
+            CreateUnitCard("DracoBlue", "The silent warrior", Faction.Idanai, Rarity.Silver, 6, null,TypeofUnit.Siege, "Idanai/DracoBlue"),
 
-            CreateUnitCard("Figures", "The quick thinker", Faction.Idanai, Rarity.Silver, 5, null, "Idanai/Figures"),
-            CreateUnitCard("Figures", "The quick thinker", Faction.Idanai, Rarity.Silver, 5, null, "Idanai/Figures"),
-            CreateUnitCard("Figures", "The quick thinker", Faction.Idanai, Rarity.Silver, 5, null, "Idanai/Figures"),
-            CreateUnitCard("SpartanRaptor", "The shield", Faction.Idanai, Rarity.Silver, 4, null, "Idanai/SpartanRaptor"),
-            CreateUnitCard("SpartanRaptor", "The shield", Faction.Idanai, Rarity.Silver, 4, null, "Idanai/SpartanRaptor"),
-            CreateUnitCard("SpartanRaptor", "The shield", Faction.Idanai, Rarity.Silver, 4, null, "Idanai/SpartanRaptor"),
+            CreateUnitCard("Figures", "The quick thinker", Faction.Idanai, Rarity.Silver, 5, null,TypeofUnit.Ranged, "Idanai/Figures"),
+            CreateUnitCard("Figures", "The quick thinker", Faction.Idanai, Rarity.Silver, 5, null,TypeofUnit.Ranged, "Idanai/Figures"),
+            CreateUnitCard("Figures", "The quick thinker", Faction.Idanai, Rarity.Silver, 5, null,TypeofUnit.Ranged, "Idanai/Figures"),
+            CreateUnitCard("SpartanRaptor", "The shield", Faction.Idanai, Rarity.Silver, 4, null,TypeofUnit.Melee, "Idanai/SpartanRaptor"),
+            CreateUnitCard("SpartanRaptor", "The shield", Faction.Idanai, Rarity.Silver, 4, null,TypeofUnit.Melee, "Idanai/SpartanRaptor"),
+            CreateUnitCard("SpartanRaptor", "The shield", Faction.Idanai, Rarity.Silver, 4, null,TypeofUnit.Melee, "Idanai/SpartanRaptor"),
 
             CreateBaitCard("BaitFish", "A simple bait", Faction.Idanai, 0, null, "Idanai/BaitFish"),
             CreateBaitCard("BaitSe", "A simple bait", Faction.Idanai, 0, null, "Idanai/BaitSe"),
@@ -86,19 +86,19 @@ public class CardsQuanto : MonoBehaviour
         CardsOfCelai = new Stack<Card>(new List<Card>
         {
 
-            CreateUnitCard("Vinceliuice", "Designer Linuxer", Faction.Celai, Rarity.Gold, 10, null, "Celai/Beauttyfly"), // It used to be "Designer Linuxer 来自中国, 喜欢用linux的设计师!" but yk this shit won't render unless I import this and man fr I need to find her :(
-            CreateUnitCard("Aurelius", "The golden warrior", Faction.Celai, Rarity.Gold, 9, null, "Celai/Dratini"),
-            CreateUnitCard("Lysandra", "The fierce protector", Faction.Celai, Rarity.Gold, 8, null, "Celai/GeometricalKitty"),
+            CreateUnitCard("Vinceliuice", "Designer Linuxer", Faction.Celai, Rarity.Gold, 10, null,TypeofUnit.Ranged, "Celai/Beauttyfly"), // It used to be "Designer Linuxer 来自中国, 喜欢用linux的设计师!" but yk this shit won't render unless I import this and man fr I need to find her :(
+            CreateUnitCard("Aurelius", "The golden warrior", Faction.Celai, Rarity.Gold, 9, null,TypeofUnit.Ranged, "Celai/Dratini"),
+            CreateUnitCard("Lysandra", "The fierce protector", Faction.Celai, Rarity.Gold, 8, null,TypeofUnit.Ranged, "Celai/GeometricalKitty"),
 
-            CreateUnitCard("GoldenGriffin", "The one who can't be stopped", Faction.Celai, Rarity.Silver, 8, null, "Celai/GoldenGriffin"),
-            CreateUnitCard("GoldenGriffin", "The one who can't be stopped", Faction.Celai, Rarity.Silver, 8, null, "Celai/GoldenGriffin"),
-            CreateUnitCard("GoldenGriffin", "The one who can't be stopped", Faction.Celai, Rarity.Silver, 8, null, "Celai/GoldenGriffin"),
-            CreateUnitCard("SwampThing", "The wise elder", Faction.Celai, Rarity.Silver, 7, null, "Celai/idk"),
-            CreateUnitCard("SwampThing", "The wise elder", Faction.Celai, Rarity.Silver, 7, null, "Celai/idk"),
-            CreateUnitCard("SwampThing", "The wise elder", Faction.Celai, Rarity.Silver, 7, null, "Celai/idk"),
-            CreateUnitCard("LSDCaiman", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null, "Celai/LSDCaiman"), // Feeling skibidi atm
-            CreateUnitCard("LSDCaiman", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null, "Celai/LSDCaiman"),
-            CreateUnitCard("LSDCaiman", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null, "Celai/LSDCaiman"),
+            CreateUnitCard("GoldenGriffin", "The one who can't be stopped", Faction.Celai, Rarity.Silver, 8, null,TypeofUnit.Melee, "Celai/GoldenGriffin"),
+            CreateUnitCard("GoldenGriffin", "The one who can't be stopped", Faction.Celai, Rarity.Silver, 8, null,TypeofUnit.Melee, "Celai/GoldenGriffin"),
+            CreateUnitCard("GoldenGriffin", "The one who can't be stopped", Faction.Celai, Rarity.Silver, 8, null,TypeofUnit.Melee, "Celai/GoldenGriffin"),
+            CreateUnitCard("SwampThing", "The wise elder", Faction.Celai, Rarity.Silver, 7, null,TypeofUnit.Ranged, "Celai/idk"),
+            CreateUnitCard("SwampThing", "The wise elder", Faction.Celai, Rarity.Silver, 7, null,TypeofUnit.Ranged, "Celai/idk"),
+            CreateUnitCard("SwampThing", "The wise elder", Faction.Celai, Rarity.Silver, 7, null,TypeofUnit.Ranged, "Celai/idk"),
+            CreateUnitCard("LSDCaiman", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null,TypeofUnit.Siege, "Celai/LSDCaiman"), // Feeling skibidi atm
+            CreateUnitCard("LSDCaiman", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null,TypeofUnit.Siege, "Celai/LSDCaiman"),
+            CreateUnitCard("LSDCaiman", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null,TypeofUnit.Siege, "Celai/LSDCaiman"),
 
             CreateBaitCard("BaitCute", "A simple bait", Faction.Celai, 0, null, "Celai/BaitCute"),
             CreateBaitCard("BaitNature", "A simple bait", Faction.Celai, 0, null, "Celai/BaitNature"),
@@ -118,19 +118,19 @@ public class CardsQuanto : MonoBehaviour
         CardsOfYudivain = new Stack<Card>(new List<Card>
         {
 
-            CreateUnitCard("Eldor", "The ancient sage", Faction.Yudivain, Rarity.Gold, 15, null, "Yudivain/StrongestGodzillaOfAllTimes"),
-            CreateUnitCard("Thalor", "The mighty warrior", Faction.Yudivain, Rarity.Gold, 9, null, "Yudivain/WarAxolotl"),
-            CreateUnitCard("Morgana", "The dark sorceress", Faction.Yudivain, Rarity.Gold, 8, null, "Yudivain/ShenLong"),
+            CreateUnitCard("Eldor", "The ancient sage", Faction.Yudivain, Rarity.Gold, 15, null,TypeofUnit.Siege, "Yudivain/StrongestGodzillaOfAllTimes"),
+            CreateUnitCard("Thalor", "The mighty warrior", Faction.Yudivain, Rarity.Gold, 9, null,TypeofUnit.Siege, "Yudivain/WarAxolotl"),
+            CreateUnitCard("Morgana", "The dark sorceress", Faction.Yudivain, Rarity.Gold, 8, null,TypeofUnit.Siege, "Yudivain/ShenLong"),
 
-            CreateUnitCard("Lorian", "The swift archer", Faction.Yudivain, Rarity.Silver, 8, null, "Yudivain/Lorian"),
-            CreateUnitCard("Lorian", "The swift archer", Faction.Yudivain, Rarity.Silver, 8, null, "Yudivain/Lorian"),
-            CreateUnitCard("Lorian", "The swift archer", Faction.Yudivain, Rarity.Silver, 8, null, "Yudivain/Lorian"),
-            CreateUnitCard("WarAxolotl", "The brave knight", Faction.Yudivain, Rarity.Silver, 7, null, "Yudivain/WarAxolotl"),
-            CreateUnitCard("WarAxolotl", "The brave knight", Faction.Yudivain, Rarity.Silver, 7, null, "Yudivain/WarAxolotl"),
-            CreateUnitCard("WarAxolotl", "The brave knight", Faction.Yudivain, Rarity.Silver, 7, null, "Yudivain/WarAxolotl"),
-            CreateUnitCard("ShenLong", "The healer", Faction.Yudivain, Rarity.Silver, 6, null, "Yudivain/ShenLong"),
-            CreateUnitCard("ShenLong", "The healer", Faction.Yudivain, Rarity.Silver, 6, null, "Yudivain/ShenLong"),
-            CreateUnitCard("ShenLong", "The healer", Faction.Yudivain, Rarity.Silver, 6, null, "Yudivain/ShenLong"),
+            CreateUnitCard("Lorian", "The swift archer", Faction.Yudivain, Rarity.Silver, 8, null,TypeofUnit.Ranged, "Yudivain/Lorian"),
+            CreateUnitCard("Lorian", "The swift archer", Faction.Yudivain, Rarity.Silver, 8, null,TypeofUnit.Ranged, "Yudivain/Lorian"),
+            CreateUnitCard("Lorian", "The swift archer", Faction.Yudivain, Rarity.Silver, 8, null,TypeofUnit.Ranged, "Yudivain/Lorian"),
+            CreateUnitCard("WarAxolotl", "The brave knight", Faction.Yudivain, Rarity.Silver, 7, null,TypeofUnit.Ranged, "Yudivain/WarAxolotl"),
+            CreateUnitCard("WarAxolotl", "The brave knight", Faction.Yudivain, Rarity.Silver, 7, null,TypeofUnit.Ranged, "Yudivain/WarAxolotl"),
+            CreateUnitCard("WarAxolotl", "The brave knight", Faction.Yudivain, Rarity.Silver, 7, null,TypeofUnit.Ranged, "Yudivain/WarAxolotl"),
+            CreateUnitCard("ShenLong", "The healer", Faction.Yudivain, Rarity.Silver, 6, null,TypeofUnit.Melee, "Yudivain/ShenLong"),
+            CreateUnitCard("ShenLong", "The healer", Faction.Yudivain, Rarity.Silver, 6, null,TypeofUnit.Melee, "Yudivain/ShenLong"),
+            CreateUnitCard("ShenLong", "The healer", Faction.Yudivain, Rarity.Silver, 6, null,TypeofUnit.Melee, "Yudivain/ShenLong"),
 
             CreateBaitCard("BaitTurtwig", "A simple bait", Faction.Yudivain, 0, null, "Yudivain/BaitTurtwig"),
             CreateBaitCard("BaitTinkerbell", "A simple bait", Faction.Yudivain, 0, null, "Yudivain/BaitTinkerbell"),
@@ -153,10 +153,10 @@ public class CardsQuanto : MonoBehaviour
 
     }
 
-    private UnitCard CreateUnitCard(string name, string description, Faction faction, Rarity rarity, float initialDmg, Effect effect, string imageName)
+    private UnitCard CreateUnitCard(string name, string description, Faction faction, Rarity rarity, float initialDmg, Effect effect, TypeofUnit typeofUnit, string imageName)
     {
         UnitCard unitCard = ScriptableObject.CreateInstance<UnitCard>();
-        unitCard.Initialize(name, description, TypeofCard.Unit, faction, rarity, initialDmg, effect);
+        unitCard.Initialize(name, description, TypeofCard.Unit, faction, rarity, initialDmg, effect, typeofUnit);
         unitCard.CardImage = Resources.Load<Sprite>($"{imageName}");
         return unitCard;
     }

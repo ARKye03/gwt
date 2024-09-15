@@ -8,6 +8,7 @@ public class UnitCard : Card
 
     public float GetCurrentDMG => dmg;
     public float ModDmg { get => dmg; set => dmg = value; }
+    public TypeofUnit typeofUnit { get; private set; }
 
     public Rarity Rarity { get; private set; }
 
@@ -18,6 +19,7 @@ public class UnitCard : Card
                            Rarity rarity,
                            float initialDmg,
                            Effect effect,
+                           TypeofUnit typeofUnit,
                            bool isVoidCard = false)
     {
         this.name = name;
@@ -27,5 +29,7 @@ public class UnitCard : Card
         Faction = faction;
         Rarity = rarity;
         dmg = initialDmg;
+        Effect = effect;
+        this.typeofUnit = typeofUnit;
     }
 }
