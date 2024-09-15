@@ -5,6 +5,8 @@ public class Board : MonoBehaviour
 {
     public Camera mainCamera;
     public Deck allyDeck;
+
+    public CardSlot climateSlot;
     public Stack<Card> allyGraveyard = new();
     public CardSlot[] allyMeleeSlots;
     public CardSlot allyMeleeBonusSlot;
@@ -35,6 +37,8 @@ public class Board : MonoBehaviour
     public GameObject player2HandPanel;
     public GameObject cardPrefab;
 
+    public bool allyPlayerIsPlaying = true; // Variable to manage turn logic
+
     void Awake()
     {
         if (allyDeck == null)
@@ -52,6 +56,10 @@ public class Board : MonoBehaviour
         allyPlayer.cardPrefab = cardPrefab;
         enemyPlayer.handPanel = player2HandPanel;
         enemyPlayer.cardPrefab = cardPrefab;
+
+        // Assign board reference to players
+        allyPlayer.board = this;
+        enemyPlayer.board = this;
     }
 
     void Start()
