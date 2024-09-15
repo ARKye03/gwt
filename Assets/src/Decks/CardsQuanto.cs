@@ -68,9 +68,9 @@ public class CardsQuanto : MonoBehaviour
             CreateUnitCard("SpartanRaptor", "The shield", Faction.Idanai, Rarity.Silver, 4, null,TypeofUnit.Melee, "Idanai/SpartanRaptor"),
             CreateUnitCard("SpartanRaptor", "The shield", Faction.Idanai, Rarity.Silver, 4, null,TypeofUnit.Melee, "Idanai/SpartanRaptor"),
 
-            CreateBaitCard("BaitFish", "A simple bait", Faction.Idanai, 0, null, "Idanai/BaitFish"),
-            CreateBaitCard("BaitSe", "A simple bait", Faction.Idanai, 0, null, "Idanai/BaitSe"),
-            CreateBaitCard("BaitSoldier", "A simple bait", Faction.Idanai, 0, null, "Idanai/BaitSoldier"),
+            CreateBaitCard("BaitFish", "A simple bait", Faction.Idanai, 0, null,TypeofUnit.Melee, "Idanai/BaitFish"),
+            CreateBaitCard("BaitSe", "A simple bait", Faction.Idanai, 0, null,TypeofUnit.Melee, "Idanai/BaitSe"),
+            CreateBaitCard("BaitSoldier", "A simple bait", Faction.Idanai, 0, null,TypeofUnit.Melee, "Idanai/BaitSoldier"),
 
             CreateBonusCard("Melee Boost", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Melee, "Idanai/Boost"),
             CreateBonusCard("Ranged Boost" , "Aumenta la fuerza de todas las unidades", Faction.Idanai, 2, null, RowType.Ranged, "Idanai/Boost"),
@@ -100,9 +100,9 @@ public class CardsQuanto : MonoBehaviour
             CreateUnitCard("LSDCaiman", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null,TypeofUnit.Siege, "Celai/LSDCaiman"),
             CreateUnitCard("LSDCaiman", "The moon guardian", Faction.Celai, Rarity.Silver, 6, null,TypeofUnit.Siege, "Celai/LSDCaiman"),
 
-            CreateBaitCard("BaitCute", "A simple bait", Faction.Celai, 0, null, "Celai/BaitCute"),
-            CreateBaitCard("BaitNature", "A simple bait", Faction.Celai, 0, null, "Celai/BaitNature"),
-            CreateBaitCard("BaitThing", "A simple bait", Faction.Celai, 0, null, "Celai/BaitThing"),
+            CreateBaitCard("BaitCute", "A simple bait", Faction.Celai, 0, null,TypeofUnit.Melee, "Celai/BaitCute"),
+            CreateBaitCard("BaitNature", "A simple bait", Faction.Celai, 0, null,TypeofUnit.Melee, "Celai/BaitNature"),
+            CreateBaitCard("BaitThing", "A simple bait", Faction.Celai, 0, null,TypeofUnit.Melee, "Celai/BaitThing"),
 
             CreateBonusCard("Boost", "Boosts strength of all units", Faction.Celai, 2, null, RowType.Melee, "Celai/"),
             CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Celai, 2, null, RowType.Ranged, "Celai/"),
@@ -132,9 +132,9 @@ public class CardsQuanto : MonoBehaviour
             CreateUnitCard("ShenLong", "The healer", Faction.Yudivain, Rarity.Silver, 6, null,TypeofUnit.Melee, "Yudivain/ShenLong"),
             CreateUnitCard("ShenLong", "The healer", Faction.Yudivain, Rarity.Silver, 6, null,TypeofUnit.Melee, "Yudivain/ShenLong"),
 
-            CreateBaitCard("BaitTurtwig", "A simple bait", Faction.Yudivain, 0, null, "Yudivain/BaitTurtwig"),
-            CreateBaitCard("BaitTinkerbell", "A simple bait", Faction.Yudivain, 0, null, "Yudivain/BaitTinkerbell"),
-            CreateBaitCard("BaitPuppy", "A simple bait", Faction.Yudivain, 0, null, "Yudivain/BaitPuppy"),
+            CreateBaitCard("BaitTurtwig", "A simple bait", Faction.Yudivain, 0, null,TypeofUnit.Melee, "Yudivain/BaitTurtwig"),
+            CreateBaitCard("BaitTinkerbell", "A simple bait", Faction.Yudivain, 0, null,TypeofUnit.Melee, "Yudivain/BaitTinkerbell"),
+            CreateBaitCard("BaitPuppy", "A simple bait", Faction.Yudivain, 0, null,TypeofUnit.Melee, "Yudivain/BaitPuppy"),
 
             CreateBonusCard("Boost", "Boosts strength of all units", Faction.Yudivain, 2, null, RowType.Melee, "Yudivain/"),
             CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Yudivain, 2, null, RowType.Ranged, "Yudivain/"),
@@ -169,10 +169,10 @@ public class CardsQuanto : MonoBehaviour
         return leaderCard;
     }
 
-    private BaitCard CreateBaitCard(string name, string description, Faction faction, float initialDmg, Effect effect, string imageName)
+    private BaitCard CreateBaitCard(string name, string description, Faction faction, float initialDmg, Effect effect, TypeofUnit typeofUnit, string imageName)
     {
         BaitCard baitCard = ScriptableObject.CreateInstance<BaitCard>();
-        baitCard.Initialize(name, description, TypeofCard.Bait, faction, initialDmg, effect);
+        baitCard.Initialize(name, description, TypeofCard.Bait, faction, initialDmg, effect, typeofUnit);
         baitCard.CardImage = Resources.Load<Sprite>($"{imageName}");
         return baitCard;
     }

@@ -5,6 +5,7 @@ public class BaitCard : Card
 {
     public float initialDmg = 0;
     public float dmg = 0;
+    public TypeofUnit typeofUnit;
 
     public float GetCurrentDMG => dmg;
     public float ModDmg { get => dmg; set => dmg = value; }
@@ -15,6 +16,7 @@ public class BaitCard : Card
                            Faction faction,
                            float initialDmg,
                            Effect effect,
+                            TypeofUnit typeofUnit,
                            bool isVoidCard = false)
     {
         this.name = name;
@@ -24,6 +26,7 @@ public class BaitCard : Card
         Faction = faction;
         dmg = initialDmg;
         Effect = effect;
+        this.typeofUnit = typeofUnit;
         IsVoidCard = isVoidCard;
     }
 }

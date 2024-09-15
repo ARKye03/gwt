@@ -8,7 +8,7 @@ public class CardSlot : MonoBehaviour
 
     public void PlaceCard(Card card, GameObject cardObject)
     {
-        if (!IsOccupied && card.TypeofCard == AllowedCardType)
+        if (!IsOccupied && (card.TypeofCard == AllowedCardType || card is BaitCard))
         {
             CurrentCard = card;
             IsOccupied = true;

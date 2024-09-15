@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public string Name { get; set; }
     public List<Card> hand = new();
+
     public GameObject handPanel;
     public GameObject cardPrefab;
     public Board board;
@@ -72,61 +73,13 @@ public class Player : MonoBehaviour
         switch (card)
         {
             case UnitCard uc:
-                if (uc.typeofUnit is TypeofUnit.Melee)
-                {
-                    CardSlot cardSlot = meleeSlots.FirstOrDefault(static slot => !slot.IsOccupied);
-                    if (cardSlot != null)
-                    {
-                        cardManager.transform.SetParent(cardSlot.transform);
-                        cardManager.transform.localPosition = Vector3.zero;
-                        cardSlot.PlaceCard(uc, cardManager.gameObject);
-                        Debug.Log($"Placed melee card: {uc.Name} in slot: {cardSlot.name}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning("No available melee slot found.");
-                    }
-                }
-                else if (uc.typeofUnit is TypeofUnit.Ranged)
-                {
-                    CardSlot cardSlot = rangedSlots.FirstOrDefault(static slot => !slot.IsOccupied);
-                    if (cardSlot != null)
-                    {
-                        cardManager.transform.SetParent(cardSlot.transform);
-                        cardManager.transform.localPosition = Vector3.zero;
-                        cardSlot.PlaceCard(uc, cardManager.gameObject);
-                        Debug.Log($"Placed ranged card: {uc.Name} in slot: {cardSlot.name}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning("No available ranged slot found.");
-                    }
-                }
-                else if (uc.typeofUnit is TypeofUnit.Siege)
-                {
-                    CardSlot cardSlot = siegeSlots.FirstOrDefault(static slot => !slot.IsOccupied);
-                    if (cardSlot != null)
-                    {
-                        cardManager.transform.SetParent(cardSlot.transform);
-                        cardManager.transform.localPosition = Vector3.zero;
-                        cardSlot.PlaceCard(uc, cardManager.gameObject);
-                        Debug.Log($"Placed siege card: {uc.Name} in slot: {cardSlot.name}");
-                    }
-                    else
-                    {
-                        Debug.LogWarning("No available siege slot found.");
-                    }
-                }
+                PlaceUnitCard(cardManager, uc, meleeSlots, rangedSlots, siegeSlots);
                 break;
             case ClimateCard:
-                board.climateSlot.RemoveCard();
-                cardManager.transform.SetParent(board.climateSlot.transform);
-                cardManager.transform.localPosition = Vector3.zero;
-                board.climateSlot.PlaceCard(card, cardManager.gameObject);
-                Debug.Log($"Placed climate card: {card.Name} in climate slot.");
+                PlaceClimateCard(cardManager, card);
                 break;
-            case BaitCard:
-                // TODO
+            case BaitCard bc:
+                PlaceBaitCard(cardManager, bc);
                 break;
             case BonusCard:
                 // TODO
@@ -141,5 +94,86 @@ public class Player : MonoBehaviour
 
         board.allyPlayerIsPlaying = !board.allyPlayerIsPlaying;
         board.mainCamera.transform.Rotate(0, 0, board.mainCamera.transform.rotation.z == 0 ? 180 : -180);
+    }
+
+    private void PlaceUnitCard(CardManager cardManager, UnitCard uc, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
+    {
+        CardSlot cardSlot = null;
+
+        if (uc.typeofUnit == TypeofUnit.Melee)
+        {
+            cardSlot = meleeSlots.FirstOrDefault(slot => !slot.IsOccupied);
+        }
+        else if (uc.typeofUnit == TypeofUnit.Ranged)
+        {
+            cardSlot = rangedSlots.FirstOrDefault(slot => !slot.IsOccupied);
+        }
+        else if (uc.typeofUnit == TypeofUnit.Siege)
+        {
+            cardSlot = siegeSlots.FirstOrDefault(slot => !slot.IsOccupied);
+        }
+
+        if (cardSlot != null)
+        {
+            cardManager.transform.SetParent(cardSlot.transform);
+            cardManager.transform.localPosition = Vector3.zero;
+            cardSlot.PlaceCard(uc, cardManager.gameObject);
+            Debug.Log($"Placed {uc.typeofUnit} card: {uc.Name} in slot: {cardSlot.name}");
+        }
+        else
+        {
+            Debug.LogWarning($"No available {uc.typeofUnit} slot found.");
+        }
+    }
+
+    private void PlaceClimateCard(CardManager cardManager, Card card)
+    {
+        board.climateSlot.RemoveCard();
+        cardManager.transform.SetParent(board.climateSlot.transform);
+        cardManager.transform.localPosition = Vector3.zero;
+        board.climateSlot.PlaceCard(card, cardManager.gameObject);
+        Debug.Log($"Placed climate card: {card.Name} in climate slot.");
+    }
+
+    private void PlaceBaitCard(CardManager cardManager, BaitCard bc)
+    {
+        Player opponent = this == board.allyPlayer ? board.enemyPlayer : board.allyPlayer;
+        CardSlot[] meleeSlots = opponent == board.allyPlayer ? board.allyMeleeSlots : board.enemyMeleeSlots;
+        CardSlot[] rangedSlots = opponent == board.allyPlayer ? board.allyRangedSlots : board.enemyRangedSlots;
+        CardSlot[] siegeSlots = opponent == board.allyPlayer ? board.allySiegeSlots : board.enemySiegeSlots;
+
+        CardSlot cardSlot = null;
+
+        if (bc.typeofUnit == TypeofUnit.Melee)
+        {
+            cardSlot = meleeSlots.FirstOrDefault(slot => !slot.IsOccupied);
+        }
+        else if (bc.typeofUnit == TypeofUnit.Ranged)
+        {
+            cardSlot = rangedSlots.FirstOrDefault(slot => !slot.IsOccupied);
+        }
+        else if (bc.typeofUnit == TypeofUnit.Siege)
+        {
+            cardSlot = siegeSlots.FirstOrDefault(slot => !slot.IsOccupied);
+        }
+
+        if (cardSlot != null)
+        {
+            cardManager.transform.SetParent(cardSlot.transform);
+            cardManager.transform.localPosition = Vector3.zero;
+            cardSlot.PlaceCard(bc, cardManager.gameObject);
+            Debug.Log($"Placed bait card: {bc.Name} in opponent's {bc.typeofUnit} slot: {cardSlot.name}");
+            ApplyBaitCardEffects(bc);
+        }
+        else
+        {
+            Debug.LogWarning($"No available {bc.typeofUnit} slot found on opponent's side.");
+        }
+    }
+
+    private void ApplyBaitCardEffects(BaitCard bc)
+    {
+        //TODO
+        Debug.Log($"Applying effects of bait card: {bc.Name}");
     }
 }
