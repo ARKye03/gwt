@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
     public string Name { get; set; }
     public List<Card> hand = new();
-
     public GameObject handPanel;
     public GameObject cardPrefab;
     public Board board;
@@ -57,15 +56,15 @@ public class Player : MonoBehaviour
     {
         if (board.allyPlayerIsPlaying && this == board.allyPlayer)
         {
-            PlaceCard(cardManager);
+            PlaceCard(cardManager, board.allyMeleeSlots, board.allyRangedSlots, board.allySiegeSlots);
         }
         else if (!board.allyPlayerIsPlaying && this == board.enemyPlayer)
         {
-            PlaceCard(cardManager);
+            PlaceCard(cardManager, board.enemyMeleeSlots, board.enemyRangedSlots, board.enemySiegeSlots);
         }
     }
 
-    private void PlaceCard(CardManager cardManager)
+    private void PlaceCard(CardManager cardManager, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
     {
         Card card = cardManager.CardData;
         Debug.Log($"Attempting to place card: {card.Name}");
@@ -75,7 +74,7 @@ public class Player : MonoBehaviour
             case UnitCard uc:
                 if (uc.typeofUnit is TypeofUnit.Melee)
                 {
-                    CardSlot cardSlot = board.allyMeleeSlots.FirstOrDefault(slot => !slot.IsOccupied);
+                    CardSlot cardSlot = meleeSlots.FirstOrDefault(slot => !slot.IsOccupied);
                     if (cardSlot != null)
                     {
                         cardManager.transform.SetParent(cardSlot.transform);
@@ -90,7 +89,7 @@ public class Player : MonoBehaviour
                 }
                 else if (uc.typeofUnit is TypeofUnit.Ranged)
                 {
-                    CardSlot cardSlot = board.allyRangedSlots.FirstOrDefault(slot => !slot.IsOccupied);
+                    CardSlot cardSlot = rangedSlots.FirstOrDefault(slot => !slot.IsOccupied);
                     if (cardSlot != null)
                     {
                         cardManager.transform.SetParent(cardSlot.transform);
@@ -105,7 +104,7 @@ public class Player : MonoBehaviour
                 }
                 else if (uc.typeofUnit is TypeofUnit.Siege)
                 {
-                    CardSlot cardSlot = board.allySiegeSlots.FirstOrDefault(slot => !slot.IsOccupied);
+                    CardSlot cardSlot = siegeSlots.FirstOrDefault(slot => !slot.IsOccupied);
                     if (cardSlot != null)
                     {
                         cardManager.transform.SetParent(cardSlot.transform);
