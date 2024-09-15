@@ -29,12 +29,10 @@ public class Player : MonoBehaviour
 
     private void UpdateHandUI()
     {
-
         foreach (Transform child in handPanel.transform)
         {
             Destroy(child.gameObject);
         }
-
 
         foreach (Card card in hand)
         {
@@ -51,7 +49,6 @@ public class Player : MonoBehaviour
                 Debug.LogError("CardManager component not found on card prefab.");
             }
 
-
             cardObject.transform.localScale = Vector3.one;
         }
     }
@@ -60,16 +57,17 @@ public class Player : MonoBehaviour
     {
         if (board.allyPlayerIsPlaying && this == board.allyPlayer)
         {
-            PlaceCard(cardManager.CardData);
+            PlaceCard(cardManager);
         }
         else if (!board.allyPlayerIsPlaying && this == board.enemyPlayer)
         {
-            PlaceCard(cardManager.CardData);
+            PlaceCard(cardManager);
         }
     }
 
-    private void PlaceCard(Card card)
+    private void PlaceCard(CardManager cardManager)
     {
+        Card card = cardManager.CardData;
         Debug.Log($"Attempting to place card: {card.Name}");
 
         switch (card)
@@ -80,8 +78,9 @@ public class Player : MonoBehaviour
                     CardSlot cardSlot = board.allyMeleeSlots.FirstOrDefault(slot => !slot.IsOccupied);
                     if (cardSlot != null)
                     {
-                        GameObject cardObject = Instantiate(cardPrefab, cardSlot.transform);
-                        cardSlot.PlaceCard(uc, cardObject);
+                        cardManager.transform.SetParent(cardSlot.transform);
+                        cardManager.transform.localPosition = Vector3.zero;
+                        cardSlot.PlaceCard(uc, cardManager.gameObject);
                         Debug.Log($"Placed melee card: {uc.Name} in slot: {cardSlot.name}");
                     }
                     else
@@ -94,8 +93,9 @@ public class Player : MonoBehaviour
                     CardSlot cardSlot = board.allyRangedSlots.FirstOrDefault(slot => !slot.IsOccupied);
                     if (cardSlot != null)
                     {
-                        GameObject cardObject = Instantiate(cardPrefab, cardSlot.transform);
-                        cardSlot.PlaceCard(uc, cardObject);
+                        cardManager.transform.SetParent(cardSlot.transform);
+                        cardManager.transform.localPosition = Vector3.zero;
+                        cardSlot.PlaceCard(uc, cardManager.gameObject);
                         Debug.Log($"Placed ranged card: {uc.Name} in slot: {cardSlot.name}");
                     }
                     else
@@ -108,8 +108,9 @@ public class Player : MonoBehaviour
                     CardSlot cardSlot = board.allySiegeSlots.FirstOrDefault(slot => !slot.IsOccupied);
                     if (cardSlot != null)
                     {
-                        GameObject cardObject = Instantiate(cardPrefab, cardSlot.transform);
-                        cardSlot.PlaceCard(uc, cardObject);
+                        cardManager.transform.SetParent(cardSlot.transform);
+                        cardManager.transform.localPosition = Vector3.zero;
+                        cardSlot.PlaceCard(uc, cardManager.gameObject);
                         Debug.Log($"Placed siege card: {uc.Name} in slot: {cardSlot.name}");
                     }
                     else
@@ -120,15 +121,16 @@ public class Player : MonoBehaviour
                 break;
             case ClimateCard:
                 board.climateSlot.RemoveCard();
-                GameObject climateCardObject = Instantiate(cardPrefab, board.climateSlot.transform);
-                board.climateSlot.PlaceCard(card, climateCardObject);
+                cardManager.transform.SetParent(board.climateSlot.transform);
+                cardManager.transform.localPosition = Vector3.zero;
+                board.climateSlot.PlaceCard(card, cardManager.gameObject);
                 Debug.Log($"Placed climate card: {card.Name} in climate slot.");
                 break;
             case BaitCard:
-                // Implement BaitCard logic here
+                // TODO
                 break;
             case BonusCard:
-                // Implement BonusCard logic here
+                // TODO
                 break;
             default:
                 Debug.LogWarning("Unknown card type.");
