@@ -1,8 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class CardManager : MonoBehaviour
+public class CardManager : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Image ImageOfCard;
     [SerializeField] private TextMeshProUGUI NameOfCard;
@@ -23,6 +24,8 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    public Player player; // Reference to the player
+
     public void UpdateCardUI()
     {
         if (cardData != null)
@@ -31,6 +34,14 @@ public class CardManager : MonoBehaviour
             DescriptionOfCard.text = cardData.Description;
             ImageOfCard.sprite = cardData.CardImage;
             // Update TypeofUnit TODO!
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (player != null)
+        {
+            player.OnCardClicked(this);
         }
     }
 }

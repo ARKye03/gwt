@@ -13,10 +13,11 @@ public class CardSlot : MonoBehaviour
             CurrentCard = card;
             IsOccupied = true;
             cardObject.transform.position = transform.position;
+            Debug.Log($"Card {card.Name} placed in slot {name}.");
         }
         else
         {
-            Debug.LogWarning("Card type not allowed in this slot or slot is occupied.");
+            Debug.LogWarning($"Card {card.Name} type not allowed in this slot or slot is occupied.");
         }
     }
 
