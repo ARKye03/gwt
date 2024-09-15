@@ -33,7 +33,16 @@ public class CardManager : MonoBehaviour, IPointerClickHandler
             NameOfCard.text = cardData.Name;
             DescriptionOfCard.text = cardData.Description;
             ImageOfCard.sprite = cardData.CardImage;
-            // Update TypeofUnit TODO!
+
+            if (cardData is UnitCard unitCard)
+            {
+                TypeOfUnit.sprite = unitCard.TypeOfUnitImage;
+                TypeOfUnit.gameObject.SetActive(true);
+            }
+            else
+            {
+                TypeOfUnit.gameObject.SetActive(false);
+            }
         }
     }
 

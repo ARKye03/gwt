@@ -12,6 +12,8 @@ public class UnitCard : Card
 
     public Rarity Rarity { get; private set; }
 
+    public Sprite TypeOfUnitImage { get; private set; } // Add this property
+
     public void Initialize(string name,
                            string description,
                            TypeofCard typeOfCard,
@@ -31,5 +33,8 @@ public class UnitCard : Card
         dmg = initialDmg;
         Effect = effect;
         this.typeofUnit = typeofUnit;
+
+        // Load the appropriate TypeOfUnit image
+        TypeOfUnitImage = Resources.Load<Sprite>($"TypeOfUnit/{typeofUnit}");
     }
 }
