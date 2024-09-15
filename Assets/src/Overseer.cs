@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class Board : MonoBehaviour
 {
+    public Camera mainCamera;
     public Deck allyDeck;
     public Stack<Card> allyGraveyard = new();
     public CardSlot[] allyMeleeSlots;
