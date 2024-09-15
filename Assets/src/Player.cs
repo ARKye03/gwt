@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -81,8 +82,8 @@ public class Player : MonoBehaviour
             case BaitCard bc:
                 PlaceBaitCard(cardManager, bc);
                 break;
-            case BonusCard:
-                // TODO
+            case BonusCard bonusCard:
+                PlaceBonusCard(cardManager, bonusCard, meleeSlots, rangedSlots, siegeSlots);
                 break;
             default:
                 Debug.LogWarning("Unknown card type.");
@@ -95,6 +96,46 @@ public class Player : MonoBehaviour
         board.allyPlayerIsPlaying = !board.allyPlayerIsPlaying;
         board.mainCamera.transform.Rotate(0, 0, board.mainCamera.transform.rotation.z == 0 ? 180 : -180);
     }
+
+    private void PlaceBonusCard(CardManager cardManager, BonusCard bonusCard, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
+    {
+        CardSlot[] targetSlots = null;
+
+        switch (bonusCard.AffectedRow)
+        {
+            case RowType.Melee:
+                targetSlots = meleeSlots;
+                break;
+            case RowType.Ranged:
+                targetSlots = rangedSlots;
+                break;
+            case RowType.Siege:
+                targetSlots = siegeSlots;
+                break;
+        }
+
+        if (targetSlots != null)
+        {
+            foreach (var slot in targetSlots)
+            {
+                if (!slot.IsOccupied)
+                {
+                    cardManager.transform.SetParent(slot.transform);
+                    cardManager.transform.localPosition = Vector3.zero;
+                    slot.PlaceCard(bonusCard, cardManager.gameObject);
+                    Debug.Log($"Placed bonus card: {bonusCard.Name} in {bonusCard.AffectedRow} row.");
+                    bonusCard.ApplyEffect(board);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"No available slot found in {bonusCard.AffectedRow} row.");
+        }
+    }
+
+
 
     private void PlaceUnitCard(CardManager cardManager, UnitCard uc, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
     {
