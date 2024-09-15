@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
             case UnitCard uc:
                 if (uc.typeofUnit is TypeofUnit.Melee)
                 {
-                    CardSlot cardSlot = meleeSlots.FirstOrDefault(slot => !slot.IsOccupied);
+                    CardSlot cardSlot = meleeSlots.FirstOrDefault(static slot => !slot.IsOccupied);
                     if (cardSlot != null)
                     {
                         cardManager.transform.SetParent(cardSlot.transform);
@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
                 }
                 else if (uc.typeofUnit is TypeofUnit.Ranged)
                 {
-                    CardSlot cardSlot = rangedSlots.FirstOrDefault(slot => !slot.IsOccupied);
+                    CardSlot cardSlot = rangedSlots.FirstOrDefault(static slot => !slot.IsOccupied);
                     if (cardSlot != null)
                     {
                         cardManager.transform.SetParent(cardSlot.transform);
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
                 }
                 else if (uc.typeofUnit is TypeofUnit.Siege)
                 {
-                    CardSlot cardSlot = siegeSlots.FirstOrDefault(slot => !slot.IsOccupied);
+                    CardSlot cardSlot = siegeSlots.FirstOrDefault(static slot => !slot.IsOccupied);
                     if (cardSlot != null)
                     {
                         cardManager.transform.SetParent(cardSlot.transform);
@@ -140,5 +140,6 @@ public class Player : MonoBehaviour
         UpdateHandUI();
 
         board.allyPlayerIsPlaying = !board.allyPlayerIsPlaying;
+        board.mainCamera.transform.Rotate(0, 0, board.mainCamera.transform.rotation.z == 0 ? 180 : -180);
     }
 }
