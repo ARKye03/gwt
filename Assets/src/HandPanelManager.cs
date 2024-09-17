@@ -22,13 +22,11 @@ public class HandPanelHover : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Mouse entered");
         targetPosition = visiblePosition;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Mouse exited");
         targetPosition = hiddenPosition;
     }
 }
