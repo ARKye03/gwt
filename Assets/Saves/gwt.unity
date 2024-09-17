@@ -352,8 +352,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153576682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 99}
+  m_LocalScale: {x: 0.0034602077, y: 0.0034602077, z: 0.0034602077}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 900113599}
@@ -362,7 +362,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 820.5, y: 287.5}
-  m_SizeDelta: {x: 1641, y: 575}
+  m_SizeDelta: {x: 1641, y: 578}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &178847147
 GameObject:
@@ -651,8 +651,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 1
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -677,7 +677,7 @@ Transform:
   m_GameObject: {fileID: 322938412}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3936211, y: 3.5248415, z: -0.12481103}
+  m_LocalPosition: {x: 820.5, y: 287.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2648,6 +2648,7 @@ GameObject:
   - component: {fileID: 1878995636}
   - component: {fileID: 1878995635}
   - component: {fileID: 1878995634}
+  - component: {fileID: 1878995638}
   m_Layer: 5
   m_Name: PlayerHand
   m_TagString: Untagged
@@ -2735,9 +2736,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -13.119999, y: -224.5}
+  m_AnchoredPosition: {x: -13.119999, y: -318}
   m_SizeDelta: {x: 888.23, y: 21}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1878995638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878995633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70bf25e179af60488de14b11b262bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenPosition: {x: -13.119999, y: -300.5, z: 0}
+  visiblePosition: {x: -13.12, y: -230, z: 0}
+  transitionSpeed: 5
 --- !u!1 &1902191101
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,6 +3022,7 @@ GameObject:
   - component: {fileID: 2005737854}
   - component: {fileID: 2005737853}
   - component: {fileID: 2005737852}
+  - component: {fileID: 2005737856}
   m_Layer: 5
   m_Name: PlayerHand
   m_TagString: Untagged
@@ -3093,9 +3110,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -13.119999, y: -224.5}
+  m_AnchoredPosition: {x: -13.119999, y: -316}
   m_SizeDelta: {x: 888.23, y: 21}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2005737856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005737851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70bf25e179af60488de14b11b262bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenPosition: {x: -13.12, y: -300, z: 0}
+  visiblePosition: {x: -13.12, y: -370, z: 0}
+  transitionSpeed: 5
 --- !u!1 &2051420854
 GameObject:
   m_ObjectHideFlags: 0
