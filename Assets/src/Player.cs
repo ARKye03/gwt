@@ -95,6 +95,9 @@ public class Player : MonoBehaviour
 
         board.allyPlayerIsPlaying = !board.allyPlayerIsPlaying;
         board.mainCamera.transform.Rotate(0, 0, board.mainCamera.transform.rotation.z == 0 ? 180 : -180);
+
+        // Update hand panel visibility after placing a card
+        board.UpdateHandPanelVisibility();
     }
 
     private void PlaceBonusCard(CardManager cardManager, BonusCard bonusCard, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
@@ -135,23 +138,21 @@ public class Player : MonoBehaviour
         }
     }
 
-
-
     private void PlaceUnitCard(CardManager cardManager, UnitCard uc, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
     {
         CardSlot cardSlot = null;
 
         if (uc.typeofUnit == TypeofUnit.Melee)
         {
-            cardSlot = meleeSlots.FirstOrDefault(slot => !slot.IsOccupied);
+            cardSlot = meleeSlots.FirstOrDefault(static slot => !slot.IsOccupied);
         }
         else if (uc.typeofUnit == TypeofUnit.Ranged)
         {
-            cardSlot = rangedSlots.FirstOrDefault(slot => !slot.IsOccupied);
+            cardSlot = rangedSlots.FirstOrDefault(static slot => !slot.IsOccupied);
         }
         else if (uc.typeofUnit == TypeofUnit.Siege)
         {
-            cardSlot = siegeSlots.FirstOrDefault(slot => !slot.IsOccupied);
+            cardSlot = siegeSlots.FirstOrDefault(static slot => !slot.IsOccupied);
         }
 
         if (cardSlot != null)

@@ -107,6 +107,9 @@ public class Board : MonoBehaviour
         // Initialize player hands
         allyPlayer.DrawCards(allyDeck, 10);
         enemyPlayer.DrawCards(enemyDeck, 10);
+
+        // Update hand panel visibility at the start of the game
+        UpdateHandPanelVisibility();
     }
 
     private void PlaceLeaderCard(Player player, Deck deck, CardSlot leaderSlot)
@@ -133,6 +136,33 @@ public class Board : MonoBehaviour
         else
         {
             Debug.LogError($"{player.Name} does not have a leader card in the deck.");
+        }
+    }
+
+    public void UpdateHandPanelVisibility()
+    {
+        CanvasGroup allyHandPanelCanvasGroup = allyPlayer.handPanel.GetComponent<CanvasGroup>();
+        CanvasGroup enemyHandPanelCanvasGroup = enemyPlayer.handPanel.GetComponent<CanvasGroup>();
+
+        if (allyPlayerIsPlaying)
+        {
+            allyHandPanelCanvasGroup.alpha = 1;
+            allyHandPanelCanvasGroup.interactable = true;
+            allyHandPanelCanvasGroup.blocksRaycasts = true;
+
+            enemyHandPanelCanvasGroup.alpha = 0;
+            enemyHandPanelCanvasGroup.interactable = false;
+            enemyHandPanelCanvasGroup.blocksRaycasts = false;
+        }
+        else
+        {
+            allyHandPanelCanvasGroup.alpha = 0;
+            allyHandPanelCanvasGroup.interactable = false;
+            allyHandPanelCanvasGroup.blocksRaycasts = false;
+
+            enemyHandPanelCanvasGroup.alpha = 1;
+            enemyHandPanelCanvasGroup.interactable = true;
+            enemyHandPanelCanvasGroup.blocksRaycasts = true;
         }
     }
 }
