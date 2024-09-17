@@ -1,0 +1,3 @@
+[submodule "interpreter"]
+	path = interpreter
+	url = https://github.com/ARKye03/gwt-interpreter
