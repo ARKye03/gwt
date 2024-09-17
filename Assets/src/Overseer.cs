@@ -141,18 +141,36 @@ public class Board : MonoBehaviour
     }
     public IEnumerator RotateCameraSmoothly(float duration)
     {
+        yield return new WaitForSeconds(0.2f);
         Quaternion startRotation = mainCamera.transform.rotation;
         Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, 180);
         float elapsedTime = 0;
 
+        float startSize = mainCamera.orthographicSize;
+        float zoomInSize = startSize - 0.1f; // Zoom in
+        float zoomOutSize = startSize; // Zoom out
+
         while (elapsedTime < duration)
         {
-            mainCamera.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / duration);
+            float t = elapsedTime / duration;
+            t = t * t * (3f - 2f * t); // Ease-in-out
+
+            mainCamera.transform.rotation = Quaternion.Lerp(startRotation, endRotation, t);
+            if (t < 0.5f)
+            {
+                mainCamera.orthographicSize = Mathf.Lerp(startSize, zoomInSize, t * 2);
+            }
+            else
+            {
+                mainCamera.orthographicSize = Mathf.Lerp(zoomInSize, zoomOutSize, (t - 0.5f) * 2);
+            }
+
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         mainCamera.transform.rotation = endRotation;
+        mainCamera.orthographicSize = zoomOutSize;
     }
 
     public void UpdateHandPanelVisibility()
