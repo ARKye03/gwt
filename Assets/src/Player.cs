@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
         UpdateHandUI();
 
         board.allyPlayerIsPlaying = !board.allyPlayerIsPlaying;
-        board.mainCamera.transform.Rotate(0, 0, board.mainCamera.transform.rotation.z == 0 ? 180 : -180);
+        board.StartCoroutine(board.RotateCameraSmoothly(1.0f));
 
         // Update hand panel visibility after placing a card
         board.UpdateHandPanelVisibility();

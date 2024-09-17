@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class Board : MonoBehaviour
 {
@@ -137,6 +138,21 @@ public class Board : MonoBehaviour
         {
             Debug.LogError($"{player.Name} does not have a leader card in the deck.");
         }
+    }
+    public IEnumerator RotateCameraSmoothly(float duration)
+    {
+        Quaternion startRotation = mainCamera.transform.rotation;
+        Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, 180);
+        float elapsedTime = 0;
+
+        while (elapsedTime < duration)
+        {
+            mainCamera.transform.rotation = Quaternion.Lerp(startRotation, endRotation, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        mainCamera.transform.rotation = endRotation;
     }
 
     public void UpdateHandPanelVisibility()
