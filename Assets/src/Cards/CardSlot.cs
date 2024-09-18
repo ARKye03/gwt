@@ -13,6 +13,7 @@ public class CardSlot : MonoBehaviour
             CurrentCard = card;
             IsOccupied = true;
             cardObject.transform.position = transform.position;
+            cardObject.transform.localScale = Vector3.one; // Reset the scale
             Debug.Log($"Card {card.Name} placed in slot {name}.");
         }
         else
