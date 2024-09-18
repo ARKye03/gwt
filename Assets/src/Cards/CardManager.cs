@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class CardManager : MonoBehaviour, IPointerClickHandler
+public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image ImageOfCard;
     [SerializeField] private TextMeshProUGUI NameOfCard;
@@ -24,7 +24,7 @@ public class CardManager : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public Player player; // Reference to the player
+    public Player player;
 
     public void UpdateCardUI()
     {
@@ -53,4 +53,14 @@ public class CardManager : MonoBehaviour, IPointerClickHandler
             player.OnCardClicked(this);
         }
     }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        transform.localScale = Vector3.one;
+    }
+
 }
