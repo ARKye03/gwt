@@ -179,10 +179,22 @@ public class Player : MonoBehaviour
 
     private void PlaceBaitCard(CardManager cardManager, BaitCard bc)
     {
-        Player opponent = this == board.allyPlayer ? board.enemyPlayer : board.allyPlayer;
-        CardSlot[] meleeSlots = opponent == board.allyPlayer ? board.allyMeleeSlots : board.enemyMeleeSlots;
-        CardSlot[] rangedSlots = opponent == board.allyPlayer ? board.allyRangedSlots : board.enemyRangedSlots;
-        CardSlot[] siegeSlots = opponent == board.allyPlayer ? board.allySiegeSlots : board.enemySiegeSlots;
+        Player opponent = this == board.allyPlayer
+        ? board.enemyPlayer
+        : board.allyPlayer;
+
+        CardSlot[] meleeSlots = opponent == board.allyPlayer
+        ? board.allyMeleeSlots
+        : board.enemyMeleeSlots;
+
+        CardSlot[] rangedSlots = opponent == board.allyPlayer
+        ? board.allyRangedSlots
+        : board.enemyRangedSlots;
+
+        CardSlot[] siegeSlots = opponent == board.allyPlayer
+        ? board.allySiegeSlots
+        : board.enemySiegeSlots;
+
 
         CardSlot cardSlot = null;
 
