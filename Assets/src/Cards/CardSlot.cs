@@ -5,12 +5,14 @@ public class CardSlot : MonoBehaviour
     public bool IsOccupied { get; private set; }
     public Card CurrentCard { get; private set; }
     public TypeofCard AllowedCardType;
+    private GameObject currentCardObject;
 
     public void PlaceCard(Card card, GameObject cardObject)
     {
         if (!IsOccupied && (card.TypeofCard == AllowedCardType || card is BaitCard))
         {
             CurrentCard = card;
+            currentCardObject = cardObject;
             IsOccupied = true;
             cardObject.transform.position = transform.position;
             cardObject.transform.localScale = Vector3.one; // Reset the scale
@@ -26,7 +28,9 @@ public class CardSlot : MonoBehaviour
     {
         if (IsOccupied)
         {
+            Destroy(currentCardObject); // Destroy the card's game object
             CurrentCard = null;
+            currentCardObject = null; // Clear the reference to the card's game object
             IsOccupied = false;
         }
     }
