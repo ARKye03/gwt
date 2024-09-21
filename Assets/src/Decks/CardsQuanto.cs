@@ -153,10 +153,10 @@ public class CardsQuanto : MonoBehaviour
 
     }
 
-    private UnitCard CreateUnitCard(string name, string description, Faction faction, Rarity rarity, float initialDmg, Effect effect, TypeofUnit typeofUnit, string imageName)
+    private UnitCard CreateUnitCard(string name, string description, Faction faction, Rarity rarity, int initialPower, Effect effect, TypeofUnit typeofUnit, string imageName)
     {
         UnitCard unitCard = ScriptableObject.CreateInstance<UnitCard>();
-        unitCard.Initialize(name, description, TypeofCard.Unit, faction, rarity, initialDmg, effect, typeofUnit);
+        unitCard.Initialize(name, description, TypeofCard.Unit, faction, rarity, initialPower, effect, typeofUnit);
         unitCard.CardImage = Resources.Load<Sprite>($"{imageName}");
         return unitCard;
     }
