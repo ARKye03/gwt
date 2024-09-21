@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    #region CardsPlacements
     private void PlaceCard(CardManager cardManager, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
     {
         Card card = cardManager.CardData;
@@ -94,6 +95,9 @@ public class Player : MonoBehaviour
         UpdateHandUI();
 
         board.allyPlayerIsPlaying = !board.allyPlayerIsPlaying;
+        if (board.allyPlayerIsPlaying)
+            board.IncreaseRound();
+
         board.StartCoroutine(board.RotateCameraSmoothly(1.0f));
 
         // Update hand panel visibility after placing a card
@@ -224,6 +228,7 @@ public class Player : MonoBehaviour
             Debug.LogWarning($"No available {bc.typeofUnit} slot found on opponent's side.");
         }
     }
+    #endregion
 
     private void ApplyBaitCardEffects(BaitCard bc)
     {

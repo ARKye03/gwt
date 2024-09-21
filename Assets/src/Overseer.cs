@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using TMPro;
 
 /// <summary>
 /// The Board class represents the game board in the Gwent game. It manages the state of the///  g/// ame, incl/// uding player decks, 
@@ -13,6 +14,12 @@ public class Board : MonoBehaviour
     /// The main camera used to display the game board.
     /// </summary>
     public Camera mainCamera;
+
+    /// <summary>
+    /// The round count text displayed on the game board.
+    /// </summary>
+    public TextMeshProUGUI roundCount;
+    public int round = 1;
 
     /// <summary>
     /// The deck of the ally player.
@@ -218,6 +225,18 @@ public class Board : MonoBehaviour
         UpdateHandPanelVisibility();
     }
 
+    private void UpdateCount() => roundCount.text = $"{round}";
+    public void IncreaseRound()
+    {
+        round++;
+        UpdateCount();
+    }
+    public void ResetRound()
+    {
+        round = 1;
+        UpdateCount();
+    }
+
     /// <summary>
     /// Places the leader card from the specified deck into the specified leader slot for the given player.
     /// </summary>
@@ -267,12 +286,17 @@ public class Board : MonoBehaviour
         float zoomInSize = startSize - 0.1f; // Zoom in
         float zoomOutSize = startSize; // Zoom out
 
+        Quaternion startTextRotation = roundCount.transform.rotation;
+        Quaternion endTextRotation = startTextRotation * Quaternion.Euler(0, 0, 180);
+
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;
             t = t * t * (3f - 2f * t); // Ease-in-out
 
             mainCamera.transform.rotation = Quaternion.Lerp(startRotation, endRotation, t);
+            roundCount.transform.rotation = Quaternion.Lerp(startTextRotation, endTextRotation, t);
+
             if (t < 0.5f)
             {
                 mainCamera.orthographicSize = Mathf.Lerp(startSize, zoomInSize, t * 2);
@@ -288,6 +312,7 @@ public class Board : MonoBehaviour
 
         mainCamera.transform.rotation = endRotation;
         mainCamera.orthographicSize = zoomOutSize;
+        roundCount.transform.rotation = endTextRotation;
     }
 
     /// Updates the visibility and interactivity of the hand panels for both ally and enemy players.
