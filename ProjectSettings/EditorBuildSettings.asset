@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Saves/gwt.unity
+    path: Assets/Scenes/gwt.unity
     guid: 524b2102d5fbf2744bcd1439b0dc6c3b
   m_configObjects: {}
