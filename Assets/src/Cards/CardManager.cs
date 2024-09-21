@@ -51,7 +51,7 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (player != null)
+        if (player != null && cardData.CanBePlayed)
         {
             player.OnCardClicked(this);
         }

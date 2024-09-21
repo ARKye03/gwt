@@ -42,4 +42,9 @@ public class Card : ScriptableObject
     /// Gets or sets the image of the card.
     /// </summary>
     public Sprite CardImage;
+
+    /// <summary>
+    /// Gets or sets a value indicating whether the card can be played.
+    /// </summary>
+    public bool CanBePlayed { get; set; } = true;
 }
