@@ -3,152 +3,73 @@ using System.Collections.Generic;
 using System.Collections;
 using TMPro;
 
-/// <summary>
-/// The Board class represents the game board in the Gwent game. It manages the state of the///  g/// ame, incl/// uding player decks, 
-/// card slots, and player hands. It also handles the /// initialization of the game, shuffling of///  decks/// , and updating the 
-/// visibility of player hand panels.
-/// </summary>
 public class Board : MonoBehaviour
 {
-    /// <summary>
-    /// The main camera used to display the game board.
-    /// </summary>
     public Camera mainCamera;
 
-    /// <summary>
-    /// The round count text displayed on the game board.
-    /// </summary>
     public TextMeshProUGUI roundCount;
-    public int round = 1;
+    private int round = 0;
 
-    /// <summary>
-    /// The deck of the ally player.
-    /// </summary>
+    public TextMeshProUGUI allyPower;
+    private int allyPowerValue = 0;
+    public TextMeshProUGUI enemyPower;
+    private int enemyPowerValue = 0;
+
+    private int allyWins = 0;
+    private int enemyWins = 0;
+
+    public TextMeshProUGUI allyWinsText;
+    public TextMeshProUGUI enemyWinsText;
+
     public Deck allyDeck;
 
-    /// <summary>
-    /// The card slot for the climate card.
-    /// </summary>
     public CardSlot climateSlot;
 
-    /// <summary>
-    /// The graveyard stack for the ally player.
-    /// </summary>
     public Stack<Card> allyGraveyard = new();
 
-    /// <summary>
-    /// The melee card slots for the ally player.
-    /// </summary>
     public CardSlot[] allyMeleeSlots;
 
-    /// <summary>
-    /// The bonus melee card slot for the ally player.
-    /// </summary>
     public CardSlot allyMeleeBonusSlot;
 
-    /// <summary>
-    /// The ranged card slots for the ally player.
-    /// </summary>
     public CardSlot[] allyRangedSlots;
 
-    /// <summary>
-    /// The bonus ranged card slot for the ally player.
-    /// </summary>
     public CardSlot allyRangedBonusSlot;
 
-    /// <summary>
-    /// The siege card slots for the ally player.
-    /// </summary>
     public CardSlot[] allySiegeSlots;
 
-    /// <summary>
-    /// The bonus siege card slot for the ally player.
-    /// </summary>
     public CardSlot allySiegeBonusSlot;
-    /// 
-    /// <summary>
-    /// The leader card slot for the ally player.
-    /// </summary>
     public CardSlot allyLeaderSlot;
 
-    /// <summary>
-    /// The melee card slots for the enemy player.
-    /// </summary>
     public CardSlot[] enemyMeleeSlots;
 
-    /// <summary>
-    /// The bonus melee card slot for the enemy player.
-    /// </summary>
     public CardSlot enemyMeleeBonusSlot;
 
-    /// <summary>
-    /// The ranged card slots for the enemy player.
-    /// </summary>
     public CardSlot[] enemyRangedSlots;
 
-    /// <summary>
-    /// The bonus ranged card slot for the enemy player.
-    /// </summary>
     public CardSlot enemyRangedBonusSlot;
 
-    /// <summary>
-    /// The siege card slots for the enemy player.
-    /// </summary>
     public CardSlot[] enemySiegeSlots;
 
-    /// <summary>
-    /// The bonus siege card slot for the enemy player.
-    /// </summary>
     public CardSlot enemySiegeBonusSlot;
 
-    /// <summary>
-    /// The leader card slot for the enemy player.
-    /// </summary>
     public CardSlot enemyLeaderSlot;
-    /// /// 
-    /// <summary>
-    /// The deck of the enemy player.
-    /// </summary>
     public Deck enemyDeck;
 
-    /// <summary>
-    /// The graveyard stack for the enemy player.
-    /// </summary>
     public Stack<Card> enemyGraveyard = new();
 
-    /// <summary>
-    /// The ally player.
-    /// </summary>
     public Player allyPlayer;
 
-    /// <summary>
-    /// The enemy player.
-    /// </summary>
     public Player enemyPlayer;
-    /// 
-    /// <summary>
-    /// The hand panel for player 1.
-    /// </summary>
     public GameObject player1HandPanel;
 
-    /// <summary>
-    /// The hand panel for player 2.
-    /// </summary>
     public GameObject player2HandPanel;
 
-    /// <summary>
-    /// The prefab used to instantiate cards.
-    /// </summary>
     public GameObject cardPrefab;
 
-    /// <summary>
-    /// A boolean variable to manage turn logic, indicating if the ally player is currently playing.
-    /// </summary>
     public bool allyPlayerIsPlaying = true;
 
-    /// <summary>
-    /// Initializes the board and assigns decks, hand panels, and card prefabs to players.
-    /// </summary>
+    public int Round { get => round; set => round = value; }
+
     void Awake()
     {
         if (allyDeck == null)
@@ -172,9 +93,6 @@ public class Board : MonoBehaviour
         enemyPlayer.board = this;
     }
 
-    /// <summary>
-    /// Starts the game by initializing decks, shuffling them, and drawing initial hands for players.
-    /// </summary>
     void Start()
     {
         var cardsQuanto = CardsQuanto.Instance;
@@ -225,24 +143,7 @@ public class Board : MonoBehaviour
         UpdateHandPanelVisibility();
     }
 
-    private void UpdateCount() => roundCount.text = $"{round}";
-    public void IncreaseRound()
-    {
-        round++;
-        UpdateCount();
-    }
-    public void ResetRound()
-    {
-        round = 1;
-        UpdateCount();
-    }
 
-    /// <summary>
-    /// Places the leader card from the specified deck into the specified leader slot for the given player.
-    /// </summary>
-    /// <param name="player">The player whose leader card is being placed.</param>
-    /// <param name="deck">The deck from which the leader card is drawn.</param>
-    /// <param name="leaderSlot">The slot where the leader card will be placed.</param>
     private void PlaceLeaderCard(Player player, Deck deck, CardSlot leaderSlot)
     {
         if (deck.cards.Count > 0 && deck.cards.Peek() is LeaderCard leaderCard)
@@ -269,12 +170,113 @@ public class Board : MonoBehaviour
             Debug.LogError($"{player.Name} does not have a leader card in the deck.");
         }
     }
+    public void CalculateAndDisplayPower()
+    {
+        allyPowerValue = CalculateTotalPower(allyMeleeSlots) + CalculateTotalPower(allyRangedSlots) + CalculateTotalPower(allySiegeSlots);
+        enemyPowerValue = CalculateTotalPower(enemyMeleeSlots) + CalculateTotalPower(enemyRangedSlots) + CalculateTotalPower(enemySiegeSlots);
 
-    /// Rotates the main camera smoothly by 180 degrees over a specified duration with an ease-in-out effect.
-    /// Additionally, the camera zooms in slightly during the first half of the rotation and zooms out during the second half.
-    /// </summary>
-    /// <param name="duration">The duration over which the camera rotation and zoom effect will occur.</param>
-    /// <returns>An IEnumerator that can be used to control the coroutine.</returns>
+        allyPower.text = $"Power: {allyPowerValue}";
+        enemyPower.text = $"Power: {enemyPowerValue}";
+
+        allyPlayer.DrawCards(allyDeck, 2);
+        enemyPlayer.DrawCards(enemyDeck, 2);
+
+        if (Round == 3)
+        {
+            if (allyPowerValue > enemyPowerValue)
+            {
+                allyWins++;
+                Debug.Log("Ally Player won the turn!");
+            }
+            else if (enemyPowerValue > allyPowerValue)
+            {
+                enemyWins++;
+                Debug.Log("Enemy Player won the turn!");
+            }
+            else
+            {
+                Debug.Log("The turn is a draw!");
+            }
+
+            UpdateWinsDisplay();
+
+            if (allyWins == 2)
+            {
+                Debug.Log("Ally Player wins the series!");
+            }
+            else if (enemyWins == 2)
+            {
+                Debug.Log("Enemy Player wins the series!");
+            }
+
+            // Clean the field after determining the winner
+            CleanField();
+
+            ResetRound();
+        }
+    }
+    public void CleanField()
+    {
+        // Clean ally rows
+        CleanRow(allyMeleeSlots, allyGraveyard);
+        CleanRow(allyRangedSlots, allyGraveyard);
+        CleanRow(allySiegeSlots, allyGraveyard);
+        allyMeleeBonusSlot.RemoveCard();
+        allyRangedBonusSlot.RemoveCard();
+        allySiegeBonusSlot.RemoveCard();
+        climateSlot.RemoveCard();
+
+        // Clean enemy rows
+        CleanRow(enemyMeleeSlots, enemyGraveyard);
+        CleanRow(enemyRangedSlots, enemyGraveyard);
+        CleanRow(enemySiegeSlots, enemyGraveyard);
+        enemyMeleeBonusSlot.RemoveCard();
+        enemyRangedBonusSlot.RemoveCard();
+        enemySiegeBonusSlot.RemoveCard();
+    }
+
+    private void CleanRow(CardSlot[] slots, Stack<Card> graveyard)
+    {
+        foreach (var slot in slots)
+        {
+            if (slot.IsOccupied)
+            {
+                graveyard.Push(slot.CurrentCard);
+                slot.RemoveCard();
+            }
+        }
+    }
+
+    private void UpdateWinsDisplay()
+    {
+        allyWinsText.text = $"W: {allyWins}";
+        enemyWinsText.text = $"W: {enemyWins}";
+    }
+
+    private int CalculateTotalPower(CardSlot[] slots)
+    {
+        int totalPower = 0;
+        foreach (var slot in slots)
+        {
+            if (slot.IsOccupied && slot.CurrentCard is UnitCard unitCard)
+            {
+                totalPower += unitCard.power;
+            }
+        }
+        return totalPower;
+    }
+    #region Utils // Maybe a partial class takes all of this outs, later
+    private void UpdateCount() => roundCount.text = $"Rounds: {Round}";
+    public void IncreaseRound()
+    {
+        Round++;
+        UpdateCount();
+    }
+    public void ResetRound()
+    {
+        Round = 0;
+        UpdateCount();
+    }
     public IEnumerator RotateCameraSmoothly(float duration)
     {
         yield return new WaitForSeconds(0.2f);
@@ -314,13 +316,6 @@ public class Board : MonoBehaviour
         mainCamera.orthographicSize = zoomOutSize;
         roundCount.transform.rotation = endTextRotation;
     }
-
-    /// Updates the visibility and interactivity of the hand panels for both ally and enemy players.
-    /// </summary>
-    /// <remarks>
-    /// This method adjusts the alpha, interactable, and blocksRaycasts properties of the CanvasGroup components
-    /// attached to the hand panels of the ally and enemy players based on which player is currently playing.
-    /// </remarks>
     public void UpdateHandPanelVisibility()
     {
         CanvasGroup allyHandPanelCanvasGroup = allyPlayer.handPanel.GetComponent<CanvasGroup>();
@@ -347,4 +342,5 @@ public class Board : MonoBehaviour
             enemyHandPanelCanvasGroup.blocksRaycasts = true;
         }
     }
+    #endregion
 }
