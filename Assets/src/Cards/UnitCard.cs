@@ -8,11 +8,11 @@ public class UnitCard : Card
 
     public float GetCurrentDMG => dmg;
     public float ModDmg { get => dmg; set => dmg = value; }
-    public TypeofUnit typeofUnit { get; private set; }
+    public TypeofUnit TypeofUnit { get; private set; }
 
     public Rarity Rarity { get; private set; }
 
-    public Sprite TypeOfUnitImage { get; private set; } // Add this property
+    public Sprite TypeOfUnitImage { get; private set; }
 
     public void Initialize(string name,
                            string description,
@@ -32,9 +32,7 @@ public class UnitCard : Card
         Rarity = rarity;
         dmg = initialDmg;
         Effect = effect;
-        this.typeofUnit = typeofUnit;
-
-        // Load the appropriate TypeOfUnit image
+        TypeofUnit = typeofUnit;
         TypeOfUnitImage = Resources.Load<Sprite>($"TypeOfUnit/{typeofUnit}");
     }
 }

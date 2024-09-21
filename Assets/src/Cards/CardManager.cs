@@ -7,6 +7,7 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 {
     [SerializeField] private Image ImageOfCard;
     [SerializeField] private TextMeshProUGUI NameOfCard;
+    [SerializeField] private TextMeshProUGUI PowerOfCard;
     [SerializeField] private TextMeshProUGUI DescriptionOfCard;
     [SerializeField] private Image TypeOfUnit;
 
@@ -38,10 +39,12 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
             {
                 TypeOfUnit.sprite = unitCard.TypeOfUnitImage;
                 TypeOfUnit.gameObject.SetActive(true);
+                PowerOfCard.text = unitCard.dmg.ToString();
             }
             else
             {
                 TypeOfUnit.gameObject.SetActive(false);
+                PowerOfCard.text = string.Empty; // Clear the damage value for non-unit cards
             }
         }
     }
@@ -53,6 +56,7 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
             player.OnCardClicked(this);
         }
     }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
@@ -62,5 +66,4 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     {
         transform.localScale = Vector3.one;
     }
-
 }

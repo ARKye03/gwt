@@ -142,15 +142,15 @@ public class Player : MonoBehaviour
     {
         CardSlot cardSlot = null;
 
-        if (uc.typeofUnit == TypeofUnit.Melee)
+        if (uc.TypeofUnit == TypeofUnit.Melee)
         {
             cardSlot = meleeSlots.FirstOrDefault(static slot => !slot.IsOccupied);
         }
-        else if (uc.typeofUnit == TypeofUnit.Ranged)
+        else if (uc.TypeofUnit == TypeofUnit.Ranged)
         {
             cardSlot = rangedSlots.FirstOrDefault(static slot => !slot.IsOccupied);
         }
-        else if (uc.typeofUnit == TypeofUnit.Siege)
+        else if (uc.TypeofUnit == TypeofUnit.Siege)
         {
             cardSlot = siegeSlots.FirstOrDefault(static slot => !slot.IsOccupied);
         }
@@ -160,11 +160,11 @@ public class Player : MonoBehaviour
             cardManager.transform.SetParent(cardSlot.transform);
             cardManager.transform.localPosition = Vector3.zero;
             cardSlot.PlaceCard(uc, cardManager.gameObject);
-            Debug.Log($"Placed {uc.typeofUnit} card: {uc.Name} in slot: {cardSlot.name}");
+            Debug.Log($"Placed {uc.TypeofUnit} card: {uc.Name} in slot: {cardSlot.name}");
         }
         else
         {
-            Debug.LogWarning($"No available {uc.typeofUnit} slot found.");
+            Debug.LogWarning($"No available {uc.TypeofUnit} slot found.");
         }
     }
 
