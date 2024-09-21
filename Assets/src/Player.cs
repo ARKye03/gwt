@@ -25,6 +25,15 @@ public class Player : MonoBehaviour
                 break;
             }
         }
+        //If hand goes beyond 10, push to the deck until 10 again
+        if (hand.Count > 10)
+        {
+            for (int i = 0; i < hand.Count - 10; i++)
+            {
+                deck.cards.Push(hand[^1]);
+                hand.RemoveAt(hand.Count - 1);
+            }
+        }
         UpdateHandUI();
     }
 
@@ -58,16 +67,16 @@ public class Player : MonoBehaviour
     {
         if (board.allyPlayerIsPlaying && this == board.allyPlayer)
         {
-            PlaceCard(cardManager, board.allyMeleeSlots, board.allyRangedSlots, board.allySiegeSlots);
+            PlayRound(cardManager, board.allyMeleeSlots, board.allyRangedSlots, board.allySiegeSlots);
         }
         else if (!board.allyPlayerIsPlaying && this == board.enemyPlayer)
         {
-            PlaceCard(cardManager, board.enemyMeleeSlots, board.enemyRangedSlots, board.enemySiegeSlots);
+            PlayRound(cardManager, board.enemyMeleeSlots, board.enemyRangedSlots, board.enemySiegeSlots);
         }
     }
 
     #region CardsPlacements
-    private void PlaceCard(CardManager cardManager, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
+    private void PlayRound(CardManager cardManager, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
     {
         Card card = cardManager.CardData;
         Debug.Log($"Attempting to place card: {card.Name}");
@@ -102,6 +111,9 @@ public class Player : MonoBehaviour
 
         // Update hand panel visibility after placing a card
         board.UpdateHandPanelVisibility();
+
+        // Calculate and display power at the end of each round
+        board.CalculateAndDisplayPower();
     }
 
     private void PlaceBonusCard(CardManager cardManager, BonusCard bonusCard, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
