@@ -39,7 +39,7 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
             {
                 TypeOfUnit.sprite = unitCard.TypeOfUnitImage;
                 TypeOfUnit.gameObject.SetActive(true);
-                PowerOfCard.text = unitCard.dmg.ToString();
+                PowerOfCard.text = unitCard.power.ToString();
             }
             else
             {
