@@ -1,12 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Collections;
 using TMPro;
 
-public class Board : MonoBehaviour
+public partial class Board : MonoBehaviour
 {
     public Camera mainCamera;
-
+    public TextMeshProUGUI winnerText;
     public TextMeshProUGUI roundCount;
     private int round = 0;
 
@@ -153,7 +152,7 @@ public class Board : MonoBehaviour
         }
 
         // Rotate the camera to the other player
-        StartCoroutine(RotateCameraSmoothly(1.0f));
+        StartCoroutine(RotateCamera(1.0f));
 
         // Update hand panel visibility after passing the turn
         UpdateHandPanelVisibility();
@@ -222,10 +221,12 @@ public class Board : MonoBehaviour
             if (allyWins == 2)
             {
                 Debug.Log("Ally Player wins the series!");
+                winnerText.text = "Ally player wins!";
             }
             else if (enemyWins == 2)
             {
                 Debug.Log("Enemy Player wins the series!");
+                winnerText.text = "Enemy player wins!";
             }
 
             // Clean the field after determining the winner
@@ -284,82 +285,4 @@ public class Board : MonoBehaviour
         }
         return totalPower;
     }
-    #region Utils // Maybe a partial class takes all of this outs, later
-    private void UpdateCount() => roundCount.text = $"Rounds: {Round}";
-    public void IncreaseRound()
-    {
-        Round++;
-        UpdateCount();
-    }
-    public void ResetRound()
-    {
-        Round = 0;
-        UpdateCount();
-    }
-    public IEnumerator RotateCameraSmoothly(float duration)
-    {
-        yield return new WaitForSeconds(0.2f);
-        Quaternion startRotation = mainCamera.transform.rotation;
-        Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, 180);
-        float elapsedTime = 0;
-
-        float startSize = mainCamera.orthographicSize;
-        float zoomInSize = startSize - 0.1f; // Zoom in
-        float zoomOutSize = startSize; // Zoom out
-
-        Quaternion startTextRotation = roundCount.transform.rotation;
-        Quaternion endTextRotation = startTextRotation * Quaternion.Euler(0, 0, 180);
-
-        while (elapsedTime < duration)
-        {
-            float t = elapsedTime / duration;
-            t = t * t * (3f - 2f * t); // Ease-in-out
-
-            mainCamera.transform.rotation = Quaternion.Lerp(startRotation, endRotation, t);
-            roundCount.transform.rotation = Quaternion.Lerp(startTextRotation, endTextRotation, t);
-
-            if (t < 0.5f)
-            {
-                mainCamera.orthographicSize = Mathf.Lerp(startSize, zoomInSize, t * 2);
-            }
-            else
-            {
-                mainCamera.orthographicSize = Mathf.Lerp(zoomInSize, zoomOutSize, (t - 0.5f) * 2);
-            }
-
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        mainCamera.transform.rotation = endRotation;
-        mainCamera.orthographicSize = zoomOutSize;
-        roundCount.transform.rotation = endTextRotation;
-    }
-    public void UpdateHandPanelVisibility()
-    {
-        CanvasGroup allyHandPanelCanvasGroup = allyPlayer.handPanel.GetComponent<CanvasGroup>();
-        CanvasGroup enemyHandPanelCanvasGroup = enemyPlayer.handPanel.GetComponent<CanvasGroup>();
-
-        if (allyPlayerIsPlaying)
-        {
-            allyHandPanelCanvasGroup.alpha = 1;
-            allyHandPanelCanvasGroup.interactable = true;
-            allyHandPanelCanvasGroup.blocksRaycasts = true;
-
-            enemyHandPanelCanvasGroup.alpha = 0;
-            enemyHandPanelCanvasGroup.interactable = false;
-            enemyHandPanelCanvasGroup.blocksRaycasts = false;
-        }
-        else
-        {
-            allyHandPanelCanvasGroup.alpha = 0;
-            allyHandPanelCanvasGroup.interactable = false;
-            allyHandPanelCanvasGroup.blocksRaycasts = false;
-
-            enemyHandPanelCanvasGroup.alpha = 1;
-            enemyHandPanelCanvasGroup.interactable = true;
-            enemyHandPanelCanvasGroup.blocksRaycasts = true;
-        }
-    }
-    #endregion
 }
