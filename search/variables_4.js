@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hiddenposition_0',['hiddenPosition',['../classHandPanelHover.html#aa05cdc76b2175512949e48b7472fafd6',1,'HandPanelHover']]]
+  ['hiddenposition_0',['hiddenPosition',['../classHandPanelManager.html#a5df219f1d7c1e8e000ebc21ffd73cb8e',1,'HandPanelManager']]]
 ];

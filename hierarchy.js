@@ -5,11 +5,11 @@ var hierarchy =
     ] ],
     [ "IPointerEnterHandler", null, [
       [ "CardManager", "classCardManager.html", null ],
-      [ "HandPanelHover", "classHandPanelHover.html", null ]
+      [ "HandPanelManager", "classHandPanelManager.html", null ]
     ] ],
     [ "IPointerExitHandler", null, [
       [ "CardManager", "classCardManager.html", null ],
-      [ "HandPanelHover", "classHandPanelHover.html", null ]
+      [ "HandPanelManager", "classHandPanelManager.html", null ]
     ] ],
     [ "MonoBehaviour", null, [
       [ "Board", "classBoard.html", null ],
@@ -17,7 +17,7 @@ var hierarchy =
       [ "CardSlot", "classCardSlot.html", null ],
       [ "CardsQuanto", "classCardsQuanto.html", null ],
       [ "Deck", "classDeck.html", null ],
-      [ "HandPanelHover", "classHandPanelHover.html", null ],
+      [ "HandPanelManager", "classHandPanelManager.html", null ],
       [ "NewBehaviourScript", "classNewBehaviourScript.html", null ],
       [ "Player", "classPlayer.html", null ],
       [ "Scope", "classScope.html", null ]

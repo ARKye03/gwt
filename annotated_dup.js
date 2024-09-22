@@ -9,7 +9,7 @@ var annotated_dup =
     [ "CardsQuanto", "classCardsQuanto.html", null ],
     [ "ClimateCard", "classClimateCard.html", null ],
     [ "Deck", "classDeck.html", null ],
-    [ "HandPanelHover", "classHandPanelHover.html", "classHandPanelHover" ],
+    [ "HandPanelManager", "classHandPanelManager.html", "classHandPanelManager" ],
     [ "LeaderCard", "classLeaderCard.html", null ],
     [ "NewBehaviourScript", "classNewBehaviourScript.html", null ],
     [ "Player", "classPlayer.html", null ],

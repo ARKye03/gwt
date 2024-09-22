@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['handpanelhover_0',['HandPanelHover',['../classHandPanelHover.html',1,'']]]
+  ['handpanelmanager_0',['HandPanelManager',['../classHandPanelManager.html',1,'']]]
 ];
