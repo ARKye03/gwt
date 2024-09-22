@@ -67,7 +67,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    #region CardsPlacements
     private void PlayRound(CardManager cardManager, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
     {
         Card card = cardManager.CardData;
@@ -98,6 +97,7 @@ public class Player : MonoBehaviour
         board.PassTurn();
     }
 
+    #region CardsPlacements
     private void PlaceBonusCard(CardManager cardManager, BonusCard bonusCard, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
     {
         CardSlot[] targetSlots = null;
