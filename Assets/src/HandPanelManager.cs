@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// Manages the hover effect for the hand panel in the game.
 /// </summary>
-public class HandPanelHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class HandPanelManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     /// <summary>
     /// The position of the panel when it is hidden.
