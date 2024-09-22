@@ -18,13 +18,13 @@ public partial class Board : MonoBehaviour
     public IEnumerator RotateCamera(float duration)
     {
         yield return new WaitForSeconds(0.2f);
-        Quaternion startRotation = mainCamera.transform.rotation;
+        Quaternion startRotation = transform.rotation;
         Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, 180);
         float elapsedTime = 0;
 
-        float startSize = mainCamera.orthographicSize;
-        float zoomInSize = startSize - 0.1f; // Zoom in
-        float zoomOutSize = startSize; // Zoom out
+        // float startSize = mainCamera.orthographicSize;
+        // float zoomInSize = startSize - 0.1f; // Zoom in
+        // float zoomOutSize = startSize; // Zoom out
 
         Quaternion startTextRotation = roundCount.transform.rotation;
         Quaternion endTextRotation = startTextRotation * Quaternion.Euler(0, 0, 180);
@@ -34,7 +34,7 @@ public partial class Board : MonoBehaviour
             float t = elapsedTime / duration;
             t = t * t * (3f - 2f * t); // Ease-in-out
 
-            mainCamera.transform.rotation = Quaternion.Lerp(startRotation, endRotation, t);
+            transform.rotation = Quaternion.Lerp(startRotation, endRotation, t);
             roundCount.transform.rotation = startTextRotation;
             winnerText.transform.rotation = startTextRotation;
             allyWinsText.transform.rotation = startTextRotation;
@@ -42,28 +42,18 @@ public partial class Board : MonoBehaviour
             allyPower.transform.rotation = startTextRotation;
             enemyPower.transform.rotation = startTextRotation;
 
-            if (t < 0.5f)
-            {
-                mainCamera.orthographicSize = Mathf.Lerp(startSize, zoomInSize, t * 2);
-            }
-            else
-            {
-                mainCamera.orthographicSize = Mathf.Lerp(zoomInSize, zoomOutSize, (t - 0.5f) * 2);
-            }
-
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        mainCamera.transform.rotation = endRotation;
-        mainCamera.orthographicSize = zoomOutSize;
-        roundCount.transform.rotation = endTextRotation;
+        transform.rotation = endRotation;
 
-        winnerText.transform.rotation = endRotation;
-        allyWinsText.transform.rotation = endRotation;
-        enemyWinsText.transform.rotation = endRotation;
-        allyPower.transform.rotation = endRotation;
-        enemyPower.transform.rotation = endRotation;
+        // roundCount.transform.rotation = endTextRotation;
+        // winnerText.transform.rotation = endRotation;
+        // allyWinsText.transform.rotation = endRotation;
+        // enemyWinsText.transform.rotation = endRotation;
+        // allyPower.transform.rotation = endRotation;
+        // enemyPower.transform.rotation = endRotation;
     }
     public void UpdateHandPanelVisibility()
     {
