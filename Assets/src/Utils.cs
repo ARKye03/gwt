@@ -4,7 +4,7 @@ using System.Collections;
 public partial class Board : MonoBehaviour
 {
 
-    private void UpdateCount() => roundCount.text = $"Rounds: {Round}";
+    private void UpdateCount() => roundCount.text = $"{Round}";
     public void IncreaseRound()
     {
         Round++;

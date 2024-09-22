@@ -193,8 +193,8 @@ public partial class Board : MonoBehaviour
         allyPowerValue = CalculateTotalPower(allyMeleeSlots) + CalculateTotalPower(allyRangedSlots) + CalculateTotalPower(allySiegeSlots);
         enemyPowerValue = CalculateTotalPower(enemyMeleeSlots) + CalculateTotalPower(enemyRangedSlots) + CalculateTotalPower(enemySiegeSlots);
 
-        allyPower.text = $"Power: {allyPowerValue}";
-        enemyPower.text = $"Power: {enemyPowerValue}";
+        allyPower.text = $"{allyPowerValue}";
+        enemyPower.text = $"{enemyPowerValue}";
 
         allyPlayer.DrawCards(allyDeck, 2);
         enemyPlayer.DrawCards(enemyDeck, 2);
@@ -269,8 +269,8 @@ public partial class Board : MonoBehaviour
 
     private void UpdateWinsDisplay()
     {
-        allyWinsText.text = $"W: {allyWins}";
-        enemyWinsText.text = $"W: {enemyWins}";
+        allyWinsText.text = $"{allyWins}";
+        enemyWinsText.text = $"{enemyWins}";
     }
 
     private int CalculateTotalPower(CardSlot[] slots)
