@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     {
         for (int i = 0; i < numberOfCards; i++)
         {
-            if (deck.cards.Count > 0)
+            if (deck.cards.Count > 0 && hand.Count < 10)
             {
                 hand.Add(deck.cards.Pop());
             }
@@ -25,15 +25,15 @@ public class Player : MonoBehaviour
                 break;
             }
         }
-        //If hand goes beyond 10, push to the deck until 10 again
-        if (hand.Count > 10)
-        {
-            for (int i = 0; i < hand.Count - 10; i++)
-            {
-                deck.cards.Push(hand[^1]);
-                hand.RemoveAt(hand.Count - 1);
-            }
-        }
+        // If hand goes beyond 10, push to the deck until 10 again
+        // if (hand.Count > 10)
+        // {
+        //     for (int i = 0; i < hand.Count - 10; i++)
+        //     {
+        //         deck.cards.Push(hand[^1]);
+        //         hand.RemoveAt(hand.Count - 1);
+        //     }
+        // }
         UpdateHandUI();
     }
 
