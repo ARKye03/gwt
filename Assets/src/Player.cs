@@ -25,17 +25,9 @@ public class Player : MonoBehaviour
                 break;
             }
         }
-        // If hand goes beyond 10, push to the deck until 10 again
-        // if (hand.Count > 10)
-        // {
-        //     for (int i = 0; i < hand.Count - 10; i++)
-        //     {
-        //         deck.cards.Push(hand[^1]);
-        //         hand.RemoveAt(hand.Count - 1);
-        //     }
-        // }
         UpdateHandUI();
     }
+
 
     private void UpdateHandUI()
     {
@@ -103,17 +95,7 @@ public class Player : MonoBehaviour
         hand.Remove(card);
         UpdateHandUI();
 
-        board.allyPlayerIsPlaying = !board.allyPlayerIsPlaying;
-        if (board.allyPlayerIsPlaying)
-            board.IncreaseRound();
-
-        board.StartCoroutine(board.RotateCameraSmoothly(1.0f));
-
-        // Update hand panel visibility after placing a card
-        board.UpdateHandPanelVisibility();
-
-        // Calculate and display power at the end of each round
-        board.CalculateAndDisplayPower();
+        board.PassTurn();
     }
 
     private void PlaceBonusCard(CardManager cardManager, BonusCard bonusCard, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)

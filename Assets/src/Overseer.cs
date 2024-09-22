@@ -20,7 +20,6 @@ public class Board : MonoBehaviour
 
     public TextMeshProUGUI allyWinsText;
     public TextMeshProUGUI enemyWinsText;
-
     public Deck allyDeck;
 
     public CardSlot climateSlot;
@@ -141,6 +140,26 @@ public class Board : MonoBehaviour
 
         // Update hand panel visibility at the start of the game
         UpdateHandPanelVisibility();
+    }
+    public void PassTurn()
+    {
+        // Switch the turn to the other player
+        allyPlayerIsPlaying = !allyPlayerIsPlaying;
+
+        // Increase the round if it's the ally player's turn
+        if (allyPlayerIsPlaying)
+        {
+            IncreaseRound();
+        }
+
+        // Rotate the camera to the other player
+        StartCoroutine(RotateCameraSmoothly(1.0f));
+
+        // Update hand panel visibility after passing the turn
+        UpdateHandPanelVisibility();
+
+        // Calculate and display power at the end of each round
+        CalculateAndDisplayPower();
     }
 
 
