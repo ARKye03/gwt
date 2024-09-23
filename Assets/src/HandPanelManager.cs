@@ -21,7 +21,19 @@ public class HandPanelManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
     /// </summary>
     public float transitionSpeed = 5f;
 
+    /// <summary>
+    /// The CanvasGroup to handle the visibility of the panel.
+    /// </summary>
+    public CanvasGroup canvasGroup;
+
+    /// <summary>
+    /// The target position of the panel.
+    /// </summary>
     private Vector3 targetPosition;
+
+    /// <summary>
+    /// The target scale of the panel.
+    /// </summary>
     private Vector3 targetScale;
 
     /// <summary>
@@ -42,6 +54,25 @@ public class HandPanelManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, Time.deltaTime * transitionSpeed);
         transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Time.deltaTime * transitionSpeed);
+    }
+    /// <summary>
+    /// Shows the panel by setting the alpha, blocksRaycasts, and interactable properties.
+    /// </summary>
+    public void ShowPanel()
+    {
+        canvasGroup.alpha = 1;
+        canvasGroup.blocksRaycasts = true;
+        canvasGroup.interactable = true;
+    }
+
+    /// <summary>
+    /// Hides the panel by setting the alpha, blocksRaycasts, and interactable properties.
+    /// </summary>
+    public void HidePanel()
+    {
+        canvasGroup.alpha = 0;
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.interactable = false;
     }
 
     /// <summary>

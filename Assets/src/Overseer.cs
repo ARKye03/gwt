@@ -250,7 +250,6 @@ public class Board : MonoBehaviour
         enemyRangedBonusSlot.RemoveCard();
         enemySiegeBonusSlot.RemoveCard();
     }
-
     private void CleanRow(CardSlot[] slots, Stack<Card> graveyard)
     {
         foreach (var slot in slots)
@@ -262,13 +261,11 @@ public class Board : MonoBehaviour
             }
         }
     }
-
     private void UpdateWinsDisplay()
     {
         allyWinsText.text = $"{allyWins}";
         enemyWinsText.text = $"{enemyWins}";
     }
-
     private int CalculateTotalPower(CardSlot[] slots)
     {
         int totalPower = 0;
@@ -332,28 +329,18 @@ public class Board : MonoBehaviour
     }
     public void UpdateHandPanelVisibility()
     {
-        CanvasGroup allyHandPanelCanvasGroup = allyPlayer.handPanel.GetComponent<CanvasGroup>();
-        CanvasGroup enemyHandPanelCanvasGroup = enemyPlayer.handPanel.GetComponent<CanvasGroup>();
+        HandPanelManager allyHandPanelManager = allyPlayer.handPanel.GetComponent<HandPanelManager>();
+        HandPanelManager enemyHandPanelManager = enemyPlayer.handPanel.GetComponent<HandPanelManager>();
 
         if (allyPlayerIsPlaying)
         {
-            allyHandPanelCanvasGroup.alpha = 1;
-            allyHandPanelCanvasGroup.interactable = true;
-            allyHandPanelCanvasGroup.blocksRaycasts = true;
-
-            enemyHandPanelCanvasGroup.alpha = 0;
-            enemyHandPanelCanvasGroup.interactable = false;
-            enemyHandPanelCanvasGroup.blocksRaycasts = false;
+            allyHandPanelManager.ShowPanel();
+            enemyHandPanelManager.HidePanel();
         }
         else
         {
-            allyHandPanelCanvasGroup.alpha = 0;
-            allyHandPanelCanvasGroup.interactable = false;
-            allyHandPanelCanvasGroup.blocksRaycasts = false;
-
-            enemyHandPanelCanvasGroup.alpha = 1;
-            enemyHandPanelCanvasGroup.interactable = true;
-            enemyHandPanelCanvasGroup.blocksRaycasts = true;
+            allyHandPanelManager.HidePanel();
+            enemyHandPanelManager.ShowPanel();
         }
     }
 }
