@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['handpanelmanager_0',['HandPanelManager',['../classHandPanelManager.html',1,'']]]
+  ['deck_0',['Deck',['../classDeck.html',1,'']]]
 ];

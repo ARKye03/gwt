@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['unitcard_0',['UnitCard',['../classUnitCard.html',1,'']]]
+  ['textui_0',['textUI',['../classTooltipManager.html#a4485faf6234b36b640f5e8359cb6be04',1,'TooltipManager']]],
+  ['tooltip_1',['Tooltip',['../classTooltip.html',1,'']]],
+  ['tooltipmanager_2',['TooltipManager',['../classTooltipManager.html',1,'']]],
+  ['transitionspeed_3',['transitionSpeed',['../classHandPanelManager.html#acd952352dd6466905129acbad536ec9b',1,'HandPanelManager']]],
+  ['typeofcard_4',['TypeofCard',['../classCard.html#a802b62d89ca753cf8a7ca6fbd89f1b70',1,'Card']]]
 ];

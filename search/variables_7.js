@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['msg_0',['msg',['../classTooltip.html#aee1d05ce7e80b8ed58a3c3ecbe53474a',1,'Tooltip']]]
+  ['isvoidcard_0',['IsVoidCard',['../classCard.html#a8c1bfe71fedc2621efd053820b9d5261',1,'Card']]]
 ];

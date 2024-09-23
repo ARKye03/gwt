@@ -4,6 +4,7 @@ var hierarchy =
       [ "CardManager", "classCardManager.html", null ]
     ] ],
     [ "IPointerEnterHandler", null, [
+      [ "ButtonFX", "classButtonFX.html", null ],
       [ "CardManager", "classCardManager.html", null ],
       [ "HandPanelManager", "classHandPanelManager.html", null ],
       [ "Tooltip", "classTooltip.html", null ]
@@ -14,7 +15,9 @@ var hierarchy =
       [ "Tooltip", "classTooltip.html", null ]
     ] ],
     [ "MonoBehaviour", null, [
+      [ "AudioManager", "classAudioManager.html", null ],
       [ "Board", "classBoard.html", null ],
+      [ "ButtonFX", "classButtonFX.html", null ],
       [ "CardManager", "classCardManager.html", null ],
       [ "CardSlot", "classCardSlot.html", null ],
       [ "CardsQuanto", "classCardsQuanto.html", null ],
@@ -23,7 +26,6 @@ var hierarchy =
       [ "Menu", "classMenu.html", null ],
       [ "NewBehaviourScript", "classNewBehaviourScript.html", null ],
       [ "Player", "classPlayer.html", null ],
-      [ "Scope", "classScope.html", null ],
       [ "Tooltip", "classTooltip.html", null ],
       [ "TooltipManager", "classTooltipManager.html", null ]
     ] ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['effect_0',['Effect',['../classCard.html#abef023376970c4cd8690552b04994f3e',1,'Card']]]
+  ['description_0',['Description',['../classCard.html#a815a04a59dca9a558f7089a39a9987a4',1,'Card']]]
 ];

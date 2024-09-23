@@ -1,8 +1,10 @@
 var annotated_dup =
 [
+    [ "AudioManager", "classAudioManager.html", null ],
     [ "BaitCard", "classBaitCard.html", null ],
     [ "Board", "classBoard.html", null ],
     [ "BonusCard", "classBonusCard.html", null ],
+    [ "ButtonFX", "classButtonFX.html", "classButtonFX" ],
     [ "Card", "classCard.html", "classCard" ],
     [ "CardManager", "classCardManager.html", null ],
     [ "CardSlot", "classCardSlot.html", null ],
@@ -14,7 +16,6 @@ var annotated_dup =
     [ "Menu", "classMenu.html", null ],
     [ "NewBehaviourScript", "classNewBehaviourScript.html", null ],
     [ "Player", "classPlayer.html", null ],
-    [ "Scope", "classScope.html", null ],
     [ "Tooltip", "classTooltip.html", "classTooltip" ],
     [ "TooltipManager", "classTooltipManager.html", "classTooltipManager" ],
     [ "UnitCard", "classUnitCard.html", null ]
