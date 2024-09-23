@@ -5,40 +5,36 @@ using System.Collections;
 
 public class Board : MonoBehaviour
 {
+    [Header("<----------Core---------->")]
     public Camera mainCamera;
     public TextMeshProUGUI winnerText;
     public TextMeshProUGUI roundCount;
+    public CardSlot climateSlot;
     private int round = 0;
+
+    [Header("<----------Ally---------->")]
+    public Player allyPlayer;
+    public GameObject player1HandPanel;
 
     public TextMeshProUGUI allyPower;
     private int allyPowerValue = 0;
-    public TextMeshProUGUI enemyPower;
-    private int enemyPowerValue = 0;
-
-    private int allyWins = 0;
-    private int enemyWins = 0;
 
     public TextMeshProUGUI allyWinsText;
-    public TextMeshProUGUI enemyWinsText;
+    private int allyWins = 0;
     public Deck allyDeck;
 
-    public CardSlot climateSlot;
-
     public Stack<Card> allyGraveyard = new();
-
     public CardSlot[] allyMeleeSlots;
-
     public CardSlot allyMeleeBonusSlot;
-
     public CardSlot[] allyRangedSlots;
-
     public CardSlot allyRangedBonusSlot;
-
     public CardSlot[] allySiegeSlots;
-
     public CardSlot allySiegeBonusSlot;
     public CardSlot allyLeaderSlot;
 
+    [Header("<----------Enemy---------->")]
+    private int enemyWins = 0;
+    public TextMeshProUGUI enemyWinsText;
     public CardSlot[] enemyMeleeSlots;
 
     public CardSlot enemyMeleeBonusSlot;
@@ -56,10 +52,9 @@ public class Board : MonoBehaviour
 
     public Stack<Card> enemyGraveyard = new();
 
-    public Player allyPlayer;
-
     public Player enemyPlayer;
-    public GameObject player1HandPanel;
+    public TextMeshProUGUI enemyPower;
+    private int enemyPowerValue = 0;
 
     public GameObject player2HandPanel;
 
