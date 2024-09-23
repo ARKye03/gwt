@@ -148,7 +148,7 @@ public class Board : MonoBehaviour
         }
 
         // Rotate the camera to the other player
-        StartCoroutine(RotateCamera(1.0f));
+        StartCoroutine(RotateElements(1.0f));
 
         // Update hand panel visibility after passing the turn
         UpdateHandPanelVisibility();
@@ -293,45 +293,42 @@ public class Board : MonoBehaviour
         Round = 0;
         UpdateCount();
     }
-    public IEnumerator RotateCamera(float duration)
+    public IEnumerator RotateElements(float duration)
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.2f); // 200ms delay
+
         Quaternion startRotation = transform.rotation;
         Quaternion endRotation = startRotation * Quaternion.Euler(0, 0, 180);
         float elapsedTime = 0;
 
-        // float startSize = mainCamera.orthographicSize;
-        // float zoomInSize = startSize - 0.1f; // Zoom in
-        // float zoomOutSize = startSize; // Zoom out
-
         Quaternion startTextRotation = roundCount.transform.rotation;
-        Quaternion endTextRotation = startTextRotation * Quaternion.Euler(0, 0, 180);
 
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;
-            t = t * t * (3f - 2f * t); // Ease-in-out
+            t = EaseInOut(t);
 
             transform.rotation = Quaternion.Lerp(startRotation, endRotation, t);
-            roundCount.transform.rotation = startTextRotation;
-            winnerText.transform.rotation = startTextRotation;
-            allyWinsText.transform.rotation = startTextRotation;
-            enemyWinsText.transform.rotation = startTextRotation;
-            allyPower.transform.rotation = startTextRotation;
-            enemyPower.transform.rotation = startTextRotation;
+            RotateUIElements(startTextRotation);
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         transform.rotation = endRotation;
-
-        // roundCount.transform.rotation = endTextRotation;
-        // winnerText.transform.rotation = endRotation;
-        // allyWinsText.transform.rotation = endRotation;
-        // enemyWinsText.transform.rotation = endRotation;
-        // allyPower.transform.rotation = endRotation;
-        // enemyPower.transform.rotation = endRotation;
+    }
+    private void RotateUIElements(Quaternion startRotation)
+    {
+        roundCount.transform.rotation = startRotation;
+        winnerText.transform.rotation = startRotation;
+        allyWinsText.transform.rotation = startRotation;
+        enemyWinsText.transform.rotation = startRotation;
+        allyPower.transform.rotation = startRotation;
+        enemyPower.transform.rotation = startRotation;
+    }
+    private float EaseInOut(float t)
+    {
+        return t * t * (3f - 2f * t);
     }
     public void UpdateHandPanelVisibility()
     {

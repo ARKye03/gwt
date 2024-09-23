@@ -16,7 +16,7 @@ public class CardSlot : MonoBehaviour
             IsOccupied = true;
             card.CanBePlayed = false;
             cardObject.transform.position = transform.position;
-            cardObject.transform.localScale = Vector3.one; // Reset the scale
+            cardObject.transform.localScale = Vector3.one;
             Debug.Log($"Card {card.Name} placed in slot {name}.");
         }
         else
@@ -29,9 +29,9 @@ public class CardSlot : MonoBehaviour
     {
         if (IsOccupied)
         {
-            Destroy(currentCardObject); // Destroy the card's game object
+            Destroy(currentCardObject);
             CurrentCard = null;
-            currentCardObject = null; // Clear the reference to the card's game object
+            currentCardObject = null;
             IsOccupied = false;
         }
     }
