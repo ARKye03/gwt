@@ -2014,12 +2014,13 @@ MonoBehaviour:
   mainCamera: {fileID: 322938415}
   winnerText: {fileID: 230178524}
   roundCount: {fileID: 1095048319}
-  allyPower: {fileID: 1713271471}
-  enemyPower: {fileID: 438463977}
-  allyWinsText: {fileID: 2000103360}
-  enemyWinsText: {fileID: 433392019}
-  allyDeck: {fileID: 1383235441}
   climateSlot: {fileID: 178847149}
+  roundManager: {fileID: 1095048322}
+  allyPlayer: {fileID: 1565530761}
+  player1HandPanel: {fileID: 1878995633}
+  allyPower: {fileID: 1713271471}
+  allyWinsText: {fileID: 2000103360}
+  allyDeck: {fileID: 1383235441}
   allyMeleeSlots:
   - {fileID: 645714197}
   - {fileID: 724760127}
@@ -2042,6 +2043,7 @@ MonoBehaviour:
   - {fileID: 1150203180}
   allySiegeBonusSlot: {fileID: 1756621476}
   allyLeaderSlot: {fileID: 1814681498}
+  enemyWinsText: {fileID: 433392019}
   enemyMeleeSlots:
   - {fileID: 206111233}
   - {fileID: 1755731623}
@@ -2065,9 +2067,8 @@ MonoBehaviour:
   enemySiegeBonusSlot: {fileID: 898980079}
   enemyLeaderSlot: {fileID: 2051420856}
   enemyDeck: {fileID: 874847090}
-  allyPlayer: {fileID: 1565530761}
   enemyPlayer: {fileID: 1391075395}
-  player1HandPanel: {fileID: 1878995633}
+  enemyPower: {fileID: 438463977}
   player2HandPanel: {fileID: 2005737851}
   cardPrefab: {fileID: 8485208469373318605, guid: 21b5e5189d75e9e42ad40bee957689f1, type: 3}
   allyPlayerIsPlaying: 1
@@ -2543,6 +2544,7 @@ GameObject:
   - component: {fileID: 1095048320}
   - component: {fileID: 1095048319}
   - component: {fileID: 1095048321}
+  - component: {fileID: 1095048322}
   m_Layer: 5
   m_Name: RoundCount
   m_TagString: Untagged
@@ -2679,6 +2681,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   msg: Rounds Played!
+--- !u!114 &1095048322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095048317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce22248179562c64c8fc7d07d06bee68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundCount: {fileID: 1095048319}
 --- !u!1 &1097154547
 GameObject:
   m_ObjectHideFlags: 0
@@ -3941,6 +3956,7 @@ MonoBehaviour:
   hiddenPosition: {x: -180, y: -300, z: 0}
   visiblePosition: {x: -180, y: -230, z: 0}
   transitionSpeed: 5
+  canvasGroup: {fileID: 1878995639}
 --- !u!225 &1878995639
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4476,6 +4492,7 @@ MonoBehaviour:
   hiddenPosition: {x: -180, y: -300, z: 0}
   visiblePosition: {x: -180, y: -230, z: 0}
   transitionSpeed: 5
+  canvasGroup: {fileID: 2005737857}
 --- !u!225 &2005737857
 CanvasGroup:
   m_ObjectHideFlags: 0
