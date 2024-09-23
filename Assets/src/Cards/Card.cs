@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public delegate bool Effect(Scope scope);
+public delegate bool Effect();
 
 /// <summary>
 /// Represents a card in the game with various attributes such as name, description, type, faction, effect, and image.
