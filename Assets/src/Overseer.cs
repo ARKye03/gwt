@@ -10,6 +10,7 @@ public class Board : MonoBehaviour
     public TextMeshProUGUI winnerText;
     public TextMeshProUGUI roundCount;
     public CardSlot climateSlot;
+    public RoundManager roundManager;
     private int round = 0;
 
     [Header("<----------Ally---------->")]
@@ -144,7 +145,7 @@ public class Board : MonoBehaviour
         // Increase the round if it's the ally player's turn
         if (allyPlayerIsPlaying)
         {
-            IncreaseRound();
+            roundManager.IncreaseRound();
         }
 
         // Rotate the camera to the other player
@@ -156,8 +157,6 @@ public class Board : MonoBehaviour
         // Calculate and display power at the end of each round
         CalculateAndDisplayPower();
     }
-
-
     private void PlaceLeaderCard(Player player, Deck deck, CardSlot leaderSlot)
     {
         if (deck.cards.Count > 0 && deck.cards.Peek() is LeaderCard leaderCard)
@@ -228,7 +227,7 @@ public class Board : MonoBehaviour
             // Clean the field after determining the winner
             CleanField();
 
-            ResetRound();
+            roundManager.ResetRound();
         }
     }
     public void CleanField()
@@ -277,18 +276,6 @@ public class Board : MonoBehaviour
             }
         }
         return totalPower;
-    }
-
-    private void UpdateCount() => roundCount.text = $"{Round}";
-    public void IncreaseRound()
-    {
-        Round++;
-        UpdateCount();
-    }
-    public void ResetRound()
-    {
-        Round = 0;
-        UpdateCount();
     }
     public IEnumerator RotateElements(float duration)
     {
