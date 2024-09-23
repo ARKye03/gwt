@@ -10,6 +10,9 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     [SerializeField] private TextMeshProUGUI PowerOfCard;
     [SerializeField] private TextMeshProUGUI DescriptionOfCard;
     [SerializeField] private Image TypeOfUnit;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
+
 
     private Card cardData;
     public Card CardData
@@ -59,6 +62,7 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        audioSource.PlayOneShot(audioClip);
         transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
     }
 
