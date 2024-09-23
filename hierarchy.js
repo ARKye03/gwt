@@ -20,6 +20,7 @@ var hierarchy =
       [ "CardsQuanto", "classCardsQuanto.html", null ],
       [ "Deck", "classDeck.html", null ],
       [ "HandPanelManager", "classHandPanelManager.html", null ],
+      [ "Menu", "classMenu.html", null ],
       [ "NewBehaviourScript", "classNewBehaviourScript.html", null ],
       [ "Player", "classPlayer.html", null ],
       [ "Scope", "classScope.html", null ],
