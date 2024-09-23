@@ -98,6 +98,9 @@ $(document).ready(function(){initNavTree('classTooltipManager.html',''); initRes
   <div class="headertitle"><div class="title">TooltipManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages the display of tooltips in the game.  
+ <a href="classTooltipManager.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for TooltipManager:</div>
 <div class="dyncontent">
@@ -107,25 +110,65 @@ Inheritance diagram for TooltipManager:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abc1c6d2f6e8f37bc1d37d70fda32081a"><td class="memItemLeft" align="right" valign="top"><a id="abc1c6d2f6e8f37bc1d37d70fda32081a" name="abc1c6d2f6e8f37bc1d37d70fda32081a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ShowTooltip</b> (string msg)</td></tr>
+<tr class="memitem:abc1c6d2f6e8f37bc1d37d70fda32081a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTooltipManager.html#abc1c6d2f6e8f37bc1d37d70fda32081a">ShowTooltip</a> (string msg)</td></tr>
+<tr class="memdesc:abc1c6d2f6e8f37bc1d37d70fda32081a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the tooltip with the specified message.  <br /></td></tr>
 <tr class="separator:abc1c6d2f6e8f37bc1d37d70fda32081a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f863466b7870cf47c0897a808acab68"><td class="memItemLeft" align="right" valign="top"><a id="a3f863466b7870cf47c0897a808acab68" name="a3f863466b7870cf47c0897a808acab68"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>HideTooltip</b> ()</td></tr>
+<tr class="memdesc:a3f863466b7870cf47c0897a808acab68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hides the tooltip and clears the text. <br /></td></tr>
 <tr class="separator:a3f863466b7870cf47c0897a808acab68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a4485faf6234b36b640f5e8359cb6be04"><td class="memItemLeft" align="right" valign="top"><a id="a4485faf6234b36b640f5e8359cb6be04" name="a4485faf6234b36b640f5e8359cb6be04"></a>
 TextMeshProUGUI&#160;</td><td class="memItemRight" valign="bottom"><b>textUI</b></td></tr>
+<tr class="memdesc:a4485faf6234b36b640f5e8359cb6be04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the TextMeshProUGUI component used to display the tooltip text. <br /></td></tr>
 <tr class="separator:a4485faf6234b36b640f5e8359cb6be04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:acfacec05ca1b38f6b1d03df1ed21931d"><td class="memItemLeft" align="right" valign="top"><a id="acfacec05ca1b38f6b1d03df1ed21931d" name="acfacec05ca1b38f6b1d03df1ed21931d"></a>
 static <a class="el" href="classTooltipManager.html">TooltipManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_instance</b></td></tr>
+<tr class="memdesc:acfacec05ca1b38f6b1d03df1ed21931d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton instance of the <a class="el" href="classTooltipManager.html" title="Manages the display of tooltips in the game.">TooltipManager</a>. <br /></td></tr>
 <tr class="separator:acfacec05ca1b38f6b1d03df1ed21931d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages the display of tooltips in the game. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="abc1c6d2f6e8f37bc1d37d70fda32081a" name="abc1c6d2f6e8f37bc1d37d70fda32081a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1c6d2f6e8f37bc1d37d70fda32081a">&#9670;&#160;</a></span>ShowTooltip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TooltipManager.ShowTooltip </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Displays the tooltip with the specified message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>The message to display in the tooltip.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Assets/src/Tooltip/TooltipManager.cs</li>
 </ul>

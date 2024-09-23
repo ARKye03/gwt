@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cardimage_0',['CardImage',['../classCard.html#a4e406b5dc75fd4f60e2b26f2ddcbe716',1,'Card']]]
+  ['_5finstance_0',['_instance',['../classTooltipManager.html#acfacec05ca1b38f6b1d03df1ed21931d',1,'TooltipManager']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isvoidcard_0',['IsVoidCard',['../classCard.html#a8c1bfe71fedc2621efd053820b9d5261',1,'Card']]]
+  ['hiddenposition_0',['hiddenPosition',['../classHandPanelManager.html#a5df219f1d7c1e8e000ebc21ffd73cb8e',1,'HandPanelManager']]]
 ];

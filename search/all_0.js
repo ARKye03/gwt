@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['baitcard_0',['BaitCard',['../classBaitCard.html',1,'']]],
-  ['board_1',['Board',['../classBoard.html',1,'']]],
-  ['bonuscard_2',['BonusCard',['../classBonusCard.html',1,'']]]
+  ['_5finstance_0',['_instance',['../classTooltipManager.html#acfacec05ca1b38f6b1d03df1ed21931d',1,'TooltipManager']]]
 ];

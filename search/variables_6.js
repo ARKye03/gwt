@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_0',['Name',['../classCard.html#a5a6f253b03f13d9e792836ee2ec678ec',1,'Card']]]
+  ['isvoidcard_0',['IsVoidCard',['../classCard.html#a8c1bfe71fedc2621efd053820b9d5261',1,'Card']]]
 ];
