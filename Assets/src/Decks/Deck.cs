@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Deck is a MonoBehaviour that manages the deck of cards.
+/// Manages the deck of cards.
 /// </summary>
 public class Deck : MonoBehaviour
 {

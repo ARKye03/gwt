@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 
 /// <summary>
-/// RoundManager is a MonoBehaviour that manages the round count.
+/// Manages the round count.
 /// </summary>
 public class RoundManager : MonoBehaviour
 {

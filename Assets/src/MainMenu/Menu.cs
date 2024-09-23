@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Menu is a MonoBehaviour that manages the main menu logic.
+/// Manages the main menu logic.
 /// </summary>
 public class Menu : MonoBehaviour
 {
