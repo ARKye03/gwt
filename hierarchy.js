@@ -26,6 +26,7 @@ var hierarchy =
       [ "Menu", "classMenu.html", null ],
       [ "NewBehaviourScript", "classNewBehaviourScript.html", null ],
       [ "Player", "classPlayer.html", null ],
+      [ "RoundManager", "classRoundManager.html", null ],
       [ "Tooltip", "classTooltip.html", null ],
       [ "TooltipManager", "classTooltipManager.html", null ]
     ] ],

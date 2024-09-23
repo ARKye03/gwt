@@ -16,6 +16,7 @@ var annotated_dup =
     [ "Menu", "classMenu.html", null ],
     [ "NewBehaviourScript", "classNewBehaviourScript.html", null ],
     [ "Player", "classPlayer.html", null ],
+    [ "RoundManager", "classRoundManager.html", null ],
     [ "Tooltip", "classTooltip.html", "classTooltip" ],
     [ "TooltipManager", "classTooltipManager.html", "classTooltipManager" ],
     [ "UnitCard", "classUnitCard.html", null ]

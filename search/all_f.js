@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['textui_0',['textUI',['../classTooltipManager.html#a4485faf6234b36b640f5e8359cb6be04',1,'TooltipManager']]],
-  ['tooltip_1',['Tooltip',['../classTooltip.html',1,'']]],
-  ['tooltipmanager_2',['TooltipManager',['../classTooltipManager.html',1,'']]],
-  ['transitionspeed_3',['transitionSpeed',['../classHandPanelManager.html#acd952352dd6466905129acbad536ec9b',1,'HandPanelManager']]],
-  ['typeofcard_4',['TypeofCard',['../classCard.html#a802b62d89ca753cf8a7ca6fbd89f1b70',1,'Card']]]
+  ['showpanel_0',['ShowPanel',['../classHandPanelManager.html#ab7e6248841c65cbed390888a6e2511f0',1,'HandPanelManager']]],
+  ['showtooltip_1',['ShowTooltip',['../classTooltipManager.html#abc1c6d2f6e8f37bc1d37d70fda32081a',1,'TooltipManager']]]
 ];

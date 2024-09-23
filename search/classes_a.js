@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['unitcard_0',['UnitCard',['../classUnitCard.html',1,'']]]
+  ['tooltip_0',['Tooltip',['../classTooltip.html',1,'']]],
+  ['tooltipmanager_1',['TooltipManager',['../classTooltipManager.html',1,'']]]
 ];
