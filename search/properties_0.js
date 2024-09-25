@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['canbeplayed_0',['CanBePlayed',['../classCard.html#af913e3dbf3967324b0d6db46912ca87c',1,'Card']]]
+  ['_5finstance_0',['_instance',['../classRoundManager.html#a2b4b37495a6231ce3105ef97f40de015',1,'RoundManager']]]
 ];

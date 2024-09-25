@@ -1,5 +1,6 @@
 var hierarchy =
 [
+    [ "CleanManager", "classCleanManager.html", null ],
     [ "IPointerClickHandler", null, [
       [ "CardManager", "classCardManager.html", null ]
     ] ],

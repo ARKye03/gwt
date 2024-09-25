@@ -8,5 +8,6 @@ var searchData=
   ['cards_5',['cards',['../classDeck.html#ad32085f350911e6aa3f57db20e96b449',1,'Deck.cards()'],['../classHandPanelManager.html#a30eb518848060f371148f40a60001b05',1,'HandPanelManager.cards()']]],
   ['cardslot_6',['CardSlot',['../classCardSlot.html',1,'']]],
   ['cardsquanto_7',['CardsQuanto',['../classCardsQuanto.html',1,'']]],
-  ['climatecard_8',['ClimateCard',['../classClimateCard.html',1,'']]]
+  ['cleanmanager_8',['CleanManager',['../classCleanManager.html',1,'']]],
+  ['climatecard_9',['ClimateCard',['../classClimateCard.html',1,'']]]
 ];
