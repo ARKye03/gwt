@@ -167,6 +167,7 @@ public class Board : MonoBehaviour
             // Instantiate the card prefab and place it in the leader slot
             GameObject leaderCardObject = Instantiate(cardPrefab, leaderSlot.transform);
             CardManager cardManager = leaderCardObject.GetComponent<CardManager>();
+            cardManager.player = player;
 
             if (cardManager != null)
             {

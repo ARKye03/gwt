@@ -80,7 +80,7 @@ public class CardsQuanto : MonoBehaviour
             CreateClimateCard("AgainstTheCurrent", "Reduces strength of ranged units", Faction.Idanai, null, RowType.Ranged, "Idanai/AgainstTheCurrent"),
             CreateClimateCard("StormOfSiege", "Reduces strength of siege units", Faction.Idanai, null, RowType.Siege, "Idanai/StormOfSiege"),
 
-            CreateLeaderCard("Idanai", "Idanai", Faction.Idanai, null, "Idanai/Idanai"),
+            CreateLeaderCard("Idanai", "Idanai", Faction.Idanai, Effects.DropAndDrawCard, "Idanai/Idanai"),
         });
 
         CardsOfCelai = new Stack<Card>(new List<Card>
