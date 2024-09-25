@@ -1108,6 +1108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 417779838}
+  - component: {fileID: 417779839}
   m_Layer: 5
   m_Name: Ally
   m_TagString: Untagged
@@ -1134,7 +1135,6 @@ RectTransform:
   - {fileID: 254531632}
   - {fileID: 1814681497}
   - {fileID: 1878995637}
-  - {fileID: 1565530760}
   - {fileID: 1713271470}
   - {fileID: 2000103359}
   m_Father: {fileID: 900113599}
@@ -1144,6 +1144,44 @@ RectTransform:
   m_AnchoredPosition: {x: 162, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &417779839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417779837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14b79b7ee59524408d8c3d8efc4fc16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handPanelManager: {fileID: 1878995638}
+  cardPrefab: {fileID: 8485208469373318605, guid: 21b5e5189d75e9e42ad40bee957689f1, type: 3}
+  deck: {fileID: 1383235441}
+  board: {fileID: 900113602}
+  MeleeSlots:
+  - {fileID: 645714197}
+  - {fileID: 724760127}
+  - {fileID: 1162850578}
+  - {fileID: 1475195319}
+  - {fileID: 2081307067}
+  MeleeBonusSlot: {fileID: 472296562}
+  RangedSlots:
+  - {fileID: 959598420}
+  - {fileID: 99087573}
+  - {fileID: 1019100332}
+  - {fileID: 1261386137}
+  - {fileID: 1840917105}
+  RangedBonusSlot: {fileID: 191048292}
+  SiegeSlots:
+  - {fileID: 1205612020}
+  - {fileID: 1993011686}
+  - {fileID: 922904942}
+  - {fileID: 1723416374}
+  - {fileID: 1150203180}
+  SiegeBonusSlot: {fileID: 1756621476}
+  LeaderSlot: {fileID: 1814681498}
 --- !u!1 &433392017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,6 +1724,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 696022949}
+  - component: {fileID: 696022950}
   m_Layer: 5
   m_Name: Enemy
   m_TagString: Untagged
@@ -1712,7 +1751,6 @@ RectTransform:
   - {fileID: 927915505}
   - {fileID: 2051420855}
   - {fileID: 2005737855}
-  - {fileID: 1391075394}
   - {fileID: 438463976}
   - {fileID: 433392018}
   m_Father: {fileID: 900113599}
@@ -1722,6 +1760,44 @@ RectTransform:
   m_AnchoredPosition: {x: 162, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &696022950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696022948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14b79b7ee59524408d8c3d8efc4fc16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handPanelManager: {fileID: 2005737856}
+  cardPrefab: {fileID: 8485208469373318605, guid: 21b5e5189d75e9e42ad40bee957689f1, type: 3}
+  deck: {fileID: 874847090}
+  board: {fileID: 900113602}
+  MeleeSlots:
+  - {fileID: 206111233}
+  - {fileID: 1755731623}
+  - {fileID: 1093560713}
+  - {fileID: 1439893085}
+  - {fileID: 2109946129}
+  MeleeBonusSlot: {fileID: 1097154549}
+  RangedSlots:
+  - {fileID: 1903900790}
+  - {fileID: 1902191103}
+  - {fileID: 514569966}
+  - {fileID: 23512095}
+  - {fileID: 980897194}
+  RangedBonusSlot: {fileID: 1183472748}
+  SiegeSlots:
+  - {fileID: 2101922897}
+  - {fileID: 1009235841}
+  - {fileID: 541447838}
+  - {fileID: 1638213127}
+  - {fileID: 708670072}
+  SiegeBonusSlot: {fileID: 898980079}
+  LeaderSlot: {fileID: 2051420856}
 --- !u!1 &708670070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,60 +2092,12 @@ MonoBehaviour:
   roundCount: {fileID: 1095048319}
   climateSlot: {fileID: 178847149}
   roundManager: {fileID: 1095048322}
-  allyPlayer: {fileID: 1565530761}
-  player1HandPanel: {fileID: 1878995633}
+  allyPlayer: {fileID: 417779839}
   allyPower: {fileID: 1713271471}
   allyWinsText: {fileID: 2000103360}
-  allyDeck: {fileID: 1383235441}
-  allyMeleeSlots:
-  - {fileID: 645714197}
-  - {fileID: 724760127}
-  - {fileID: 1162850578}
-  - {fileID: 1475195319}
-  - {fileID: 2081307067}
-  allyMeleeBonusSlot: {fileID: 472296562}
-  allyRangedSlots:
-  - {fileID: 959598420}
-  - {fileID: 99087573}
-  - {fileID: 1019100332}
-  - {fileID: 1261386137}
-  - {fileID: 1840917105}
-  allyRangedBonusSlot: {fileID: 191048292}
-  allySiegeSlots:
-  - {fileID: 1205612020}
-  - {fileID: 1993011686}
-  - {fileID: 922904942}
-  - {fileID: 1723416374}
-  - {fileID: 1150203180}
-  allySiegeBonusSlot: {fileID: 1756621476}
-  allyLeaderSlot: {fileID: 1814681498}
+  enemyPlayer: {fileID: 696022950}
   enemyWinsText: {fileID: 433392019}
-  enemyMeleeSlots:
-  - {fileID: 206111233}
-  - {fileID: 1755731623}
-  - {fileID: 1093560713}
-  - {fileID: 1439893085}
-  - {fileID: 2109946129}
-  enemyMeleeBonusSlot: {fileID: 1097154549}
-  enemyRangedSlots:
-  - {fileID: 1903900790}
-  - {fileID: 1902191103}
-  - {fileID: 514569966}
-  - {fileID: 23512095}
-  - {fileID: 980897194}
-  enemyRangedBonusSlot: {fileID: 1183472748}
-  enemySiegeSlots:
-  - {fileID: 2101922897}
-  - {fileID: 1009235841}
-  - {fileID: 541447838}
-  - {fileID: 1638213127}
-  - {fileID: 708670072}
-  enemySiegeBonusSlot: {fileID: 898980079}
-  enemyLeaderSlot: {fileID: 2051420856}
-  enemyDeck: {fileID: 874847090}
-  enemyPlayer: {fileID: 1391075395}
   enemyPower: {fileID: 438463977}
-  player2HandPanel: {fileID: 2005737851}
   cardPrefab: {fileID: 8485208469373318605, guid: 21b5e5189d75e9e42ad40bee957689f1, type: 3}
   allyPlayerIsPlaying: 1
 --- !u!1 &922904940
@@ -3118,58 +3146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7731d512d0d517499e0f7335bd7b845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1391075393
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1391075394}
-  - component: {fileID: 1391075395}
-  m_Layer: 5
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1391075394
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391075393}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 696022949}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1391075395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391075393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d14b79b7ee59524408d8c3d8efc4fc16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hand: []
-  handPanel: {fileID: 2005737851}
-  cardPrefab: {fileID: 0}
-  board: {fileID: 0}
 --- !u!1 &1439893083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,58 +3244,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowedCardType: 0
---- !u!1 &1565530759
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1565530760}
-  - component: {fileID: 1565530761}
-  m_Layer: 5
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1565530760
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565530759}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 417779838}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1565530761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565530759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d14b79b7ee59524408d8c3d8efc4fc16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hand: []
-  handPanel: {fileID: 1878995633}
-  cardPrefab: {fileID: 8485208469373318605, guid: 21b5e5189d75e9e42ad40bee957689f1, type: 3}
-  board: {fileID: 0}
 --- !u!1 &1638213125
 GameObject:
   m_ObjectHideFlags: 0
@@ -3957,6 +3881,8 @@ MonoBehaviour:
   visiblePosition: {x: -180, y: -230, z: 0}
   transitionSpeed: 5
   canvasGroup: {fileID: 1878995639}
+  handPanel: {fileID: 1878995633}
+  cards: []
 --- !u!225 &1878995639
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4493,6 +4419,8 @@ MonoBehaviour:
   visiblePosition: {x: -180, y: -230, z: 0}
   transitionSpeed: 5
   canvasGroup: {fileID: 2005737857}
+  handPanel: {fileID: 2005737851}
+  cards: []
 --- !u!225 &2005737857
 CanvasGroup:
   m_ObjectHideFlags: 0
