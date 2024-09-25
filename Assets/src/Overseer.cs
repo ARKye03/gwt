@@ -13,6 +13,7 @@ public class Board : MonoBehaviour
     public TextMeshProUGUI roundCount;
     public CardSlot climateSlot;
     public RoundManager roundManager;
+    public GameObject pauseMenu;
 
     [Header("<----------AllyPlayer---------->")]
     public Player allyPlayer;
@@ -100,6 +101,13 @@ public class Board : MonoBehaviour
 
         // Update hand panel visibility at the start of the game
         UpdateHandPanelVisibility();
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseMenu.SetActive(true);
+        }
     }
     public void PassTurn()
     {
