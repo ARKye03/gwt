@@ -8,6 +8,13 @@ public class Effects : MonoBehaviour
         var card = player.hand[Random.Range(0, player.hand.Count)];
         return true;
     }
+    public static bool ReloadHand(Player player)
+    {
+        player.hand.ForEach(card => player.deck.cards.Push(card));
+        player.deck.Shuffle();
+        player.DrawCards(10);
+        return true;
+    }
 
     public static bool DropAndDrawCard(Player player)
     {
