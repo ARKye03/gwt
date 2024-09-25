@@ -25,6 +25,7 @@ var hierarchy =
       [ "Effects", "classEffects.html", null ],
       [ "HandPanelManager", "classHandPanelManager.html", null ],
       [ "Menu", "classMenu.html", null ],
+      [ "PauseMenu", "classPauseMenu.html", null ],
       [ "Player", "classPlayer.html", null ],
       [ "RoundManager", "classRoundManager.html", null ],
       [ "Tooltip", "classTooltip.html", null ],
