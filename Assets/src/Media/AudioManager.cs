@@ -6,8 +6,17 @@ using UnityEngine;
 /// </summary>
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager _instance { get; private set; }
     void Awake()
     {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            _instance = this;
+        }
         // Simplest method to persist object through scenes
         DontDestroyOnLoad(gameObject);
     }
