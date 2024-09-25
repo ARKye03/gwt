@@ -110,8 +110,14 @@ public class Board : MonoBehaviour
             cardsQuanto.CardsOfCelai,
             cardsQuanto.CardsOfYudivain
         };
-        System.Random random = new();
 
+#if DEBUG
+        allyPlayer.Name = "Ally Player";
+        allyDeck.cards = decks[0];
+        enemyPlayer.Name = "Enemy Player";
+        enemyDeck.cards = decks[1];
+#else
+        UnityEngine.Random random = new();
         // Assign random decks to players
         int deckIndex1 = random.Next(decks.Count);
         allyPlayer.Name = "Ally Player";
@@ -121,6 +127,7 @@ public class Board : MonoBehaviour
         int deckIndex2 = random.Next(decks.Count);
         enemyPlayer.Name = "Enemy Player";
         enemyDeck.cards = decks[deckIndex2];
+#endif
 
         // Place leader cards in the respective slots
         PlaceLeaderCard(allyPlayer, allyDeck, allyLeaderSlot);
