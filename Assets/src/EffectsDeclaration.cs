@@ -3,15 +3,9 @@ using System.Collections.Generic;
 
 public class Effects : MonoBehaviour
 {
-    public static bool ActivateRandomCard(Board board)
+    public static bool SpawnRandomCard(Player player)
     {
-        List<Card> hand = board.allyPlayer.hand;
-        if (hand.Count == 0) return false;
-
-        int randomIndex = Random.Range(0, hand.Count);
-        Card randomCard = hand[randomIndex];
-        randomCard.CanBePlayed = true;
-        Debug.Log($"Activated random card: {randomCard.Name}");
+        var card = player.hand[Random.Range(0, player.hand.Count)];
         return true;
     }
 
@@ -26,6 +20,7 @@ public class Effects : MonoBehaviour
 
         Card newCard = player.deck.DrawCard;
         hand.Add(newCard);
+        player.UpdateHandUI();
         Debug.Log($"Dropped card: {droppedCard.Name} and drew new card: {newCard.Name}");
         return true;
     }

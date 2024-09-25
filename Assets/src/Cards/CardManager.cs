@@ -63,6 +63,7 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
             else
             {
                 cardData.Effect(player);
+                player.board.PassTurn();
             }
         }
     }
