@@ -5,12 +5,15 @@ using System.Collections;
 
 public class Board : MonoBehaviour
 {
+    public static Board _instance { get; private set; }
+
     [Header("<----------Core---------->")]
     public Camera mainCamera;
     public TextMeshProUGUI winnerText;
     public TextMeshProUGUI roundCount;
     public CardSlot climateSlot;
     public RoundManager roundManager;
+    public CleanManager cleanManager;
 
     [Header("<----------AllyPlayer---------->")]
     public Player allyPlayer;
@@ -33,7 +36,17 @@ public class Board : MonoBehaviour
     public GameObject cardPrefab;
 
     public bool allyPlayerIsPlaying = true;
-
+    void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
     void Start()
     {
         var cardsQuanto = CardsQuanto.Instance;
@@ -179,39 +192,9 @@ public class Board : MonoBehaviour
             }
 
             // Clean the field after determining the winner
-            CleanField();
+            cleanManager.CleanField(this);
 
             roundManager.ResetRound();
-        }
-    }
-    public void CleanField()
-    {
-        // Clean ally rows
-        CleanRow(allyPlayer.MeleeSlots, allyGraveyard);
-        CleanRow(allyPlayer.RangedSlots, allyGraveyard);
-        CleanRow(allyPlayer.SiegeSlots, allyGraveyard);
-        allyPlayer.MeleeBonusSlot.RemoveCard();
-        allyPlayer.RangedBonusSlot.RemoveCard();
-        allyPlayer.SiegeBonusSlot.RemoveCard();
-        climateSlot.RemoveCard();
-
-        // Clean enemy rows
-        CleanRow(enemyPlayer.MeleeSlots, enemyGraveyard);
-        CleanRow(enemyPlayer.RangedSlots, enemyGraveyard);
-        CleanRow(enemyPlayer.SiegeSlots, enemyGraveyard);
-        enemyPlayer.MeleeBonusSlot.RemoveCard();
-        enemyPlayer.RangedBonusSlot.RemoveCard();
-        enemyPlayer.SiegeBonusSlot.RemoveCard();
-    }
-    private void CleanRow(CardSlot[] slots, Stack<Card> graveyard)
-    {
-        foreach (var slot in slots)
-        {
-            if (slot.IsOccupied)
-            {
-                graveyard.Push(slot.CurrentCard);
-                slot.RemoveCard();
-            }
         }
     }
     private void UpdateWinsDisplay()
@@ -270,18 +253,15 @@ public class Board : MonoBehaviour
     }
     public void UpdateHandPanelVisibility()
     {
-        HandPanelManager allyHandPanelManager = allyPlayer.handPanelManager;
-        HandPanelManager enemyHandPanelManager = enemyPlayer.handPanelManager;
-
         if (allyPlayerIsPlaying)
         {
-            allyHandPanelManager.ShowPanel();
-            enemyHandPanelManager.HidePanel();
+            allyPlayer.handPanelManager.ShowPanel();
+            enemyPlayer.handPanelManager.HidePanel();
         }
         else
         {
-            allyHandPanelManager.HidePanel();
-            enemyHandPanelManager.ShowPanel();
+            allyPlayer.handPanelManager.HidePanel();
+            enemyPlayer.handPanelManager.ShowPanel();
         }
     }
 }
