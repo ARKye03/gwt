@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// All cards in this singleton class
+/// </summary>
 public class CardsQuanto : MonoBehaviour
 {
     private static CardsQuanto instance;
