@@ -11,9 +11,8 @@ public class Board : MonoBehaviour
     public TextMeshProUGUI roundCount;
     public CardSlot climateSlot;
     public RoundManager roundManager;
-    private int round = 0;
 
-    [Header("<----------Ally---------->")]
+    [Header("<----------AllyPlayer---------->")]
     public Player allyPlayer;
     public TextMeshProUGUI allyPower;
     private int allyPowerValue = 0;
@@ -21,33 +20,12 @@ public class Board : MonoBehaviour
     public TextMeshProUGUI allyWinsText;
     private int allyWins = 0;
     public Stack<Card> allyGraveyard = new();
-    public CardSlot[] allyMeleeSlots;
-    public CardSlot allyMeleeBonusSlot;
-    public CardSlot[] allyRangedSlots;
-    public CardSlot allyRangedBonusSlot;
-    public CardSlot[] allySiegeSlots;
-    public CardSlot allySiegeBonusSlot;
-    public CardSlot allyLeaderSlot;
 
-    [Header("<---------Enemy--------->")]
+    [Header("<---------EnemyPlayer--------->")]
+    public Player enemyPlayer;
     private int enemyWins = 0;
     public TextMeshProUGUI enemyWinsText;
-    public CardSlot[] enemyMeleeSlots;
-
-    public CardSlot enemyMeleeBonusSlot;
-
-    public CardSlot[] enemyRangedSlots;
-
-    public CardSlot enemyRangedBonusSlot;
-
-    public CardSlot[] enemySiegeSlots;
-
-    public CardSlot enemySiegeBonusSlot;
-
-    public CardSlot enemyLeaderSlot;
     public Stack<Card> enemyGraveyard = new();
-
-    public Player enemyPlayer;
     public TextMeshProUGUI enemyPower;
     private int enemyPowerValue = 0;
 
@@ -55,8 +33,6 @@ public class Board : MonoBehaviour
     public GameObject cardPrefab;
 
     public bool allyPlayerIsPlaying = true;
-
-    public int Round { get => round; set => round = value; }
 
     void Start()
     {
@@ -100,8 +76,8 @@ public class Board : MonoBehaviour
 #endif
 
         // Place leader cards in the respective slots
-        PlaceLeaderCard(allyPlayer, allyPlayer.deck, allyLeaderSlot);
-        PlaceLeaderCard(enemyPlayer, enemyPlayer.deck, enemyLeaderSlot);
+        PlaceLeaderCard(allyPlayer, allyPlayer.deck, allyPlayer.LeaderSlot);
+        PlaceLeaderCard(enemyPlayer, enemyPlayer.deck, enemyPlayer.LeaderSlot);
 
         // Shuffle decks
         allyPlayer.deck.Shuffle();
@@ -163,8 +139,8 @@ public class Board : MonoBehaviour
     }
     public void CalculateAndDisplayPower()
     {
-        allyPowerValue = CalculateTotalPower(allyMeleeSlots) + CalculateTotalPower(allyRangedSlots) + CalculateTotalPower(allySiegeSlots);
-        enemyPowerValue = CalculateTotalPower(enemyMeleeSlots) + CalculateTotalPower(enemyRangedSlots) + CalculateTotalPower(enemySiegeSlots);
+        allyPowerValue = CalculateTotalPower(allyPlayer.MeleeSlots) + CalculateTotalPower(allyPlayer.RangedSlots) + CalculateTotalPower(allyPlayer.SiegeSlots);
+        enemyPowerValue = CalculateTotalPower(enemyPlayer.MeleeSlots) + CalculateTotalPower(enemyPlayer.RangedSlots) + CalculateTotalPower(enemyPlayer.SiegeSlots);
 
         allyPower.text = $"{allyPowerValue}";
         enemyPower.text = $"{enemyPowerValue}";
@@ -172,21 +148,21 @@ public class Board : MonoBehaviour
         allyPlayer.DrawCards(2);
         enemyPlayer.DrawCards(2);
 
-        if (Round == 3)
+        if (roundManager.Round == 3)
         {
             if (allyPowerValue > enemyPowerValue)
             {
                 allyWins++;
-                Debug.Log("Ally Player won the turn!");
+                Debug.Log("Ally Player won the battle!");
             }
             else if (enemyPowerValue > allyPowerValue)
             {
                 enemyWins++;
-                Debug.Log("Enemy Player won the turn!");
+                Debug.Log("Enemy Player won the battle!");
             }
             else
             {
-                Debug.Log("The turn is a draw!");
+                Debug.Log("The battle is a draw!");
             }
 
             UpdateWinsDisplay();
@@ -211,21 +187,21 @@ public class Board : MonoBehaviour
     public void CleanField()
     {
         // Clean ally rows
-        CleanRow(allyMeleeSlots, allyGraveyard);
-        CleanRow(allyRangedSlots, allyGraveyard);
-        CleanRow(allySiegeSlots, allyGraveyard);
-        allyMeleeBonusSlot.RemoveCard();
-        allyRangedBonusSlot.RemoveCard();
-        allySiegeBonusSlot.RemoveCard();
+        CleanRow(allyPlayer.MeleeSlots, allyGraveyard);
+        CleanRow(allyPlayer.RangedSlots, allyGraveyard);
+        CleanRow(allyPlayer.SiegeSlots, allyGraveyard);
+        allyPlayer.MeleeBonusSlot.RemoveCard();
+        allyPlayer.RangedBonusSlot.RemoveCard();
+        allyPlayer.SiegeBonusSlot.RemoveCard();
         climateSlot.RemoveCard();
 
         // Clean enemy rows
-        CleanRow(enemyMeleeSlots, enemyGraveyard);
-        CleanRow(enemyRangedSlots, enemyGraveyard);
-        CleanRow(enemySiegeSlots, enemyGraveyard);
-        enemyMeleeBonusSlot.RemoveCard();
-        enemyRangedBonusSlot.RemoveCard();
-        enemySiegeBonusSlot.RemoveCard();
+        CleanRow(enemyPlayer.MeleeSlots, enemyGraveyard);
+        CleanRow(enemyPlayer.RangedSlots, enemyGraveyard);
+        CleanRow(enemyPlayer.SiegeSlots, enemyGraveyard);
+        enemyPlayer.MeleeBonusSlot.RemoveCard();
+        enemyPlayer.RangedBonusSlot.RemoveCard();
+        enemyPlayer.SiegeBonusSlot.RemoveCard();
     }
     private void CleanRow(CardSlot[] slots, Stack<Card> graveyard)
     {
@@ -294,8 +270,8 @@ public class Board : MonoBehaviour
     }
     public void UpdateHandPanelVisibility()
     {
-        HandPanelManager allyHandPanelManager = allyPlayer.handPanelManager.GetComponent<HandPanelManager>();
-        HandPanelManager enemyHandPanelManager = enemyPlayer.handPanelManager.GetComponent<HandPanelManager>();
+        HandPanelManager allyHandPanelManager = allyPlayer.handPanelManager;
+        HandPanelManager enemyHandPanelManager = enemyPlayer.handPanelManager;
 
         if (allyPlayerIsPlaying)
         {
