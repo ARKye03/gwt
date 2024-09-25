@@ -15,8 +15,6 @@ public class Board : MonoBehaviour
 
     [Header("<----------Ally---------->")]
     public Player allyPlayer;
-    public GameObject player1HandPanel;
-
     public TextMeshProUGUI allyPower;
     private int allyPowerValue = 0;
 
@@ -31,7 +29,7 @@ public class Board : MonoBehaviour
     public CardSlot allySiegeBonusSlot;
     public CardSlot allyLeaderSlot;
 
-    [Header("<----------Enemy---------->")]
+    [Header("<---------Enemy--------->")]
     private int enemyWins = 0;
     public TextMeshProUGUI enemyWinsText;
     public CardSlot[] enemyMeleeSlots;
@@ -53,26 +51,12 @@ public class Board : MonoBehaviour
     public TextMeshProUGUI enemyPower;
     private int enemyPowerValue = 0;
 
-    public GameObject player2HandPanel;
-
+    [Header("<----------Others---------->")]
     public GameObject cardPrefab;
 
     public bool allyPlayerIsPlaying = true;
 
     public int Round { get => round; set => round = value; }
-
-    void Awake()
-    {
-        // Assign hand panels and card prefab to players
-        allyPlayer.handPanel = player1HandPanel;
-        allyPlayer.cardPrefab = cardPrefab;
-        enemyPlayer.handPanel = player2HandPanel;
-        enemyPlayer.cardPrefab = cardPrefab;
-
-        // Assign board reference to players
-        allyPlayer.board = this;
-        enemyPlayer.board = this;
-    }
 
     void Start()
     {
@@ -310,8 +294,8 @@ public class Board : MonoBehaviour
     }
     public void UpdateHandPanelVisibility()
     {
-        HandPanelManager allyHandPanelManager = allyPlayer.handPanel.GetComponent<HandPanelManager>();
-        HandPanelManager enemyHandPanelManager = enemyPlayer.handPanel.GetComponent<HandPanelManager>();
+        HandPanelManager allyHandPanelManager = allyPlayer.handPanelManager.GetComponent<HandPanelManager>();
+        HandPanelManager enemyHandPanelManager = enemyPlayer.handPanelManager.GetComponent<HandPanelManager>();
 
         if (allyPlayerIsPlaying)
         {

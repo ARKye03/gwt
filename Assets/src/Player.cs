@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,7 +7,7 @@ public class Player : MonoBehaviour
     public string Name { get; set; }
     public List<Card> hand = new();
 
-    public GameObject handPanel;
+    public HandPanelManager handPanelManager;
     public GameObject cardPrefab;
     public Deck deck;
     public Board board;
@@ -32,14 +31,14 @@ public class Player : MonoBehaviour
 
     public void UpdateHandUI()
     {
-        foreach (Transform child in handPanel.transform)
+        foreach (Transform child in handPanelManager.handPanel.transform)
         {
             Destroy(child.gameObject);
         }
 
         foreach (Card card in hand)
         {
-            GameObject cardObject = Instantiate(cardPrefab, handPanel.transform);
+            GameObject cardObject = Instantiate(cardPrefab, handPanelManager.handPanel.transform);
             CardManager cardManager = cardObject.GetComponent<CardManager>();
 
             if (cardManager != null)
@@ -70,6 +69,12 @@ public class Player : MonoBehaviour
 
     private void PlayRound(CardManager cardManager, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
     {
+        PlaceCard(cardManager, meleeSlots, rangedSlots, siegeSlots);
+        board.PassTurn();
+    }
+
+    public void PlaceCard(CardManager cardManager, CardSlot[] meleeSlots, CardSlot[] rangedSlots, CardSlot[] siegeSlots)
+    {
         Card card = cardManager.CardData;
         Debug.Log($"Attempting to place card: {card.Name}");
 
@@ -94,8 +99,6 @@ public class Player : MonoBehaviour
 
         hand.Remove(card);
         UpdateHandUI();
-
-        board.PassTurn();
     }
 
     #region CardsPlacements

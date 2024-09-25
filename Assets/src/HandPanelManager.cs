@@ -27,6 +27,11 @@ public class HandPanelManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public CanvasGroup canvasGroup;
 
     /// <summary>
+    /// The hand panel game object.
+    /// </summary>
+    public GameObject handPanel;
+
+    /// <summary>
     /// The target position of the panel.
     /// </summary>
     private Vector3 targetPosition;
