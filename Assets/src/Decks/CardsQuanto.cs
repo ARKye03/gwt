@@ -112,7 +112,7 @@ public class CardsQuanto : MonoBehaviour
             CreateClimateCard("DownTheArchers", "Reduces strength of ranged units", Faction.Celai,null, RowType.Ranged, "Celai/DownTheArchers"),
             CreateClimateCard("Weatherstorm", "Reduces strength of siege units", Faction.Celai,null, RowType.Siege, "Celai/Weatherstorm"),
 
-            CreateLeaderCard("Celai", "Celai", Faction.Celai, null, "Celai/Celai"),
+            CreateLeaderCard("Celai", "Celai", Faction.Celai, Effects.ReloadHand, "Celai/Celai"),
         });
 
         CardsOfYudivain = new Stack<Card>(new List<Card>
