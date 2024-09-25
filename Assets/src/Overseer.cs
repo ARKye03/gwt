@@ -22,8 +22,6 @@ public class Board : MonoBehaviour
 
     public TextMeshProUGUI allyWinsText;
     private int allyWins = 0;
-    public Deck allyDeck;
-
     public Stack<Card> allyGraveyard = new();
     public CardSlot[] allyMeleeSlots;
     public CardSlot allyMeleeBonusSlot;
@@ -49,8 +47,6 @@ public class Board : MonoBehaviour
     public CardSlot enemySiegeBonusSlot;
 
     public CardSlot enemyLeaderSlot;
-    public Deck enemyDeck;
-
     public Stack<Card> enemyGraveyard = new();
 
     public Player enemyPlayer;
@@ -67,16 +63,6 @@ public class Board : MonoBehaviour
 
     void Awake()
     {
-        if (allyDeck == null)
-        {
-            allyDeck = new GameObject("AllyDeck").AddComponent<Deck>();
-        }
-
-        if (enemyDeck == null)
-        {
-            enemyDeck = new GameObject("EnemyDeck").AddComponent<Deck>();
-        }
-
         // Assign hand panels and card prefab to players
         allyPlayer.handPanel = player1HandPanel;
         allyPlayer.cardPrefab = cardPrefab;
@@ -113,33 +99,33 @@ public class Board : MonoBehaviour
 
 #if DEBUG
         allyPlayer.Name = "Ally Player";
-        allyDeck.cards = decks[0];
+        allyPlayer.deck.cards = decks[0];
         enemyPlayer.Name = "Enemy Player";
-        enemyDeck.cards = decks[1];
+        enemyPlayer.deck.cards = decks[1];
 #else
         UnityEngine.Random random = new();
         // Assign random decks to players
         int deckIndex1 = random.Next(decks.Count);
         allyPlayer.Name = "Ally Player";
-        allyDeck.cards = decks[deckIndex1];
+        allyPlayer.deck.cards = decks[deckIndex1];
         decks.RemoveAt(deckIndex1);
 
         int deckIndex2 = random.Next(decks.Count);
         enemyPlayer.Name = "Enemy Player";
-        enemyDeck.cards = decks[deckIndex2];
+        enemyPlayer.deck.cards = decks[deckIndex2];
 #endif
 
         // Place leader cards in the respective slots
-        PlaceLeaderCard(allyPlayer, allyDeck, allyLeaderSlot);
-        PlaceLeaderCard(enemyPlayer, enemyDeck, enemyLeaderSlot);
+        PlaceLeaderCard(allyPlayer, allyPlayer.deck, allyLeaderSlot);
+        PlaceLeaderCard(enemyPlayer, enemyPlayer.deck, enemyLeaderSlot);
 
         // Shuffle decks
-        allyDeck.Shuffle();
-        enemyDeck.Shuffle();
+        allyPlayer.deck.Shuffle();
+        enemyPlayer.deck.Shuffle();
 
         // Initialize player hands
-        allyPlayer.DrawCards(allyDeck, 10);
-        enemyPlayer.DrawCards(enemyDeck, 10);
+        allyPlayer.DrawCards(10);
+        enemyPlayer.DrawCards(10);
 
         // Update hand panel visibility at the start of the game
         UpdateHandPanelVisibility();
@@ -199,8 +185,8 @@ public class Board : MonoBehaviour
         allyPower.text = $"{allyPowerValue}";
         enemyPower.text = $"{enemyPowerValue}";
 
-        allyPlayer.DrawCards(allyDeck, 2);
-        enemyPlayer.DrawCards(enemyDeck, 2);
+        allyPlayer.DrawCards(2);
+        enemyPlayer.DrawCards(2);
 
         if (Round == 3)
         {

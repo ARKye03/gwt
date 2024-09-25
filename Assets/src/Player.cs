@@ -10,9 +10,10 @@ public class Player : MonoBehaviour
 
     public GameObject handPanel;
     public GameObject cardPrefab;
+    public Deck deck;
     public Board board;
 
-    public void DrawCards(Deck deck, int numberOfCards)
+    public void DrawCards(int numberOfCards)
     {
         for (int i = 0; i < numberOfCards; i++)
         {
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
     }
 
 
-    private void UpdateHandUI()
+    public void UpdateHandUI()
     {
         foreach (Transform child in handPanel.transform)
         {
