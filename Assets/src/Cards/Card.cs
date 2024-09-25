@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public delegate bool Effect(Board board);
+public delegate bool Effect(Player player);
 
 /// <summary>
 /// Represents a card in the game with various attributes such as name, description, type, faction, effect, and image.
