@@ -1,9 +1,9 @@
 using System.Linq;
 using UnityEngine;
 
-public class PlaceCard
+public static class PlaceCard
 {
-    public void PlaceACard(CardManager cardManager, Player player)
+    public static void PlaceACard(CardManager cardManager, Player player)
     {
         Card card = cardManager.CardData;
         Debug.Log($"Attempting to place card: {card.Name}");
@@ -32,7 +32,7 @@ public class PlaceCard
         player.UpdateHandUI();
     }
 
-    public void PlaceUnitCard(CardManager cardManager, UnitCard uc, Player player)
+    public static void PlaceUnitCard(CardManager cardManager, UnitCard uc, Player player)
     {
         CardSlot cardSlot = null;
 
@@ -62,7 +62,7 @@ public class PlaceCard
         }
     }
 
-    public void PlaceClimateCard(CardManager cardManager, Card card, CardSlot climateSlot)
+    public static void PlaceClimateCard(CardManager cardManager, Card card, CardSlot climateSlot)
     {
         climateSlot.RemoveCard();
         cardManager.transform.SetParent(climateSlot.transform);
@@ -71,7 +71,7 @@ public class PlaceCard
         Debug.Log($"Placed climate card: {card.Name} in climate slot.");
     }
 
-    public void PlaceBaitCard(CardManager cardManager, BaitCard bc, Player opponent)
+    public static void PlaceBaitCard(CardManager cardManager, BaitCard bc, Player opponent)
     {
         CardSlot[] meleeSlots = opponent.MeleeSlots;
         CardSlot[] rangedSlots = opponent.RangedSlots;
@@ -106,7 +106,7 @@ public class PlaceCard
         }
     }
 
-    public void PlaceBonusCard(CardManager cardManager, BonusCard bonusCard, Player player)
+    public static void PlaceBonusCard(CardManager cardManager, BonusCard bonusCard, Player player)
     {
         CardSlot[] targetSlots = null;
 

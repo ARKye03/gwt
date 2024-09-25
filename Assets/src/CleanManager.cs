@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-public class CleanManager
+public static class CleanManager
 {
-    public void CleanField(Board board)
+    public static void CleanField(Board board)
     {
         Player allyPlayer = board.allyPlayer;
         Player enemyPlayer = board.enemyPlayer;
@@ -27,7 +27,7 @@ public class CleanManager
         enemyPlayer.RangedBonusSlot.RemoveCard();
         enemyPlayer.SiegeBonusSlot.RemoveCard();
     }
-    private void CleanRow(CardSlot[] slots, Stack<Card> graveyard)
+    private static void CleanRow(CardSlot[] slots, Stack<Card> graveyard)
     {
         foreach (var slot in slots)
         {
