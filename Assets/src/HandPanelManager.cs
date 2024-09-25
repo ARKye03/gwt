@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -30,6 +31,11 @@ public class HandPanelManager : MonoBehaviour, IPointerEnterHandler, IPointerExi
     /// The hand panel game object.
     /// </summary>
     public GameObject handPanel;
+
+    /// <summary>
+    /// Cards in the hand panel.
+    /// </summary>
+    public List<Card> cards;
 
     /// <summary>
     /// The target position of the panel.
