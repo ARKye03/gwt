@@ -13,7 +13,6 @@ public class Board : MonoBehaviour
     public TextMeshProUGUI roundCount;
     public CardSlot climateSlot;
     public RoundManager roundManager;
-    public CleanManager cleanManager;
 
     [Header("<----------AllyPlayer---------->")]
     public Player allyPlayer;
@@ -76,14 +75,13 @@ public class Board : MonoBehaviour
         enemyPlayer.Name = "Enemy Player";
         enemyPlayer.deck.cards = decks[1];
 #else
-        UnityEngine.Random random = new();
         // Assign random decks to players
-        int deckIndex1 = random.Next(decks.Count);
+        int deckIndex1 = UnityEngine.Random.Range(0, decks.Count);
         allyPlayer.Name = "Ally Player";
         allyPlayer.deck.cards = decks[deckIndex1];
         decks.RemoveAt(deckIndex1);
 
-        int deckIndex2 = random.Next(decks.Count);
+        int deckIndex2 = UnityEngine.Random.Range(0, decks.Count);
         enemyPlayer.Name = "Enemy Player";
         enemyPlayer.deck.cards = decks[deckIndex2];
 #endif
@@ -192,7 +190,7 @@ public class Board : MonoBehaviour
             }
 
             // Clean the field after determining the winner
-            cleanManager.CleanField(this);
+            CleanManager.CleanField(this);
 
             roundManager.ResetRound();
         }
