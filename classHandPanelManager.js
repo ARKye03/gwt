@@ -5,6 +5,7 @@ var classHandPanelManager =
     [ "OnPointerExit", "classHandPanelManager.html#a9c8dcc2ae87fe7099afa69a43e12feb4", null ],
     [ "ShowPanel", "classHandPanelManager.html#ab7e6248841c65cbed390888a6e2511f0", null ],
     [ "canvasGroup", "classHandPanelManager.html#adc9251a42c1933d5fef8214ede279cb7", null ],
+    [ "cards", "classHandPanelManager.html#a30eb518848060f371148f40a60001b05", null ],
     [ "handPanel", "classHandPanelManager.html#aa2c800cb9ce599d7010f3250f041e774", null ],
     [ "hiddenPosition", "classHandPanelManager.html#a5df219f1d7c1e8e000ebc21ffd73cb8e", null ],
     [ "transitionSpeed", "classHandPanelManager.html#acd952352dd6466905129acbad536ec9b", null ],

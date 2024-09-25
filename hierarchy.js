@@ -30,6 +30,7 @@ var hierarchy =
       [ "Tooltip", "classTooltip.html", null ],
       [ "TooltipManager", "classTooltipManager.html", null ]
     ] ],
+    [ "PlaceCard", "classPlaceCard.html", null ],
     [ "ScriptableObject", null, [
       [ "Card", "classCard.html", [
         [ "BaitCard", "classBaitCard.html", null ],
