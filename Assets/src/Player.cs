@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     public GameObject cardPrefab;
     public Deck deck;
     public Board board;
-    public PlaceCard placeCardManager;
 
     [Header("<----------Slots---------->")]
     public CardSlot[] MeleeSlots;
@@ -23,7 +22,6 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        placeCardManager = new PlaceCard();
         handPanelManager.cards = new List<Card>();
     }
 
@@ -75,7 +73,7 @@ public class Player : MonoBehaviour
 
     private void PlayRound(CardManager cardManager, Player player)
     {
-        placeCardManager.PlaceACard(cardManager, player);
+        PlaceCard.PlaceACard(cardManager, player);
         board.PassTurn();
     }
 }
