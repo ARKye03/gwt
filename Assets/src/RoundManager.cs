@@ -10,7 +10,7 @@ public class RoundManager : MonoBehaviour
     /// The TextMeshProUGUI that displays the round count.
     /// </summary>
     public TextMeshProUGUI roundCount;
-    
+
     /// <summary>
     /// The current round count.
     /// </summary>
@@ -27,7 +27,7 @@ public class RoundManager : MonoBehaviour
     /// Visually updates the round count.
     /// </summary>
     private void UpdateCount() => roundCount.text = $"{Round}";
-    
+
     /// <summary>
     /// Increases the round count by one.
     /// </summary>
@@ -44,5 +44,25 @@ public class RoundManager : MonoBehaviour
     {
         Round = 0;
         UpdateCount();
+    }
+
+    /// <summary>
+    /// Singleton instance of the RoundManager.
+    /// </summary>
+    public static RoundManager _instance { get; private set; }
+
+    /// <summary>
+    /// Ensures that there is only one instance of the RoundManager.
+    /// </summary>
+    void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            _instance = this;
+        }
     }
 }
