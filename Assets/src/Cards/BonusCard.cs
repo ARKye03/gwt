@@ -28,31 +28,4 @@ public class BonusCard : Card
         Effect = effect;
         AffectedRow = affectedRow;
     }
-
-    public void ApplyEffect(Board board)
-    {
-        switch (AffectedRow)
-        {
-            case RowType.Melee:
-                ApplyEffectToRow(board.allyMeleeSlots);
-                break;
-            case RowType.Ranged:
-                ApplyEffectToRow(board.allyRangedSlots);
-                break;
-            case RowType.Siege:
-                ApplyEffectToRow(board.allySiegeSlots);
-                break;
-        }
-    }
-
-    private void ApplyEffectToRow(CardSlot[] slots)
-    {
-        foreach (var slot in slots)
-        {
-            if (slot.IsOccupied && slot.CurrentCard is UnitCard unitCard)
-            {
-                unitCard.ModDmg += BoostAmount;
-            }
-        }
-    }
 }

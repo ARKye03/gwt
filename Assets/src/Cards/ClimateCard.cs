@@ -19,34 +19,4 @@ public class ClimateCard : Card
         Effect = effect;
         AffectedRow = affectedRow;
     }
-
-    public void ApplyEffect(Board board)
-    {
-        switch (AffectedRow)
-        {
-            case RowType.Melee:
-                ApplyEffectToRow(board.allyMeleeSlots);
-                ApplyEffectToRow(board.enemyMeleeSlots);
-                break;
-            case RowType.Ranged:
-                ApplyEffectToRow(board.allyRangedSlots);
-                ApplyEffectToRow(board.enemyRangedSlots);
-                break;
-            case RowType.Siege:
-                ApplyEffectToRow(board.allySiegeSlots);
-                ApplyEffectToRow(board.enemySiegeSlots);
-                break;
-        }
-    }
-
-    private void ApplyEffectToRow(CardSlot[] slots)
-    {
-        foreach (var slot in slots)
-        {
-            if (slot.IsOccupied && slot.CurrentCard is UnitCard unitCard)
-            {
-                unitCard.ModDmg -= StrengthReduction;
-            }
-        }
-    }
 }
