@@ -6,6 +6,7 @@ var annotated_dup =
     [ "BonusCard", "classBonusCard.html", null ],
     [ "ButtonFX", "classButtonFX.html", "classButtonFX" ],
     [ "Card", "classCard.html", "classCard" ],
+    [ "CardHoverManager", "classCardHoverManager.html", null ],
     [ "CardManager", "classCardManager.html", null ],
     [ "CardSlot", "classCardSlot.html", null ],
     [ "CardsQuanto", "classCardsQuanto.html", null ],

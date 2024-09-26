@@ -18,6 +18,7 @@ var hierarchy =
       [ "AudioManager", "classAudioManager.html", null ],
       [ "Board", "classBoard.html", null ],
       [ "ButtonFX", "classButtonFX.html", null ],
+      [ "CardHoverManager", "classCardHoverManager.html", null ],
       [ "CardManager", "classCardManager.html", null ],
       [ "CardSlot", "classCardSlot.html", null ],
       [ "CardsQuanto", "classCardsQuanto.html", null ],
