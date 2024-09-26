@@ -13,7 +13,6 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
 
-
     private Card cardData;
     public Card CardData
     {
@@ -29,7 +28,6 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     }
 
     public Player player;
-
     public void UpdateCardUI()
     {
         if (cardData != null)
@@ -71,11 +69,13 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     public void OnPointerEnter(PointerEventData eventData)
     {
         audioSource.PlayOneShot(audioClip);
-        transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+        transform.localScale *= 1.1f;
+        player.board.cardHoverManager.ShowCard(this); // Show the enlarged card
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         transform.localScale = Vector3.one;
+        player.board.cardHoverManager.HideCard(); // Hide the enlarged card
     }
 }

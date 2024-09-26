@@ -83,7 +83,7 @@ public class CardsQuanto : MonoBehaviour
             CreateClimateCard("AgainstTheCurrent", "Reduces strength of ranged units", Faction.Idanai, null, RowType.Ranged, "Idanai/AgainstTheCurrent"),
             CreateClimateCard("StormOfSiege", "Reduces strength of siege units", Faction.Idanai, null, RowType.Siege, "Idanai/StormOfSiege"),
 
-            CreateLeaderCard("Idanai", "Idanai", Faction.Idanai, Effects.DropAndDrawCard, "Idanai/Idanai"),
+            CreateLeaderCard("Idanai", "Drop one random card and draw another from the deck", Faction.Idanai, Effects.DropAndDrawCard, "Idanai/Idanai"),
         });
 
         CardsOfCelai = new Stack<Card>(new List<Card>
@@ -115,7 +115,7 @@ public class CardsQuanto : MonoBehaviour
             CreateClimateCard("DownTheArchers", "Reduces strength of ranged units", Faction.Celai,null, RowType.Ranged, "Celai/DownTheArchers"),
             CreateClimateCard("Weatherstorm", "Reduces strength of siege units", Faction.Celai,null, RowType.Siege, "Celai/Weatherstorm"),
 
-            CreateLeaderCard("Celai", "Celai", Faction.Celai, Effects.ReloadHand, "Celai/Celai"),
+            CreateLeaderCard("Celai", "Drop all your hand and draw 10 more!", Faction.Celai, Effects.ReloadHand, "Celai/Celai"),
         });
 
         CardsOfYudivain = new Stack<Card>(new List<Card>

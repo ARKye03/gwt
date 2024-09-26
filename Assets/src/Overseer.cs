@@ -14,6 +14,7 @@ public class Board : MonoBehaviour
     public CardSlot climateSlot;
     public RoundManager roundManager;
     public GameObject pauseMenu;
+    public CardHoverManager cardHoverManager;
 
     [Header("<----------AllyPlayer---------->")]
     public Player allyPlayer;
@@ -246,6 +247,7 @@ public class Board : MonoBehaviour
     }
     private void RotateUIElements(Quaternion startRotation)
     {
+        cardHoverManager.transform.rotation = startRotation;
         roundCount.transform.rotation = startRotation;
         winnerText.transform.rotation = startRotation;
         allyWinsText.transform.rotation = startRotation;
