@@ -50,7 +50,7 @@ public class CardsQuanto : MonoBehaviour
         CardsOfIdanai = new Stack<Card>(new List<Card>
         {
 
-            CreateUnitCard("Prasalaas", "How ARKye was supposed to be", Faction.Neutral, Rarity.Gold, 15, null,TypeofUnit.Melee, "Neutral/Prasalaas"),
+            CreateUnitCard("Prasalaas", "How ARKye was supposed to be", Faction.Neutral, Rarity.Gold, 15, Effects.AllorNothing,TypeofUnit.Melee, "Neutral/Prasalaas"),
             CreateUnitCard("Prasanthrangan", "HyDe creator, where dots unleash the pain", Faction.Idanai, Rarity.Gold, 8, null,TypeofUnit.Melee, "Idanai/ScarTheScorched"),
             CreateUnitCard("Aylur", "TSX is not the limit", Faction.Idanai, Rarity.Gold, 8, null,TypeofUnit.Melee, "Idanai/ColourlessSonic"),
 
