@@ -75,9 +75,9 @@ public class CardsQuanto : MonoBehaviour
             CreateBaitCard("BaitSe", "A simple bait", Faction.Idanai, 0, null,TypeofUnit.Melee, "Idanai/BaitSe"),
             CreateBaitCard("BaitSoldier", "A simple bait", Faction.Idanai, 0, null,TypeofUnit.Melee, "Idanai/BaitSoldier"),
 
-            CreateBonusCard("Melee Boost", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Melee, "Idanai/Boost"),
-            CreateBonusCard("Ranged Boost" , "Aumenta la fuerza de todas las unidades", Faction.Idanai, 2, null, RowType.Ranged, "Idanai/Boost"),
-            CreateBonusCard("Siege Boost", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Siege, "Idanai/Boost"),
+            CreateBonusCard("AlienGauntlet", "Boosts strength of all units", Faction.Idanai, 5, null, RowType.Melee, "Idanai/AlienGauntlet"),
+            CreateBonusCard("GoldenArrow" , "Aumenta la fuerza de todas las unidades", Faction.Idanai, 4, null, RowType.Ranged, "Idanai/GoldenArrow"),
+            CreateBonusCard("PanzerFullPower", "Boosts strength of all units", Faction.Idanai, 4, null, RowType.Siege, "Idanai/PanzerFullPower"),
 
             CreateClimateCard("EndOfLight", "Reduces strength of melee units by 7", Faction.Idanai, null, RowType.Melee,7, "Idanai/EndOfLight"),
             CreateClimateCard("AgainstTheCurrent", "Reduces strength of ranged units by 5", Faction.Idanai, null, RowType.Ranged,5, "Idanai/AgainstTheCurrent"),
@@ -107,9 +107,9 @@ public class CardsQuanto : MonoBehaviour
             CreateBaitCard("BaitNature", "A simple bait", Faction.Celai, 0, null,TypeofUnit.Melee, "Celai/BaitNature"),
             CreateBaitCard("BaitThing", "A simple bait", Faction.Celai, 0, null,TypeofUnit.Melee, "Celai/BaitThing"),
 
-            CreateBonusCard("Boost", "Boosts strength of all units", Faction.Celai, 2, null, RowType.Melee, "Celai/"),
-            CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Celai, 2, null, RowType.Ranged, "Celai/"),
-            CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Celai, 2, null, RowType.Siege, "Celai/"),
+            CreateBonusCard("SeaTouch", "Boosts strength of all units", Faction.Celai, 7, null, RowType.Melee, "Celai/SeaTouch"),
+            CreateBonusCard("HailTheDistance" , "Aumenta la fuerza de todas las unidades", Faction.Celai, 3, null, RowType.Ranged, "Celai/HailTheDistance"),
+            CreateBonusCard("HandOfGreed", "Boosts strength of all units", Faction.Celai, 3, null, RowType.Melee, "Celai/HandOfGreed"),
 
             CreateClimateCard("Zoore", "Reduces strength of melee units", Faction.Celai,null, RowType.Melee,4, "Celai/Zoore"),
             CreateClimateCard("DownTheArchers", "Reduces strength of ranged units", Faction.Celai,null, RowType.Ranged,4, "Celai/DownTheArchers"),
@@ -139,9 +139,8 @@ public class CardsQuanto : MonoBehaviour
             CreateBaitCard("BaitTinkerbell", "A simple bait", Faction.Yudivain, 0, null,TypeofUnit.Melee, "Yudivain/BaitTinkerbell"),
             CreateBaitCard("BaitPuppy", "A simple bait", Faction.Yudivain, 0, null,TypeofUnit.Melee, "Yudivain/BaitPuppy"),
 
-            CreateBonusCard("Boost", "Boosts strength of all units", Faction.Yudivain, 2, null, RowType.Melee, "Yudivain/"),
-            CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Yudivain, 2, null, RowType.Ranged, "Yudivain/"),
-            CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Yudivain, 2, null, RowType.Siege, "Yudivain/"),
+            CreateBonusCard("InfinityGauntlet", "Boosts Melee Units by 10", Faction.Yudivain, 8, null, RowType.Melee, "Yudivain/InfinityGauntlet"),
+            CreateBonusCard("InfinityBow" , "Boosts Range Units by 10", Faction.Yudivain, 8, null, RowType.Ranged, "Yudivain/InfinityBow"),
 
             CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Yudivain,null, RowType.Melee,5, "Yudivain/"),
             CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Yudivain,null, RowType.Melee,5, "Yudivain/"),
