@@ -58,7 +58,7 @@ public static class PlaceCard
     {
         climateSlot.RemoveCard();
         PlaceCardInSlot(cardManager, card, climateSlot);
-        card.ApplyEffect(card.AffectedRow);
+        card.ApplyEffect();
         Debug.Log($"Placed climate card: {card.Name} in climate slot.");
         return true;
     }

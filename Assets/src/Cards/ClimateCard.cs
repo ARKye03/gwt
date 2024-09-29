@@ -21,7 +21,7 @@ public class ClimateCard : Card, IEffectRow
         AffectedRow = affectedRow;
         ClimatePower = climatePower;
     }
-    public bool ApplyEffect(RowType rowType)
+    public bool ApplyEffect()
     {
         Player allyPlayer = Board._instance.allyPlayer;
         Player enemyPlayer = Board._instance.enemyPlayer;
@@ -29,7 +29,7 @@ public class ClimateCard : Card, IEffectRow
         CardSlot[] allySlots = null;
         CardSlot[] enemySlots = null;
 
-        switch (rowType)
+        switch (AffectedRow)
         {
             case RowType.Melee:
                 allySlots = allyPlayer.MeleeSlots;
@@ -63,7 +63,7 @@ public class ClimateCard : Card, IEffectRow
         {
             if (slot.IsOccupied && slot.CurrentCard is UnitCard unitCard)
             {
-                unitCard.power -= ClimatePower;
+                unitCard.power = unitCard.initialPower - ClimatePower;
                 if (unitCard.power < 0)
                 {
                     unitCard.power = 0;

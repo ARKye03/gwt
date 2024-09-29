@@ -3,7 +3,7 @@ using UnityEngine;
 public delegate bool Effect(Player player);
 interface IEffectRow
 {
-    bool ApplyEffect(RowType rowType);
+    bool ApplyEffect();
     void ApplyEffectToRow(CardSlot[] slots);
 
 }

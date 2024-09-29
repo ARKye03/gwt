@@ -17,7 +17,7 @@ public class BonusCard : Card
         {
             if (item.IsOccupied && item.CurrentCard is UnitCard unitCard)
             {
-                unitCard.power += initialBoost;
+                unitCard.power = unitCard.initialPower + initialBoost;
             }
         }
         return true;

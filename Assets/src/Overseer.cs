@@ -116,8 +116,10 @@ public class Board : MonoBehaviour
         // Increase the round if it's the ally player's turn
         if (allyPlayerIsPlaying)
         {
+            allyPlayer.DrawCards(2);
             roundManager.IncreaseRound();
         }
+        else { enemyPlayer.DrawCards(2); }
 
         // Rotate the camera to the other player
         StartCoroutine(RotateElements(1.0f));
@@ -160,11 +162,9 @@ public class Board : MonoBehaviour
         allyPowerValue = CalculateTotalPower(allyPlayer.MeleeSlots) + CalculateTotalPower(allyPlayer.RangedSlots) + CalculateTotalPower(allyPlayer.SiegeSlots);
         enemyPowerValue = CalculateTotalPower(enemyPlayer.MeleeSlots) + CalculateTotalPower(enemyPlayer.RangedSlots) + CalculateTotalPower(enemyPlayer.SiegeSlots);
 
+        UpdatePowerInField();
         allyPower.text = $"{allyPowerValue}";
         enemyPower.text = $"{enemyPowerValue}";
-
-        allyPlayer.DrawCards(2);
-        enemyPlayer.DrawCards(2);
 
         if (roundManager.Round == 3)
         {
@@ -200,6 +200,33 @@ public class Board : MonoBehaviour
             CleanManager.CleanField(this);
 
             roundManager.ResetRound();
+        }
+    }
+    private void UpdatePowerInField()
+    {
+        // Apply climate card effect if present
+        if (climateSlot.CurrentCard is ClimateCard climateCard)
+        {
+            _ = climateCard.ApplyEffect();
+        }
+
+        // Apply bonus card effects for ally and enemy players
+        ApplyBonusCardEffects(allyPlayer);
+        ApplyBonusCardEffects(enemyPlayer);
+    }
+
+    private void ApplyBonusCardEffects(Player player)
+    {
+        ApplyBonusCardEffect(player.MeleeBonusSlot.CurrentCard, player.MeleeSlots);
+        ApplyBonusCardEffect(player.RangedBonusSlot.CurrentCard, player.RangedSlots);
+        ApplyBonusCardEffect(player.SiegeBonusSlot.CurrentCard, player.SiegeSlots);
+    }
+
+    private void ApplyBonusCardEffect(Card currentCard, CardSlot[] targetSlots)
+    {
+        if (currentCard is BonusCard bonusCard)
+        {
+            _ = bonusCard.ApplyEffect(targetSlots);
         }
     }
     private void UpdateWinsDisplay()
