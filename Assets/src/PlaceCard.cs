@@ -57,13 +57,26 @@ public static class PlaceCard
 
     public static void PlaceBaitCard(CardManager cardManager, BaitCard bc, Player opponent)
     {
-        CardSlot cardSlot = GetAvailableSlot(bc.typeofUnit, opponent);
+        CardSlot cardSlot = GetRandomOccupiedSlot(bc.typeofUnit, opponent);
 
         if (cardSlot != null)
         {
+            // Retrieve the card from the CardSlot
+            Card cardToReturn = cardSlot.CurrentCard;
+
+            if (cardToReturn != null)
+            {
+                // Add the card back to the player's hand
+                opponent.handPanelManager.cards.Add(cardToReturn);
+                opponent.UpdateHandUI();
+            }
+
+            // Remove the card from the CardSlot
+            cardSlot.RemoveCard();
+
+            // Place the bait card in the slot
             PlaceCardInSlot(cardManager, bc, cardSlot);
             Debug.Log($"Placed bait card: {bc.Name} in opponent's {bc.typeofUnit} slot: {cardSlot.name}");
-            // ApplyBaitCardEffects(bc); // This should be handled in the Player class or another appropriate place
         }
         else
         {
@@ -96,6 +109,24 @@ public static class PlaceCard
             TypeofUnit.Siege => player.SiegeSlots.FirstOrDefault(slot => !slot.IsOccupied),
             _ => null,
         };
+    }
+    private static CardSlot GetRandomOccupiedSlot(TypeofUnit unitType, Player player)
+    {
+        CardSlot[] occupiedSlots = unitType switch
+        {
+            TypeofUnit.Melee => player.MeleeSlots.Where(s => s.IsOccupied).ToArray(),
+            TypeofUnit.Ranged => player.RangedSlots.Where(s => s.IsOccupied).ToArray(),
+            TypeofUnit.Siege => player.SiegeSlots.Where(s => s.IsOccupied).ToArray(),
+            _ => null,
+        };
+
+        if (occupiedSlots == null || occupiedSlots.Length == 0)
+        {
+            return null;
+        }
+
+        int randomIndex = UnityEngine.Random.Range(0, occupiedSlots.Length);
+        return occupiedSlots[randomIndex];
     }
 
     private static CardSlot[] GetTargetSlots(RowType rowType, Player player)
