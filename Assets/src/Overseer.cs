@@ -23,13 +23,11 @@ public class Board : MonoBehaviour
 
     public TextMeshProUGUI allyWinsText;
     private int allyWins = 0;
-    public Stack<Card> allyGraveyard = new();
 
     [Header("<---------EnemyPlayer--------->")]
     public Player enemyPlayer;
     private int enemyWins = 0;
     public TextMeshProUGUI enemyWinsText;
-    public Stack<Card> enemyGraveyard = new();
     public TextMeshProUGUI enemyPower;
     private int enemyPowerValue = 0;
 

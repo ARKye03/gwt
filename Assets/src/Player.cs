@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public GameObject cardPrefab;
     public Deck deck;
     public Board board;
+    public Stack<Card> graveyard = new();
 
     [Header("<----------Slots---------->")]
     public CardSlot[] MeleeSlots;

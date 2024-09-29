@@ -6,8 +6,8 @@ public static class CleanManager
     {
         Player allyPlayer = board.allyPlayer;
         Player enemyPlayer = board.enemyPlayer;
-        Stack<Card> allyGraveyard = board.allyGraveyard;
-        Stack<Card> enemyGraveyard = board.enemyGraveyard;
+        Stack<Card> allyGraveyard = allyPlayer.graveyard;
+        Stack<Card> enemyGraveyard = enemyPlayer.graveyard;
         CardSlot climateSlot = board.climateSlot;
 
         // Clean ally rows
