@@ -5,17 +5,29 @@ public class BonusCard : Card
 {
     public RowType AffectedRow;
     public int BoostAmount;
-    public float initialBoost = 0;
-    public float boost = 0;
+    public int initialBoost = 0;
+    public int boost = 0;
 
-    public float GetCurrentBoost => boost;
-    public float ModBoost { get => boost; set => boost = value; }
+    public int GetCurrentBoost => boost;
+    public int ModBoost { get => boost; set => boost = value; }
+
+    public bool ApplyEffect(CardSlot[] rowType)
+    {
+        foreach (CardSlot item in rowType)
+        {
+            if (item.IsOccupied && item.CurrentCard is UnitCard unitCard)
+            {
+                unitCard.power += initialBoost;
+            }
+        }
+        return true;
+    }
 
     public void Initialize(string name,
                            string description,
                            TypeofCard typeOfCard,
                            Faction faction,
-                           float initialBoost,
+                           int initialBoost,
                            Effect effect,
                            RowType affectedRow)
     {
@@ -28,4 +40,5 @@ public class BonusCard : Card
         Effect = effect;
         AffectedRow = affectedRow;
     }
+
 }

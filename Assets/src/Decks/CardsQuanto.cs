@@ -188,7 +188,7 @@ public class CardsQuanto : MonoBehaviour
         return climateCard;
     }
 
-    private BonusCard CreateBonusCard(string name, string description, Faction faction, float initialBoost, Effect effect, RowType targetRow, string imageName)
+    private BonusCard CreateBonusCard(string name, string description, Faction faction, int initialBoost, Effect effect, RowType targetRow, string imageName)
     {
         BonusCard bonusCard = ScriptableObject.CreateInstance<BonusCard>();
         bonusCard.Initialize(name, description, TypeofCard.Bonus, faction, initialBoost, effect, targetRow);

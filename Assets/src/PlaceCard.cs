@@ -134,8 +134,7 @@ public static class PlaceCard
                     cardManager.transform.localPosition = Vector3.zero;
                     slot.PlaceCard(bonusCard, cardManager.gameObject);
                     Debug.Log($"Placed bonus card: {bonusCard.Name} in {bonusCard.AffectedRow} row.");
-                    // bonusCard.ApplyEffect(cardManager.player.board);
-                    // TODO
+                    bonusCard.ApplyEffect(targetSlots);
                     break;
                 }
             }
