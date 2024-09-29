@@ -255,6 +255,10 @@ public class Board : MonoBehaviour
         allyPower.transform.rotation = startRotation;
         enemyPower.transform.rotation = startRotation;
     }
+    public bool CheckPlayer(Player player)
+    => (player == allyPlayer && allyPlayerIsPlaying) ||
+                (player == enemyPlayer && !allyPlayerIsPlaying);
+
     private float EaseInOut(float t)
     {
         return t * t * (3f - 2f * t);

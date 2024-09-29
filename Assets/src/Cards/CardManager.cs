@@ -55,8 +55,7 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         if (player != null)
         {
             // Check if it's the correct player's turn
-            if ((player == player.board.allyPlayer && player.board.allyPlayerIsPlaying) ||
-                (player == player.board.enemyPlayer && !player.board.allyPlayerIsPlaying))
+            if (player.board.CheckPlayer(player))
             {
                 if (cardData.CanBePlayed)
                 {
