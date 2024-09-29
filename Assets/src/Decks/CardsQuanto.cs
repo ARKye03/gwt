@@ -79,9 +79,9 @@ public class CardsQuanto : MonoBehaviour
             CreateBonusCard("Ranged Boost" , "Aumenta la fuerza de todas las unidades", Faction.Idanai, 2, null, RowType.Ranged, "Idanai/Boost"),
             CreateBonusCard("Siege Boost", "Boosts strength of all units", Faction.Idanai, 2, null, RowType.Siege, "Idanai/Boost"),
 
-            CreateClimateCard("EndOfLight", "Reduces strength of melee units", Faction.Idanai, null, RowType.Melee, "Idanai/EndOfLight"),
-            CreateClimateCard("AgainstTheCurrent", "Reduces strength of ranged units", Faction.Idanai, null, RowType.Ranged, "Idanai/AgainstTheCurrent"),
-            CreateClimateCard("StormOfSiege", "Reduces strength of siege units", Faction.Idanai, null, RowType.Siege, "Idanai/StormOfSiege"),
+            CreateClimateCard("EndOfLight", "Reduces strength of melee units by 7", Faction.Idanai, null, RowType.Melee,7, "Idanai/EndOfLight"),
+            CreateClimateCard("AgainstTheCurrent", "Reduces strength of ranged units by 5", Faction.Idanai, null, RowType.Ranged,5, "Idanai/AgainstTheCurrent"),
+            CreateClimateCard("StormOfSiege", "Reduces strength of siege units by 9", Faction.Idanai, null, RowType.Siege,9, "Idanai/StormOfSiege"),
 
             CreateLeaderCard("Idanai", "Drop one random card and draw another from the deck", Faction.Idanai, Effects.DropAndDrawCard, "Idanai/Idanai"),
         });
@@ -111,9 +111,9 @@ public class CardsQuanto : MonoBehaviour
             CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Celai, 2, null, RowType.Ranged, "Celai/"),
             CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Celai, 2, null, RowType.Siege, "Celai/"),
 
-            CreateClimateCard("Zoore", "Reduces strength of melee units", Faction.Celai,null, RowType.Melee, "Celai/Zoore"),
-            CreateClimateCard("DownTheArchers", "Reduces strength of ranged units", Faction.Celai,null, RowType.Ranged, "Celai/DownTheArchers"),
-            CreateClimateCard("Weatherstorm", "Reduces strength of siege units", Faction.Celai,null, RowType.Siege, "Celai/Weatherstorm"),
+            CreateClimateCard("Zoore", "Reduces strength of melee units", Faction.Celai,null, RowType.Melee,4, "Celai/Zoore"),
+            CreateClimateCard("DownTheArchers", "Reduces strength of ranged units", Faction.Celai,null, RowType.Ranged,4, "Celai/DownTheArchers"),
+            CreateClimateCard("Weatherstorm", "Reduces strength of siege units", Faction.Celai,null, RowType.Siege,4, "Celai/Weatherstorm"),
 
             CreateLeaderCard("Celai", "Drop all your hand and draw 10 more!", Faction.Celai, Effects.ReloadHand, "Celai/Celai"),
         });
@@ -143,12 +143,12 @@ public class CardsQuanto : MonoBehaviour
             CreateBonusCard("AUMENTO" , "Aumenta la fuerza de todas las unidades", Faction.Yudivain, 2, null, RowType.Ranged, "Yudivain/"),
             CreateBonusCard("Boost Siege", "Boosts strength of all units", Faction.Yudivain, 2, null, RowType.Siege, "Yudivain/"),
 
-            CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
-            CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
-            CreateClimateCard("Rain", "Reduces strength of siege units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
-            CreateClimateCard("Storm", "Reduces strength of all units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
-            CreateClimateCard("Blizzard", "Freezes all units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
-            CreateClimateCard("Heatwave", "Burns all units", Faction.Yudivain,null, RowType.Melee, "Yudivain/"),
+            CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Yudivain,null, RowType.Melee,5, "Yudivain/"),
+            CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Yudivain,null, RowType.Melee,5, "Yudivain/"),
+            CreateClimateCard("Rain", "Reduces strength of siege units", Faction.Yudivain,null, RowType.Melee,5, "Yudivain/"),
+            CreateClimateCard("Storm", "Reduces strength of all units", Faction.Yudivain,null, RowType.Melee,5, "Yudivain/"),
+            CreateClimateCard("Blizzard", "Freezes all units", Faction.Yudivain,null, RowType.Melee,5, "Yudivain/"),
+            CreateClimateCard("Heatwave", "Burns all units", Faction.Yudivain,null, RowType.Melee,5, "Yudivain/"),
 
             CreateLeaderCard("Yudivain", "Yudivain", Faction.Yudivain, null, "Yudivain/Yudivain"),
         });
@@ -180,10 +180,10 @@ public class CardsQuanto : MonoBehaviour
         return baitCard;
     }
 
-    private ClimateCard CreateClimateCard(string name, string description, Faction faction, Effect effect, RowType affectedRow, string imageName)
+    private ClimateCard CreateClimateCard(string name, string description, Faction faction, Effect effect, RowType affectedRow, int climatePower, string imageName)
     {
         ClimateCard climateCard = ScriptableObject.CreateInstance<ClimateCard>();
-        climateCard.Initialize(name, description, TypeofCard.Climate, faction, effect, affectedRow);
+        climateCard.Initialize(name, description, TypeofCard.Climate, faction, effect, affectedRow, climatePower);
         climateCard.CardImage = Resources.Load<Sprite>($"{imageName}");
         return climateCard;
     }

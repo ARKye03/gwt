@@ -13,8 +13,8 @@ public static class PlaceCard
             case UnitCard uc:
                 PlaceUnitCard(cardManager, uc, player);
                 break;
-            case ClimateCard:
-                PlaceClimateCard(cardManager, card, player.board.climateSlot);
+            case ClimateCard climateCard:
+                PlaceClimateCard(cardManager, climateCard, player.board.climateSlot);
                 break;
             case BaitCard bc:
                 Player opponent = player == player.board.allyPlayer ? player.board.enemyPlayer : player.board.allyPlayer;
@@ -62,12 +62,13 @@ public static class PlaceCard
         }
     }
 
-    public static void PlaceClimateCard(CardManager cardManager, Card card, CardSlot climateSlot)
+    public static void PlaceClimateCard(CardManager cardManager, ClimateCard card, CardSlot climateSlot)
     {
         climateSlot.RemoveCard();
         cardManager.transform.SetParent(climateSlot.transform);
         cardManager.transform.localPosition = Vector3.zero;
         climateSlot.PlaceCard(card, cardManager.gameObject);
+        card.ApplyEffect(card.AffectedRow);
         Debug.Log($"Placed climate card: {card.Name} in climate slot.");
     }
 
