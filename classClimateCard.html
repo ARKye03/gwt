@@ -104,23 +104,34 @@ Inheritance diagram for ClimateCard:</div>
   <img src="classClimateCard.png" usemap="#ClimateCard_map" alt=""/>
   <map id="ClimateCard_map" name="ClimateCard_map">
 <area href="classCard.html" title="Represents a card in the game with various attributes such as name, description, type,..." alt="Card" shape="rect" coords="0,56,106,80"/>
+<area href="interfaceIEffectRow.html" alt="IEffectRow" shape="rect" coords="116,56,222,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8e831d95452d0796bdb3091a8230c0c3"><td class="memItemLeft" align="right" valign="top"><a id="a8e831d95452d0796bdb3091a8230c0c3" name="a8e831d95452d0796bdb3091a8230c0c3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialize</b> (string name, string description, <a class="el" href="classCard.html#a802b62d89ca753cf8a7ca6fbd89f1b70">TypeofCard</a> typeOfCard, <a class="el" href="classCard.html#a726e1121c98e20fcf161a754fcf53cbc">Faction</a> faction, <a class="el" href="classCard.html#abef023376970c4cd8690552b04994f3e">Effect</a> effect, RowType affectedRow)</td></tr>
-<tr class="separator:a8e831d95452d0796bdb3091a8230c0c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31285d1cfede35cd7a09a1726987bde8"><td class="memItemLeft" align="right" valign="top"><a id="a31285d1cfede35cd7a09a1726987bde8" name="a31285d1cfede35cd7a09a1726987bde8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialize</b> (string name, string description, <a class="el" href="classCard.html#a802b62d89ca753cf8a7ca6fbd89f1b70">TypeofCard</a> typeOfCard, <a class="el" href="classCard.html#a726e1121c98e20fcf161a754fcf53cbc">Faction</a> faction, <a class="el" href="classCard.html#abef023376970c4cd8690552b04994f3e">Effect</a> effect, RowType affectedRow, int climatePower)</td></tr>
+<tr class="separator:a31285d1cfede35cd7a09a1726987bde8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2fb9207bb7f7c672b7adf2142f59b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClimateCard.html#afa2fb9207bb7f7c672b7adf2142f59b6">ApplyEffect</a> (RowType rowType)</td></tr>
+<tr class="separator:afa2fb9207bb7f7c672b7adf2142f59b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e0b5ea52bb8a11f2eb41dd8181052ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classClimateCard.html#a4e0b5ea52bb8a11f2eb41dd8181052ca">ApplyEffectToRow</a> (<a class="el" href="classCardSlot.html">CardSlot</a>[] slots)</td></tr>
+<tr class="separator:a4e0b5ea52bb8a11f2eb41dd8181052ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17e7f4af4718a33667490f64c22ee73d"><td class="memItemLeft" align="right" valign="top"><a id="a17e7f4af4718a33667490f64c22ee73d" name="a17e7f4af4718a33667490f64c22ee73d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>ApplyEffect</b> (RowType rowType)</td></tr>
+<tr class="separator:a17e7f4af4718a33667490f64c22ee73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1de89623719b338ac4bb2cc345616181"><td class="memItemLeft" align="right" valign="top"><a id="a1de89623719b338ac4bb2cc345616181" name="a1de89623719b338ac4bb2cc345616181"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ApplyEffectToRow</b> (<a class="el" href="classCardSlot.html">CardSlot</a>[] slots)</td></tr>
+<tr class="separator:a1de89623719b338ac4bb2cc345616181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a2d2ab73cc3604c45c621a2afdf272b77"><td class="memItemLeft" align="right" valign="top"><a id="a2d2ab73cc3604c45c621a2afdf272b77" name="a2d2ab73cc3604c45c621a2afdf272b77"></a>
 RowType&#160;</td><td class="memItemRight" valign="bottom"><b>AffectedRow</b></td></tr>
 <tr class="separator:a2d2ab73cc3604c45c621a2afdf272b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1388bd3a99385e599be5cb8c537c969"><td class="memItemLeft" align="right" valign="top"><a id="ad1388bd3a99385e599be5cb8c537c969" name="ad1388bd3a99385e599be5cb8c537c969"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>StrengthReduction</b></td></tr>
-<tr class="separator:ad1388bd3a99385e599be5cb8c537c969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83d443473b02ac81a5931a7fc92cc401"><td class="memItemLeft" align="right" valign="top"><a id="a83d443473b02ac81a5931a7fc92cc401" name="a83d443473b02ac81a5931a7fc92cc401"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>ClimatePower</b></td></tr>
+<tr class="separator:a83d443473b02ac81a5931a7fc92cc401"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classCard"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classCard')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classCard.html">Card</a></td></tr>
 <tr class="memitem:a5a6f253b03f13d9e792836ee2ec678ec inherit pub_attribs_classCard"><td class="memItemLeft" align="right" valign="top"><a id="a5a6f253b03f13d9e792836ee2ec678ec" name="a5a6f253b03f13d9e792836ee2ec678ec"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>Name</b></td></tr>
@@ -159,6 +170,63 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>CanBePlayed</b> = tru
 <tr class="memdesc:af913e3dbf3967324b0d6db46912ca87c inherit properties_classCard"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets a value indicating whether the card can be played. <br /></td></tr>
 <tr class="separator:af913e3dbf3967324b0d6db46912ca87c inherit properties_classCard"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="afa2fb9207bb7f7c672b7adf2142f59b6" name="afa2fb9207bb7f7c672b7adf2142f59b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa2fb9207bb7f7c672b7adf2142f59b6">&#9670;&#160;</a></span>ApplyEffect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ClimateCard.ApplyEffect </td>
+          <td>(</td>
+          <td class="paramtype">RowType&#160;</td>
+          <td class="paramname"><em>rowType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="interfaceIEffectRow.html">IEffectRow</a>.</p>
+
+</div>
+</div>
+<a id="a4e0b5ea52bb8a11f2eb41dd8181052ca" name="a4e0b5ea52bb8a11f2eb41dd8181052ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e0b5ea52bb8a11f2eb41dd8181052ca">&#9670;&#160;</a></span>ApplyEffectToRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClimateCard.ApplyEffectToRow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCardSlot.html">CardSlot</a>[]&#160;</td>
+          <td class="paramname"><em>slots</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="interfaceIEffectRow.html">IEffectRow</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Assets/src/Cards/ClimateCard.cs</li>
 </ul>

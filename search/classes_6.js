@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['leadercard_0',['LeaderCard',['../classLeaderCard.html',1,'']]]
+  ['ieffectrow_0',['IEffectRow',['../interfaceIEffectRow.html',1,'']]]
 ];

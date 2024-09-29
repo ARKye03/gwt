@@ -14,6 +14,7 @@ var annotated_dup =
     [ "Deck", "classDeck.html", "classDeck" ],
     [ "Effects", "classEffects.html", null ],
     [ "HandPanelManager", "classHandPanelManager.html", "classHandPanelManager" ],
+    [ "IEffectRow", "interfaceIEffectRow.html", null ],
     [ "LeaderCard", "classLeaderCard.html", null ],
     [ "Menu", "classMenu.html", "classMenu" ],
     [ "PauseMenu", "classPauseMenu.html", null ],

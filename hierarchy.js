@@ -1,5 +1,8 @@
 var hierarchy =
 [
+    [ "IEffectRow", "interfaceIEffectRow.html", [
+      [ "ClimateCard", "classClimateCard.html", null ]
+    ] ],
     [ "IPointerClickHandler", null, [
       [ "CardManager", "classCardManager.html", null ]
     ] ],
