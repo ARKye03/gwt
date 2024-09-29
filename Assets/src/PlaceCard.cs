@@ -8,31 +8,36 @@ public static class PlaceCard
         Card card = cardManager.CardData;
         Debug.Log($"Attempting to place card: {card.Name}");
 
+        bool cardPlaced = false;
+
         switch (card)
         {
             case UnitCard uc:
-                PlaceUnitCard(cardManager, uc, player);
+                cardPlaced = PlaceUnitCard(cardManager, uc, player);
                 break;
             case ClimateCard climateCard:
-                PlaceClimateCard(cardManager, climateCard, player.board.climateSlot);
+                cardPlaced = PlaceClimateCard(cardManager, climateCard, player.board.climateSlot);
                 break;
             case BaitCard bc:
                 Player opponent = player == player.board.allyPlayer ? player.board.enemyPlayer : player.board.allyPlayer;
-                PlaceBaitCard(cardManager, bc, opponent);
+                cardPlaced = PlaceBaitCard(cardManager, bc, opponent);
                 break;
             case BonusCard bonusCard:
-                PlaceBonusCard(cardManager, bonusCard, player);
+                cardPlaced = PlaceBonusCard(cardManager, bonusCard, player);
                 break;
             default:
                 Debug.LogWarning("Unknown card type.");
                 break;
         }
 
-        player.handPanelManager.cards.Remove(card);
-        player.UpdateHandUI();
+        if (cardPlaced)
+        {
+            player.handPanelManager.cards.Remove(card);
+            player.UpdateHandUI();
+        }
     }
 
-    public static void PlaceUnitCard(CardManager cardManager, UnitCard uc, Player player)
+    public static bool PlaceUnitCard(CardManager cardManager, UnitCard uc, Player player)
     {
         CardSlot cardSlot = GetAvailableSlot(uc.TypeofUnit, player);
 
@@ -40,22 +45,25 @@ public static class PlaceCard
         {
             PlaceCardInSlot(cardManager, uc, cardSlot);
             Debug.Log($"Placed {uc.TypeofUnit} card: {uc.Name} in slot: {cardSlot.name}");
+            return true;
         }
         else
         {
             Debug.LogWarning($"No available {uc.TypeofUnit} slot found.");
+            return false;
         }
     }
 
-    public static void PlaceClimateCard(CardManager cardManager, ClimateCard card, CardSlot climateSlot)
+    public static bool PlaceClimateCard(CardManager cardManager, ClimateCard card, CardSlot climateSlot)
     {
         climateSlot.RemoveCard();
         PlaceCardInSlot(cardManager, card, climateSlot);
         card.ApplyEffect(card.AffectedRow);
         Debug.Log($"Placed climate card: {card.Name} in climate slot.");
+        return true;
     }
 
-    public static void PlaceBaitCard(CardManager cardManager, BaitCard bc, Player opponent)
+    public static bool PlaceBaitCard(CardManager cardManager, BaitCard bc, Player opponent)
     {
         CardSlot cardSlot = GetRandomOccupiedSlot(bc.typeofUnit, opponent);
 
@@ -77,14 +85,16 @@ public static class PlaceCard
             // Place the bait card in the slot
             PlaceCardInSlot(cardManager, bc, cardSlot);
             Debug.Log($"Placed bait card: {bc.Name} in opponent's {bc.typeofUnit} slot: {cardSlot.name}");
+            return true;
         }
         else
         {
             Debug.LogWarning($"No available {bc.typeofUnit} slot found on opponent's side.");
+            return false;
         }
     }
 
-    public static void PlaceBonusCard(CardManager cardManager, BonusCard bonusCard, Player player)
+    public static bool PlaceBonusCard(CardManager cardManager, BonusCard bonusCard, Player player)
     {
         CardSlot[] targetSlots = GetTargetSlots(bonusCard.AffectedRow, player);
         CardSlot bonusSlot = GetBonusSlot(bonusCard.AffectedRow, player);
@@ -93,10 +103,12 @@ public static class PlaceCard
         {
             PlaceCardInSlot(cardManager, bonusCard, bonusSlot);
             bonusCard.ApplyEffect(targetSlots);
+            return true;
         }
         else
         {
             Debug.LogWarning("Invalid row type or player slots not found.");
+            return false;
         }
     }
 
@@ -104,19 +116,20 @@ public static class PlaceCard
     {
         return unitType switch
         {
-            TypeofUnit.Melee => player.MeleeSlots.FirstOrDefault(slot => !slot.IsOccupied),
-            TypeofUnit.Ranged => player.RangedSlots.FirstOrDefault(slot => !slot.IsOccupied),
-            TypeofUnit.Siege => player.SiegeSlots.FirstOrDefault(slot => !slot.IsOccupied),
+            TypeofUnit.Melee => player.MeleeSlots.FirstOrDefault(static slot => !slot.IsOccupied),
+            TypeofUnit.Ranged => player.RangedSlots.FirstOrDefault(static slot => !slot.IsOccupied),
+            TypeofUnit.Siege => player.SiegeSlots.FirstOrDefault(static slot => !slot.IsOccupied),
             _ => null,
         };
     }
+
     private static CardSlot GetRandomOccupiedSlot(TypeofUnit unitType, Player player)
     {
         CardSlot[] occupiedSlots = unitType switch
         {
-            TypeofUnit.Melee => player.MeleeSlots.Where(s => s.IsOccupied).ToArray(),
-            TypeofUnit.Ranged => player.RangedSlots.Where(s => s.IsOccupied).ToArray(),
-            TypeofUnit.Siege => player.SiegeSlots.Where(s => s.IsOccupied).ToArray(),
+            TypeofUnit.Melee => player.MeleeSlots.Where(static s => s.IsOccupied).ToArray(),
+            TypeofUnit.Ranged => player.RangedSlots.Where(static s => s.IsOccupied).ToArray(),
+            TypeofUnit.Siege => player.SiegeSlots.Where(static s => s.IsOccupied).ToArray(),
             _ => null,
         };
 
@@ -125,7 +138,7 @@ public static class PlaceCard
             return null;
         }
 
-        int randomIndex = UnityEngine.Random.Range(0, occupiedSlots.Length);
+        int randomIndex = Random.Range(0, occupiedSlots.Length);
         return occupiedSlots[randomIndex];
     }
 
