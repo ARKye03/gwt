@@ -24,7 +24,7 @@ public class UnitCard : Card
                            TypeofUnit typeofUnit,
                            bool isVoidCard = false)
     {
-        this.name = name;
+        Name = name;
         this.initialPower = initialPower;
         Description = description;
         TypeofCard = typeOfCard;

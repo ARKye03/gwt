@@ -19,7 +19,7 @@ public class BaitCard : Card
                             TypeofUnit typeofUnit,
                            bool isVoidCard = false)
     {
-        this.name = name;
+        Name = name;
         this.initialDmg = initialDmg;
         Description = description;
         TypeofCard = typeOfCard;

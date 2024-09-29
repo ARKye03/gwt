@@ -9,7 +9,7 @@ public class LeaderCard : Card
                            Faction faction,
                            Effect effect)
     {
-        this.name = name;
+        Name = name;
         Description = description;
         TypeofCard = typeOfCard;
         Faction = faction;

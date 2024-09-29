@@ -19,7 +19,7 @@ public class BonusCard : Card
                            Effect effect,
                            RowType affectedRow)
     {
-        this.name = name;
+        Name = name;
         this.initialBoost = initialBoost;
         Description = description;
         TypeofCard = typeOfCard;
