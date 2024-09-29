@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewClimateCard", menuName = "Card/ClimateCard")]
-public class ClimateCard : Card
+public class ClimateCard : Card, IEffectRow
 {
     public RowType AffectedRow;
     public int ClimatePower;
@@ -57,7 +57,7 @@ public class ClimateCard : Card
         return false;
     }
 
-    private void ApplyEffectToRow(CardSlot[] slots)
+    public void ApplyEffectToRow(CardSlot[] slots)
     {
         foreach (CardSlot slot in slots)
         {

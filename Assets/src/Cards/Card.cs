@@ -1,6 +1,12 @@
 using UnityEngine;
 
 public delegate bool Effect(Player player);
+interface IEffectRow
+{
+    bool ApplyEffect(RowType rowType);
+    void ApplyEffectToRow(CardSlot[] slots);
+
+}
 
 /// <summary>
 /// Represents a card in the game with various attributes such as name, description, type, faction, effect, and image.
