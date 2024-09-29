@@ -34,26 +34,11 @@ public static class PlaceCard
 
     public static void PlaceUnitCard(CardManager cardManager, UnitCard uc, Player player)
     {
-        CardSlot cardSlot = null;
-
-        if (uc.TypeofUnit == TypeofUnit.Melee)
-        {
-            cardSlot = player.MeleeSlots.FirstOrDefault(slot => !slot.IsOccupied);
-        }
-        else if (uc.TypeofUnit == TypeofUnit.Ranged)
-        {
-            cardSlot = player.RangedSlots.FirstOrDefault(slot => !slot.IsOccupied);
-        }
-        else if (uc.TypeofUnit == TypeofUnit.Siege)
-        {
-            cardSlot = player.SiegeSlots.FirstOrDefault(slot => !slot.IsOccupied);
-        }
+        CardSlot cardSlot = GetAvailableSlot(uc.TypeofUnit, player);
 
         if (cardSlot != null)
         {
-            cardManager.transform.SetParent(cardSlot.transform);
-            cardManager.transform.localPosition = Vector3.zero;
-            cardSlot.PlaceCard(uc, cardManager.gameObject);
+            PlaceCardInSlot(cardManager, uc, cardSlot);
             Debug.Log($"Placed {uc.TypeofUnit} card: {uc.Name} in slot: {cardSlot.name}");
         }
         else
@@ -65,39 +50,18 @@ public static class PlaceCard
     public static void PlaceClimateCard(CardManager cardManager, ClimateCard card, CardSlot climateSlot)
     {
         climateSlot.RemoveCard();
-        cardManager.transform.SetParent(climateSlot.transform);
-        cardManager.transform.localPosition = Vector3.zero;
-        climateSlot.PlaceCard(card, cardManager.gameObject);
+        PlaceCardInSlot(cardManager, card, climateSlot);
         card.ApplyEffect(card.AffectedRow);
         Debug.Log($"Placed climate card: {card.Name} in climate slot.");
     }
 
     public static void PlaceBaitCard(CardManager cardManager, BaitCard bc, Player opponent)
     {
-        CardSlot[] meleeSlots = opponent.MeleeSlots;
-        CardSlot[] rangedSlots = opponent.RangedSlots;
-        CardSlot[] siegeSlots = opponent.SiegeSlots;
-
-        CardSlot cardSlot = null;
-
-        if (bc.typeofUnit == TypeofUnit.Melee)
-        {
-            cardSlot = meleeSlots.FirstOrDefault(slot => !slot.IsOccupied);
-        }
-        else if (bc.typeofUnit == TypeofUnit.Ranged)
-        {
-            cardSlot = rangedSlots.FirstOrDefault(slot => !slot.IsOccupied);
-        }
-        else if (bc.typeofUnit == TypeofUnit.Siege)
-        {
-            cardSlot = siegeSlots.FirstOrDefault(slot => !slot.IsOccupied);
-        }
+        CardSlot cardSlot = GetAvailableSlot(bc.typeofUnit, opponent);
 
         if (cardSlot != null)
         {
-            cardManager.transform.SetParent(cardSlot.transform);
-            cardManager.transform.localPosition = Vector3.zero;
-            cardSlot.PlaceCard(bc, cardManager.gameObject);
+            PlaceCardInSlot(cardManager, bc, cardSlot);
             Debug.Log($"Placed bait card: {bc.Name} in opponent's {bc.typeofUnit} slot: {cardSlot.name}");
             // ApplyBaitCardEffects(bc); // This should be handled in the Player class or another appropriate place
         }
@@ -109,39 +73,57 @@ public static class PlaceCard
 
     public static void PlaceBonusCard(CardManager cardManager, BonusCard bonusCard, Player player)
     {
-        CardSlot[] targetSlots = null;
+        CardSlot[] targetSlots = GetTargetSlots(bonusCard.AffectedRow, player);
+        CardSlot bonusSlot = GetBonusSlot(bonusCard.AffectedRow, player);
 
-        switch (bonusCard.AffectedRow)
+        if (targetSlots != null && bonusSlot != null)
         {
-            case RowType.Melee:
-                targetSlots = player.MeleeSlots;
-                break;
-            case RowType.Ranged:
-                targetSlots = player.RangedSlots;
-                break;
-            case RowType.Siege:
-                targetSlots = player.SiegeSlots;
-                break;
-        }
-
-        if (targetSlots != null)
-        {
-            foreach (var slot in targetSlots)
-            {
-                if (!slot.IsOccupied)
-                {
-                    cardManager.transform.SetParent(slot.transform);
-                    cardManager.transform.localPosition = Vector3.zero;
-                    slot.PlaceCard(bonusCard, cardManager.gameObject);
-                    Debug.Log($"Placed bonus card: {bonusCard.Name} in {bonusCard.AffectedRow} row.");
-                    bonusCard.ApplyEffect(targetSlots);
-                    break;
-                }
-            }
+            PlaceCardInSlot(cardManager, bonusCard, bonusSlot);
+            bonusCard.ApplyEffect(targetSlots);
         }
         else
         {
-            Debug.LogWarning($"No available slot found in {bonusCard.AffectedRow} row.");
+            Debug.LogWarning("Invalid row type or player slots not found.");
         }
+    }
+
+    private static CardSlot GetAvailableSlot(TypeofUnit unitType, Player player)
+    {
+        return unitType switch
+        {
+            TypeofUnit.Melee => player.MeleeSlots.FirstOrDefault(slot => !slot.IsOccupied),
+            TypeofUnit.Ranged => player.RangedSlots.FirstOrDefault(slot => !slot.IsOccupied),
+            TypeofUnit.Siege => player.SiegeSlots.FirstOrDefault(slot => !slot.IsOccupied),
+            _ => null,
+        };
+    }
+
+    private static CardSlot[] GetTargetSlots(RowType rowType, Player player)
+    {
+        return rowType switch
+        {
+            RowType.Melee => player.MeleeSlots,
+            RowType.Ranged => player.RangedSlots,
+            RowType.Siege => player.SiegeSlots,
+            _ => null,
+        };
+    }
+
+    private static CardSlot GetBonusSlot(RowType rowType, Player player)
+    {
+        return rowType switch
+        {
+            RowType.Melee => player.MeleeBonusSlot,
+            RowType.Ranged => player.RangedBonusSlot,
+            RowType.Siege => player.SiegeBonusSlot,
+            _ => null,
+        };
+    }
+
+    private static void PlaceCardInSlot(CardManager cardManager, Card card, CardSlot cardSlot)
+    {
+        cardManager.transform.SetParent(cardSlot.transform);
+        cardManager.transform.localPosition = Vector3.zero;
+        cardSlot.PlaceCard(card, cardManager.gameObject);
     }
 }
