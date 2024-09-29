@@ -55,7 +55,7 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
         if (player != null)
         {
             // Check if it's the correct player's turn
-            if (player.board.CheckPlayer(player))
+            if (Board._instance.CheckPlayer(player))
             {
                 if (cardData.CanBePlayed)
                 {
@@ -67,7 +67,7 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
                     {
                         _ = cardData.Effect(player);
                     }
-                    player.board.PassTurn();
+                    Board._instance.PassTurn();
                 }
             }
             else
@@ -81,12 +81,12 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     {
         audioSource.PlayOneShot(audioClip);
         transform.localScale *= 1.1f;
-        player.board.cardHoverManager.ShowCard(this); // Show the enlarged card
+        Board._instance.cardHoverManager.ShowCard(this); // Show the enlarged card
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         transform.localScale = Vector3.one;
-        player.board.cardHoverManager.HideCard(); // Hide the enlarged card
+        Board._instance.cardHoverManager.HideCard(); // Hide the enlarged card
     }
 }
