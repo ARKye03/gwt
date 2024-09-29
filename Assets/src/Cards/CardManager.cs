@@ -54,14 +54,26 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
     {
         if (player != null)
         {
-            if (cardData.CanBePlayed)
+            // Check if it's the correct player's turn
+            if ((player == player.board.allyPlayer && player.board.allyPlayerIsPlaying) ||
+                (player == player.board.enemyPlayer && !player.board.allyPlayerIsPlaying))
             {
-                player.OnCardClicked(this);
+                if (cardData.CanBePlayed)
+                {
+                    player.OnCardClicked(this);
+                }
+                else
+                {
+                    if (cardData.Effect is not null)
+                    {
+                        _ = cardData.Effect(player);
+                    }
+                    player.board.PassTurn();
+                }
             }
             else
             {
-                cardData.Effect(player);
-                player.board.PassTurn();
+                Debug.LogWarning("It's not this player's turn.");
             }
         }
     }
