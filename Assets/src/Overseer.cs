@@ -167,7 +167,7 @@ public class Board : MonoBehaviour
         allyPower.text = $"{allyPowerValue}";
         enemyPower.text = $"{enemyPowerValue}";
 
-        if (roundManager.Round == 3)
+        if (roundManager.Round == 5)
         {
             if (allyPowerValue > enemyPowerValue)
             {
