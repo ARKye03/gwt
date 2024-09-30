@@ -16,15 +16,22 @@ public class Effects : MonoBehaviour
 
         return true;
     }
+    private static ushort ReloadHandCounter = 0;
     public static bool ReloadHand(Player player)
     {
         player.handPanelManager.cards.ForEach(card => player.deck.cards.Push(card));
         player.handPanelManager.cards.Clear();
         player.deck.Shuffle();
         player.DrawCards(10);
-        return true;
+        ReloadHandCounter++;
+        if (ReloadHandCounter == 2)
+        {
+            return true;
+        }
+        return false;
     }
 
+    private static ushort DropAndDrawCounter = 0;
     public static bool DropAndDrawCard(Player player)
     {
         List<Card> hand = player.handPanelManager.cards;
@@ -38,7 +45,13 @@ public class Effects : MonoBehaviour
         hand.Add(newCard);
         player.UpdateHandUI();
         Debug.Log($"Dropped card: {droppedCard.Name} and drew new card: {newCard.Name}");
-        return true;
+        DropAndDrawCounter++;
+        if (DropAndDrawCounter == 3)
+        {
+            DropAndDrawCounter = 1;
+            return true;
+        }
+        return false;
     }
     public static bool AllorNothing(Player player)
     {
