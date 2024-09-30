@@ -50,7 +50,7 @@ public class CardsQuanto : MonoBehaviour
         CardsOfIdanai = new Stack<Card>(new List<Card>
         {
 
-            CreateUnitCard("Prasalaas", "How ARKye was supposed to be", Faction.Neutral, Rarity.Gold, 15, Effects.AllorNothing,TypeofUnit.Melee, "Neutral/Prasalaas"),
+            CreateUnitCard("Prasalaas", "Activate 3 random cards of your hand, but drop the rest of the hand :(", Faction.Neutral, Rarity.Gold, 15, Effects.AllorNothing,TypeofUnit.Melee, "Neutral/Prasalaas"),
             CreateUnitCard("Prasanthrangan", "HyDe creator, where dots unleash the pain", Faction.Idanai, Rarity.Gold, 8, null,TypeofUnit.Melee, "Idanai/ScarTheScorched"),
             CreateUnitCard("Aylur", "TSX is not the limit", Faction.Idanai, Rarity.Gold, 8, null,TypeofUnit.Melee, "Idanai/ColourlessSonic"),
 
@@ -107,9 +107,9 @@ public class CardsQuanto : MonoBehaviour
             CreateBaitCard("BaitNature", "A simple bait", Faction.Celai, 0, null,TypeofUnit.Melee, "Celai/BaitNature"),
             CreateBaitCard("BaitThing", "A simple bait", Faction.Celai, 0, null,TypeofUnit.Melee, "Celai/BaitThing"),
 
-            CreateBonusCard("SeaTouch", "Boosts strength of all units", Faction.Celai, 7, null, RowType.Melee, "Celai/SeaTouch"),
-            CreateBonusCard("HailTheDistance" , "Aumenta la fuerza de todas las unidades", Faction.Celai, 3, null, RowType.Ranged, "Celai/HailTheDistance"),
-            CreateBonusCard("HandOfGreed", "Boosts strength of all units", Faction.Celai, 3, null, RowType.Melee, "Celai/HandOfGreed"),
+            CreateBonusCard("SeaTouch", "Put your melee units 7 times stronger", Faction.Celai, 7, null, RowType.Melee, "Celai/SeaTouch"),
+            CreateBonusCard("HailTheDistance" , "Ranged a bit stronger, +3", Faction.Celai, 3, null, RowType.Ranged, "Celai/HailTheDistance"),
+            CreateBonusCard("HandOfGreed", "Bow sieges are stronger, +3", Faction.Celai, 3, null, RowType.Melee, "Celai/HandOfGreed"),
 
             CreateClimateCard("Zoore", "Reduces strength of melee units", Faction.Celai,null, RowType.Melee,4, "Celai/Zoore"),
             CreateClimateCard("DownTheArchers", "Reduces strength of ranged units", Faction.Celai,null, RowType.Ranged,4, "Celai/DownTheArchers"),
