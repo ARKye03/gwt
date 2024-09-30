@@ -69,7 +69,7 @@ public static class PlaceCard
     {
         CardSlot cardSlot = GetRandomOccupiedSlot(bc.typeofUnit, opponent);
 
-        if (cardSlot != null)
+        if (cardSlot != null && cardSlot.CurrentCard is UnitCard)
         {
             // Retrieve the card from the CardSlot
             Card cardToReturn = cardSlot.CurrentCard;
@@ -77,6 +77,7 @@ public static class PlaceCard
             if (cardToReturn != null)
             {
                 // Add the card back to the player's hand
+                cardToReturn.CanBePlayed = true;
                 opponent.handPanelManager.cards.Add(cardToReturn);
                 opponent.UpdateHandUI();
             }
@@ -98,8 +99,13 @@ public static class PlaceCard
 
     public static bool PlaceBonusCard(CardManager cardManager, BonusCard bonusCard, Player player)
     {
-        CardSlot[] targetSlots = GetTargetSlots(bonusCard.AffectedRow, player);
         CardSlot bonusSlot = GetBonusSlot(bonusCard.AffectedRow, player);
+        if (bonusSlot != null && bonusSlot.IsOccupied)
+        {
+            Debug.LogWarning("Bonus slot is already occupied.");
+            return false;
+        }
+        CardSlot[] targetSlots = GetTargetSlots(bonusCard.AffectedRow, player);
 
         if (targetSlots != null && bonusSlot != null)
         {
