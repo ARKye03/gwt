@@ -9,30 +9,39 @@ public class CardSlot : MonoBehaviour
 
     public void PlaceCard(Card card, GameObject cardObject)
     {
-        if (!IsOccupied && (card.TypeofCard == AllowedCardType || card is BaitCard))
+        if (IsOccupied)
         {
-            CurrentCard = card;
-            currentCardObject = cardObject;
-            IsOccupied = true;
-            card.CanBePlayed = false;
-            cardObject.transform.position = transform.position;
-            cardObject.transform.localScale = Vector3.one;
-            Debug.Log($"Card {card.Name} placed in slot {name}.");
+            Debug.LogWarning($"Slot {name} is already occupied.");
+            return;
         }
-        else
+
+        if (card.TypeofCard != AllowedCardType && card is not BaitCard)
         {
-            Debug.LogWarning($"Card {card.Name} type not allowed in this slot or slot is occupied.");
+            Debug.LogWarning($"Card {card.Name} type not allowed in slot {name}.");
+            return;
         }
+
+        CurrentCard = card;
+        currentCardObject = cardObject;
+        IsOccupied = true;
+        card.CanBePlayed = false;
+        cardObject.transform.position = transform.position;
+        cardObject.transform.localScale = Vector3.one;
+        Debug.Log($"Card {card.Name} placed in slot {name}.");
     }
 
     public void RemoveCard()
     {
-        if (IsOccupied)
+        if (!IsOccupied)
         {
-            Destroy(currentCardObject);
-            CurrentCard = null;
-            currentCardObject = null;
-            IsOccupied = false;
+            Debug.LogWarning($"Slot {name} is already empty.");
+            return;
         }
+
+        Destroy(currentCardObject);
+        CurrentCard = null;
+        currentCardObject = null;
+        IsOccupied = false;
+        Debug.Log($"Card removed from slot {name}.");
     }
 }

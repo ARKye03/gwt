@@ -10,13 +10,15 @@ public class BaitCard : Card
     public float GetCurrentDMG => dmg;
     public float ModDmg { get => dmg; set => dmg = value; }
 
+    public Sprite TypeOfUnitImage { get; private set; }
+
     public void Initialize(string name,
                            string description,
                            TypeofCard typeOfCard,
                            Faction faction,
                            float initialDmg,
                            Effect effect,
-                            TypeofUnit typeofUnit,
+                           TypeofUnit typeofUnit,
                            bool isVoidCard = false)
     {
         Name = name;
@@ -28,5 +30,6 @@ public class BaitCard : Card
         Effect = effect;
         this.typeofUnit = typeofUnit;
         IsVoidCard = isVoidCard;
+        TypeOfUnitImage = Resources.Load<Sprite>($"TypeOfUnit/{typeofUnit}");
     }
 }
