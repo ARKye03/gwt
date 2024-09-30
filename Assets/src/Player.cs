@@ -67,14 +67,13 @@ public class Player : MonoBehaviour
             cardObject.transform.localScale = Vector3.one;
         }
     }
-    public void OnCardClicked(CardManager cardManager)
+    public bool OnCardClicked(CardManager cardManager)
     {
-        PlayRound(cardManager, this);
+        return PlayRound(cardManager, this);
     }
 
-    private void PlayRound(CardManager cardManager, Player player)
+    private bool PlayRound(CardManager cardManager, Player player)
     {
-        PlaceCard.PlaceACard(cardManager, player);
-        board.PassTurn();
+        return PlaceCard.PlaceACard(cardManager, player);
     }
 }

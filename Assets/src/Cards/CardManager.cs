@@ -59,7 +59,11 @@ public class CardManager : MonoBehaviour, IPointerClickHandler, IPointerEnterHan
             {
                 if (cardData.CanBePlayed)
                 {
-                    player.OnCardClicked(this);
+                    bool cardPlayed = player.OnCardClicked(this);
+                    if (cardPlayed)
+                    {
+                        Board._instance.PassTurn();
+                    }
                 }
                 else
                 {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class PlaceCard
 {
-    public static void PlaceACard(CardManager cardManager, Player player)
+    public static bool PlaceACard(CardManager cardManager, Player player)
     {
         Card card = cardManager.CardData;
         Debug.Log($"Attempting to place card: {card.Name}");
@@ -35,6 +35,8 @@ public static class PlaceCard
             player.handPanelManager.cards.Remove(card);
             player.UpdateHandUI();
         }
+
+        return cardPlaced;
     }
 
     public static bool PlaceUnitCard(CardManager cardManager, UnitCard uc, Player player)
@@ -116,9 +118,9 @@ public static class PlaceCard
     {
         return unitType switch
         {
-            TypeofUnit.Melee => player.MeleeSlots.FirstOrDefault(static slot => !slot.IsOccupied),
-            TypeofUnit.Ranged => player.RangedSlots.FirstOrDefault(static slot => !slot.IsOccupied),
-            TypeofUnit.Siege => player.SiegeSlots.FirstOrDefault(static slot => !slot.IsOccupied),
+            TypeofUnit.Melee => player.MeleeSlots.FirstOrDefault(slot => !slot.IsOccupied),
+            TypeofUnit.Ranged => player.RangedSlots.FirstOrDefault(slot => !slot.IsOccupied),
+            TypeofUnit.Siege => player.SiegeSlots.FirstOrDefault(slot => !slot.IsOccupied),
             _ => null,
         };
     }
@@ -127,9 +129,9 @@ public static class PlaceCard
     {
         CardSlot[] occupiedSlots = unitType switch
         {
-            TypeofUnit.Melee => player.MeleeSlots.Where(static s => s.IsOccupied).ToArray(),
-            TypeofUnit.Ranged => player.RangedSlots.Where(static s => s.IsOccupied).ToArray(),
-            TypeofUnit.Siege => player.SiegeSlots.Where(static s => s.IsOccupied).ToArray(),
+            TypeofUnit.Melee => player.MeleeSlots.Where(s => s.IsOccupied).ToArray(),
+            TypeofUnit.Ranged => player.RangedSlots.Where(s => s.IsOccupied).ToArray(),
+            TypeofUnit.Siege => player.SiegeSlots.Where(s => s.IsOccupied).ToArray(),
             _ => null,
         };
 
