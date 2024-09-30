@@ -8,6 +8,7 @@ public class UnitCard : Card
 
     public int GetCurrentDMG => power;
     public int ModDmg { get => power; set => power = value; }
+    public void ResetPower() { power = initialPower; }
     public TypeofUnit TypeofUnit { get; private set; }
 
     public Rarity Rarity { get; private set; }

@@ -21,32 +21,14 @@ public class ClimateCard : Card, IEffectRow
         AffectedRow = affectedRow;
         ClimatePower = climatePower;
     }
+
     public bool ApplyEffect()
     {
         Player allyPlayer = Board._instance.allyPlayer;
         Player enemyPlayer = Board._instance.enemyPlayer;
 
-        CardSlot[] allySlots = null;
-        CardSlot[] enemySlots = null;
-
-        switch (AffectedRow)
-        {
-            case RowType.Melee:
-                allySlots = allyPlayer.MeleeSlots;
-                enemySlots = enemyPlayer.MeleeSlots;
-                break;
-            case RowType.Ranged:
-                allySlots = allyPlayer.RangedSlots;
-                enemySlots = enemyPlayer.RangedSlots;
-                break;
-            case RowType.Siege:
-                allySlots = allyPlayer.SiegeSlots;
-                enemySlots = enemyPlayer.SiegeSlots;
-                break;
-            default:
-                Debug.Log("Unreachable code reached");
-                break;
-        }
+        CardSlot[] allySlots = GetSlotsForRow(AffectedRow, allyPlayer);
+        CardSlot[] enemySlots = GetSlotsForRow(AffectedRow, enemyPlayer);
 
         if (allySlots != null && enemySlots != null)
         {
@@ -57,13 +39,24 @@ public class ClimateCard : Card, IEffectRow
         return false;
     }
 
+    private CardSlot[] GetSlotsForRow(RowType rowType, Player player)
+    {
+        return rowType switch
+        {
+            RowType.Melee => player.MeleeSlots,
+            RowType.Ranged => player.RangedSlots,
+            RowType.Siege => player.SiegeSlots,
+            _ => null,
+        };
+    }
+
     public void ApplyEffectToRow(CardSlot[] slots)
     {
         foreach (CardSlot slot in slots)
         {
             if (slot.IsOccupied && slot.CurrentCard is UnitCard unitCard)
             {
-                unitCard.power = unitCard.initialPower - ClimatePower;
+                unitCard.power -= ClimatePower;
                 if (unitCard.power < 0)
                 {
                     unitCard.power = 0;

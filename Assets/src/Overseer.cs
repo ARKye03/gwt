@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 using System.Collections;
+using System.Linq;
 
 public class Board : MonoBehaviour
 {
@@ -159,10 +160,10 @@ public class Board : MonoBehaviour
     }
     public void CalculateAndDisplayPower()
     {
+        UpdatePowerInField();
         allyPowerValue = CalculateTotalPower(allyPlayer.MeleeSlots) + CalculateTotalPower(allyPlayer.RangedSlots) + CalculateTotalPower(allyPlayer.SiegeSlots);
         enemyPowerValue = CalculateTotalPower(enemyPlayer.MeleeSlots) + CalculateTotalPower(enemyPlayer.RangedSlots) + CalculateTotalPower(enemyPlayer.SiegeSlots);
 
-        UpdatePowerInField();
         allyPower.text = $"{allyPowerValue}";
         enemyPower.text = $"{enemyPowerValue}";
 
@@ -204,6 +205,10 @@ public class Board : MonoBehaviour
     }
     private void UpdatePowerInField()
     {
+        // Reset the power of each unit card to its default value
+        ResetUnitCardPower(allyPlayer);
+        ResetUnitCardPower(enemyPlayer);
+
         // Apply climate card effect if present
         if (climateSlot.CurrentCard is ClimateCard climateCard)
         {
@@ -213,6 +218,24 @@ public class Board : MonoBehaviour
         // Apply bonus card effects for ally and enemy players
         ApplyBonusCardEffects(allyPlayer);
         ApplyBonusCardEffects(enemyPlayer);
+    }
+
+    private void ResetUnitCardPower(Player player)
+    {
+        ResetPowerInSlots(player.MeleeSlots);
+        ResetPowerInSlots(player.RangedSlots);
+        ResetPowerInSlots(player.SiegeSlots);
+    }
+
+    private void ResetPowerInSlots(CardSlot[] slots)
+    {
+        foreach (var slot in slots)
+        {
+            if (slot.IsOccupied && slot.CurrentCard is UnitCard unitCard)
+            {
+                unitCard.ResetPower();
+            }
+        }
     }
 
     private void ApplyBonusCardEffects(Player player)
@@ -283,7 +306,6 @@ public class Board : MonoBehaviour
     public bool CheckPlayer(Player player)
     => (player == allyPlayer && allyPlayerIsPlaying) ||
                 (player == enemyPlayer && !allyPlayerIsPlaying);
-
     private float EaseInOut(float t)
     {
         return t * t * (3f - 2f * t);

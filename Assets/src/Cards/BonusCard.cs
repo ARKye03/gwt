@@ -7,9 +7,7 @@ public class BonusCard : Card
     public int BoostAmount;
     public int initialBoost = 0;
     public int boost = 0;
-
     public int GetCurrentBoost => boost;
-    public int ModBoost { get => boost; set => boost = value; }
 
     public bool ApplyEffect(CardSlot[] rowType)
     {
@@ -17,7 +15,7 @@ public class BonusCard : Card
         {
             if (item.IsOccupied && item.CurrentCard is UnitCard unitCard)
             {
-                unitCard.power = unitCard.initialPower + initialBoost;
+                unitCard.power += initialBoost;
             }
         }
         return true;
@@ -40,5 +38,4 @@ public class BonusCard : Card
         Effect = effect;
         AffectedRow = affectedRow;
     }
-
 }
