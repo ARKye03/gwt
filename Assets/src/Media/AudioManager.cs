@@ -30,7 +30,8 @@ public class AudioManager : MonoBehaviour
     {
         if (_instance != null && _instance != this)
         {
-            Destroy(this);
+            Destroy(gameObject); // Destroy the new instance if one already exists
+            return;
         }
         else
         {
