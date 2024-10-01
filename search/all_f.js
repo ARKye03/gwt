@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['resetround_0',['ResetRound',['../classRoundManager.html#a2c25060ed633e31d883d120821ca2848',1,'RoundManager']]],
-  ['round_1',['Round',['../classRoundManager.html#a04319242802c98bd953aacc8b55f5bb1',1,'RoundManager']]],
-  ['roundcount_2',['roundCount',['../classRoundManager.html#a2574830db5a0f2b202802ca515e5558d',1,'RoundManager']]],
-  ['roundmanager_3',['RoundManager',['../classRoundManager.html',1,'']]]
+  ['quitgame_0',['QuitGame',['../classMenu.html#a89c08f92cd5cc738e6e4f4e0b492d485',1,'Menu.QuitGame()'],['../classPauseMenu.html#a833077a2752465d59d0e7e5ad756b7ab',1,'PauseMenu.QuitGame()']]]
 ];

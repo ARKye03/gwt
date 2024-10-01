@@ -98,6 +98,9 @@ $(document).ready(function(){initNavTree('classCardHoverManager.html',''); initR
   <div class="headertitle"><div class="title">CardHoverManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Manages the display of card details when a card is hovered over in the game.  
+ <a href="classCardHoverManager.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for CardHoverManager:</div>
 <div class="dyncontent">
@@ -107,34 +110,77 @@ Inheritance diagram for CardHoverManager:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a698f8edba2c4adbcca3ab98238fe1e1f"><td class="memItemLeft" align="right" valign="top"><a id="a698f8edba2c4adbcca3ab98238fe1e1f" name="a698f8edba2c4adbcca3ab98238fe1e1f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ShowCard</b> (<a class="el" href="classCardManager.html">CardManager</a> cardManager)</td></tr>
+<tr class="memitem:a698f8edba2c4adbcca3ab98238fe1e1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCardHoverManager.html#a698f8edba2c4adbcca3ab98238fe1e1f">ShowCard</a> (<a class="el" href="classCardManager.html">CardManager</a> cardManager)</td></tr>
+<tr class="memdesc:a698f8edba2c4adbcca3ab98238fe1e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the hover card with the details from the provided <a class="el" href="classCardManager.html">CardManager</a>.  <br /></td></tr>
 <tr class="separator:a698f8edba2c4adbcca3ab98238fe1e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12bbcf0e3d8960d9f5bf24fb0aebf177"><td class="memItemLeft" align="right" valign="top"><a id="a12bbcf0e3d8960d9f5bf24fb0aebf177" name="a12bbcf0e3d8960d9f5bf24fb0aebf177"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>HideCard</b> ()</td></tr>
+<tr class="memdesc:a12bbcf0e3d8960d9f5bf24fb0aebf177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hides the hover card. <br /></td></tr>
 <tr class="separator:a12bbcf0e3d8960d9f5bf24fb0aebf177"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a52ba95e6c2b6635dd51449ee4bdd60c5"><td class="memItemLeft" align="right" valign="top"><a id="a52ba95e6c2b6635dd51449ee4bdd60c5" name="a52ba95e6c2b6635dd51449ee4bdd60c5"></a>
 GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>hoverPanel</b></td></tr>
+<tr class="memdesc:a52ba95e6c2b6635dd51449ee4bdd60c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The panel that will display the hover card. <br /></td></tr>
 <tr class="separator:a52ba95e6c2b6635dd51449ee4bdd60c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc9d3fccfee7da73516c14f9003412ed"><td class="memItemLeft" align="right" valign="top"><a id="acc9d3fccfee7da73516c14f9003412ed" name="acc9d3fccfee7da73516c14f9003412ed"></a>
 GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>cardPrefab</b></td></tr>
+<tr class="memdesc:acc9d3fccfee7da73516c14f9003412ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">The prefab used to instantiate the hover card. <br /></td></tr>
 <tr class="separator:acc9d3fccfee7da73516c14f9003412ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfa19507deab8d9ad93421607bfe9d64"><td class="memItemLeft" align="right" valign="top"><a id="abfa19507deab8d9ad93421607bfe9d64" name="abfa19507deab8d9ad93421607bfe9d64"></a>
 GameObject&#160;</td><td class="memItemRight" valign="bottom"><b>cardDescriptionParent</b></td></tr>
+<tr class="memdesc:abfa19507deab8d9ad93421607bfe9d64"><td class="mdescLeft">&#160;</td><td class="mdescRight">The parent object for the card description. <br /></td></tr>
 <tr class="separator:abfa19507deab8d9ad93421607bfe9d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68e7ae6cbc9decb59b970873f71996c9"><td class="memItemLeft" align="right" valign="top"><a id="a68e7ae6cbc9decb59b970873f71996c9" name="a68e7ae6cbc9decb59b970873f71996c9"></a>
 TextMeshProUGUI&#160;</td><td class="memItemRight" valign="bottom"><b>cardDescription</b></td></tr>
+<tr class="memdesc:a68e7ae6cbc9decb59b970873f71996c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The UI element that displays the card's description. <br /></td></tr>
 <tr class="separator:a68e7ae6cbc9decb59b970873f71996c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a04850aa3e1f0b922a6a29180f30b305d"><td class="memItemLeft" align="right" valign="top"><a id="a04850aa3e1f0b922a6a29180f30b305d" name="a04850aa3e1f0b922a6a29180f30b305d"></a>
 static <a class="el" href="classCardHoverManager.html">CardHoverManager</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_instance</b><code> [get]</code></td></tr>
+<tr class="memdesc:a04850aa3e1f0b922a6a29180f30b305d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton instance of the <a class="el" href="classCardHoverManager.html" title="Manages the display of card details when a card is hovered over in the game.">CardHoverManager</a>. <br /></td></tr>
 <tr class="separator:a04850aa3e1f0b922a6a29180f30b305d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages the display of card details when a card is hovered over in the game. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a698f8edba2c4adbcca3ab98238fe1e1f" name="a698f8edba2c4adbcca3ab98238fe1e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a698f8edba2c4adbcca3ab98238fe1e1f">&#9670;&#160;</a></span>ShowCard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CardHoverManager.ShowCard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classCardManager.html">CardManager</a>&#160;</td>
+          <td class="paramname"><em>cardManager</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Displays the hover card with the details from the provided <a class="el" href="classCardManager.html">CardManager</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cardManager</td><td>The <a class="el" href="classCardManager.html">CardManager</a> containing the card data to display.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>Assets/src/Cards/CardHoverManager.cs</li>
 </ul>
