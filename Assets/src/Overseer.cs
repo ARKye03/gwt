@@ -37,6 +37,7 @@ public class Board : MonoBehaviour
     public GameObject cardPrefab;
 
     public bool allyPlayerIsPlaying = true;
+
     void Awake()
     {
         if (_instance != null && _instance != this)
@@ -48,6 +49,7 @@ public class Board : MonoBehaviour
             _instance = this;
         }
     }
+
     void Start()
     {
         var cardsQuanto = CardsQuanto._instance;
@@ -55,22 +57,7 @@ public class Board : MonoBehaviour
 
         decks = InitDecks(cardsQuanto);
 
-#if DEBUG
-        allyPlayer.Name = "Ally Player";
-        allyPlayer.deck.cards = decks[0];
-        enemyPlayer.Name = "Enemy Player";
-        enemyPlayer.deck.cards = decks[1];
-#else
-        // Assign random decks to players
-        int deckIndex1 = UnityEngine.Random.Range(0, decks.Count);
-        allyPlayer.Name = "Ally Player";
-        allyPlayer.deck.cards = decks[deckIndex1];
-        decks.RemoveAt(deckIndex1);
-
-        int deckIndex2 = UnityEngine.Random.Range(0, decks.Count);
-        enemyPlayer.Name = "Enemy Player";
-        enemyPlayer.deck.cards = decks[deckIndex2];
-#endif
+        LoadPlayerDecks();
 
         // Place leader cards in the respective slots
         PlaceLeaderCard(allyPlayer, allyPlayer.deck, allyPlayer.LeaderSlot);
@@ -86,6 +73,20 @@ public class Board : MonoBehaviour
 
         // Update hand panel visibility at the start of the game
         UpdateHandPanelVisibility();
+    }
+
+    private void LoadPlayerDecks()
+    {
+        allyPlayer.Name = "Ally Player";
+        enemyPlayer.Name = "Enemy Player";
+#if DEBUG
+        allyPlayer.deck.cards = decks[0];
+        enemyPlayer.deck.cards = decks[1];
+#else
+        Assign selected decks to players
+        allyPlayer.deck.cards = decks[GameData.AllyPlayerDeckIndex];
+        enemyPlayer.deck.cards = decks[GameData.EnemyPlayerDeckIndex];
+#endif
     }
 
     private static void ValidateCardsQuanto(CardsQuanto cardsQuanto)
@@ -120,6 +121,7 @@ public class Board : MonoBehaviour
             pauseMenu.SetActive(true);
         }
     }
+
     public void PassTurn()
     {
         // Switch the turn to the other player
@@ -131,7 +133,10 @@ public class Board : MonoBehaviour
             allyPlayer.DrawCards(2);
             roundManager.IncreaseRound();
         }
-        else { enemyPlayer.DrawCards(2); }
+        else
+        {
+            enemyPlayer.DrawCards(2);
+        }
 
         // Rotate the camera to the other player
         StartCoroutine(RotateElements(1.0f));
@@ -142,6 +147,7 @@ public class Board : MonoBehaviour
         // Calculate and display power at the end of each round
         CalculateAndDisplayPower();
     }
+
     private void PlaceLeaderCard(Player player, Deck deck, CardSlot leaderSlot)
     {
         if (deck.cards.Count > 0 && deck.cards.Peek() is LeaderCard leaderCard)
@@ -169,6 +175,7 @@ public class Board : MonoBehaviour
             Debug.LogError($"{player.Name} does not have a leader card in the deck.");
         }
     }
+
     public void CalculateAndDisplayPower()
     {
         UpdatePowerInField();
@@ -214,6 +221,7 @@ public class Board : MonoBehaviour
             roundManager.ResetRound();
         }
     }
+
     private void UpdatePowerInField()
     {
         // Reset the power of each unit card to its default value
@@ -263,11 +271,13 @@ public class Board : MonoBehaviour
             _ = bonusCard.ApplyEffect(targetSlots);
         }
     }
+
     private void UpdateWinsDisplay()
     {
         allyWinsText.text = $"{allyWins}";
         enemyWinsText.text = $"{enemyWins}";
     }
+
     private int CalculateTotalPower(CardSlot[] slots)
     {
         int totalPower = 0;
@@ -280,6 +290,7 @@ public class Board : MonoBehaviour
         }
         return totalPower;
     }
+
     public IEnumerator RotateElements(float duration)
     {
         yield return new WaitForSeconds(0.2f); // 200ms delay
@@ -304,6 +315,7 @@ public class Board : MonoBehaviour
 
         transform.rotation = endRotation;
     }
+
     private void RotateUIElements(Quaternion startRotation)
     {
         cardHoverManager.transform.rotation = startRotation;
@@ -314,13 +326,16 @@ public class Board : MonoBehaviour
         allyPower.transform.rotation = startRotation;
         enemyPower.transform.rotation = startRotation;
     }
+
     public bool CheckPlayer(Player player)
     => (player == allyPlayer && allyPlayerIsPlaying) ||
                 (player == enemyPlayer && !allyPlayerIsPlaying);
+
     private float EaseInOut(float t)
     {
         return t * t * (3f - 2f * t);
     }
+
     public void UpdateHandPanelVisibility()
     {
         if (allyPlayerIsPlaying)
