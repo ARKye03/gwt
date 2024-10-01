@@ -2,6 +2,8 @@ var NAVTREEINDEX0 =
 {
 "annotated.html":[0,0],
 "classAudioManager.html":[0,0,0],
+"classAudioManager.html#a0c2aea6ea779d69228564aca9476ea80":[0,0,0,0],
+"classAudioManager.html#aa3dc3384597585b2d81d659166bc6ef7":[0,0,0,1],
 "classBaitCard.html":[0,0,1],
 "classBoard.html":[0,0,2],
 "classBonusCard.html":[0,0,3],

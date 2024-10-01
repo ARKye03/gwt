@@ -1,6 +1,6 @@
 var annotated_dup =
 [
-    [ "AudioManager", "classAudioManager.html", null ],
+    [ "AudioManager", "classAudioManager.html", "classAudioManager" ],
     [ "BaitCard", "classBaitCard.html", null ],
     [ "Board", "classBoard.html", null ],
     [ "BonusCard", "classBonusCard.html", null ],
