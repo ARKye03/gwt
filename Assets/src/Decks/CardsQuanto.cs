@@ -8,7 +8,7 @@ public class CardsQuanto : MonoBehaviour
 {
     private static CardsQuanto instance;
 
-    public static CardsQuanto Instance
+    public static CardsQuanto _instance
     {
         get
         {
@@ -44,8 +44,14 @@ public class CardsQuanto : MonoBehaviour
 
         InitializeCards();
     }
+    public void Clear()
+    {
+        CardsOfIdanai.Clear();
+        CardsOfCelai.Clear();
+        CardsOfYudivain.Clear();
+    }
 
-    private void InitializeCards()
+    public void InitializeCards()
     {
         CardsOfIdanai = new Stack<Card>(new List<Card>
         {
