@@ -1,16 +1,44 @@
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Manages the display of card details when a card is hovered over in the game.
+/// </summary>
 public class CardHoverManager : MonoBehaviour
 {
+    /// <summary>
+    /// The panel that will display the hover card.
+    /// </summary>
     public GameObject hoverPanel;
+
+    /// <summary>
+    /// The prefab used to instantiate the hover card.
+    /// </summary>
     public GameObject cardPrefab;
+
+    /// <summary>
+    /// The parent object for the card description.
+    /// </summary>
     public GameObject cardDescriptionParent;
+
+    /// <summary>
+    /// The UI element that displays the card's description.
+    /// </summary>
     public TextMeshProUGUI cardDescription;
 
+    /// <summary>
+    /// The currently displayed hover card.
+    /// </summary>
     private GameObject currentHoverCard;
+
+    /// <summary>
+    /// Singleton instance of the CardHoverManager.
+    /// </summary>
     public static CardHoverManager _instance { get; private set; }
 
+    /// <summary>
+    /// Initializes the singleton instance of the CardHoverManager.
+    /// </summary>
     void Awake()
     {
         if (_instance != null && _instance != this)
@@ -23,6 +51,10 @@ public class CardHoverManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Displays the hover card with the details from the provided CardManager.
+    /// </summary>
+    /// <param name="cardManager">The CardManager containing the card data to display.</param>
     public void ShowCard(CardManager cardManager)
     {
         if (currentHoverCard != null)
@@ -52,6 +84,9 @@ public class CardHoverManager : MonoBehaviour
         hoverPanel.SetActive(true);
     }
 
+    /// <summary>
+    /// Hides the hover card.
+    /// </summary>
     public void HideCard()
     {
         if (currentHoverCard != null)

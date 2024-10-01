@@ -1,6 +1,9 @@
 using UnityEngine;
 
 public delegate bool Effect(Player player);
+/// <summary>
+/// Cards that have an effect that can be applied to a row.
+/// </summary>
 interface IEffectRow
 {
     bool ApplyEffect();
