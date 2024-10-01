@@ -83,7 +83,7 @@ public class Board : MonoBehaviour
         allyPlayer.deck.cards = decks[0];
         enemyPlayer.deck.cards = decks[1];
 #else
-        Assign selected decks to players
+        // Assign selected decks to players
         allyPlayer.deck.cards = decks[GameData.AllyPlayerDeckIndex];
         enemyPlayer.deck.cards = decks[GameData.EnemyPlayerDeckIndex];
 #endif
