@@ -85,9 +85,9 @@ public class CardsQuanto : MonoBehaviour
             CreateBonusCard("GoldenArrow" , "Aumenta la fuerza de todas las unidades", Faction.Idanai, 4, null, RowType.Ranged, "Idanai/GoldenArrow"),
             CreateBonusCard("PanzerFullPower", "Boosts strength of all units", Faction.Idanai, 4, null, RowType.Siege, "Idanai/PanzerFullPower"),
 
-            CreateClimateCard("EndOfLight", "Reduces strength of melee units by 7", Faction.Idanai, null, RowType.Melee,7, "Idanai/EndOfLight"),
-            CreateClimateCard("AgainstTheCurrent", "Reduces strength of ranged units by 5", Faction.Idanai, null, RowType.Ranged,5, "Idanai/AgainstTheCurrent"),
-            CreateClimateCard("StormOfSiege", "Reduces strength of siege units by 9", Faction.Idanai, null, RowType.Siege,9, "Idanai/StormOfSiege"),
+            CreateClimateCard("EndOfLight", "Reduces strength of melee units", Faction.Idanai, null, RowType.Melee,7, "Idanai/EndOfLight"),
+            CreateClimateCard("AgainstTheCurrent", "Reduces strength of ranged units", Faction.Idanai, null, RowType.Ranged,5, "Idanai/AgainstTheCurrent"),
+            CreateClimateCard("StormOfSiege", "Reduces strength of siege units", Faction.Idanai, null, RowType.Siege,9, "Idanai/StormOfSiege"),
 
             CreateLeaderCard("Idanai", "Drop one random card and draw another from the deck", Faction.Idanai, Effects.DropAndDrawCard, "Idanai/Idanai"),
         });
@@ -114,8 +114,8 @@ public class CardsQuanto : MonoBehaviour
             CreateBaitCard("BaitThing", "A simple bait", Faction.Celai, 0, null,TypeofUnit.Melee, "Celai/BaitThing"),
 
             CreateBonusCard("SeaTouch", "Put your melee units 7 times stronger", Faction.Celai, 7, null, RowType.Melee, "Celai/SeaTouch"),
-            CreateBonusCard("HailTheDistance" , "Ranged a bit stronger, +3", Faction.Celai, 3, null, RowType.Ranged, "Celai/HailTheDistance"),
-            CreateBonusCard("HandOfGreed", "Bow sieges are stronger, +3", Faction.Celai, 3, null, RowType.Melee, "Celai/HandOfGreed"),
+            CreateBonusCard("HailTheDistance" , "Ranged a bit stronger", Faction.Celai, 3, null, RowType.Ranged, "Celai/HailTheDistance"),
+            CreateBonusCard("HandOfGreed", "Bow sieges are stronger", Faction.Celai, 3, null, RowType.Melee, "Celai/HandOfGreed"),
 
             CreateClimateCard("Zoore", "Reduces strength of melee units", Faction.Celai,null, RowType.Melee,4, "Celai/Zoore"),
             CreateClimateCard("DownTheArchers", "Reduces strength of ranged units", Faction.Celai,null, RowType.Ranged,4, "Celai/DownTheArchers"),
@@ -145,8 +145,8 @@ public class CardsQuanto : MonoBehaviour
             CreateBaitCard("BaitTinkerbell", "A simple bait", Faction.Yudivain, 0, null,TypeofUnit.Melee, "Yudivain/BaitTinkerbell"),
             CreateBaitCard("BaitPuppy", "A simple bait", Faction.Yudivain, 0, null,TypeofUnit.Melee, "Yudivain/BaitPuppy"),
 
-            CreateBonusCard("InfinityGauntlet", "Boosts Melee Units by 10", Faction.Yudivain, 8, null, RowType.Melee, "Yudivain/InfinityGauntlet"),
-            CreateBonusCard("InfinityBow" , "Boosts Range Units by 10", Faction.Yudivain, 8, null, RowType.Ranged, "Yudivain/InfinityBow"),
+            CreateBonusCard("InfinityGauntlet", "Boosts Melee Units", Faction.Yudivain, 8, null, RowType.Melee, "Yudivain/InfinityGauntlet"),
+            CreateBonusCard("InfinityBow" , "Boosts Range Units", Faction.Yudivain, 8, null, RowType.Ranged, "Yudivain/InfinityBow"),
 
             CreateClimateCard("Frost", "Reduces strength of melee units", Faction.Yudivain,null, RowType.Melee,5, "Yudivain/"),
             CreateClimateCard("Fog", "Reduces strength of ranged units", Faction.Yudivain,null, RowType.Melee,5, "Yudivain/"),
