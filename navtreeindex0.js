@@ -43,6 +43,8 @@ var NAVTREEINDEX0 =
 "classHandPanelManager.html#adc9251a42c1933d5fef8214ede279cb7":[0,0,13,4],
 "classLeaderCard.html":[0,0,15],
 "classMenu.html":[0,0,16],
+"classMenu.html#a25994e76d7b3be8c64384d63aa67c5fa":[0,0,16,2],
+"classMenu.html#a2f163cd17e4da0a49e703e0166401691":[0,0,16,3],
 "classMenu.html#a4498394b6a2d21c26cea20231909ac8a":[0,0,16,1],
 "classMenu.html#a89c08f92cd5cc738e6e4f4e0b492d485":[0,0,16,0],
 "classPauseMenu.html":[0,0,17],
