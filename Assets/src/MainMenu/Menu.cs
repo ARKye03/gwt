@@ -9,7 +9,13 @@ using UnityEngine.UI;
 /// </summary>
 public class Menu : MonoBehaviour
 {
+    /// <summary>
+    /// The dropdown for the ally deck.
+    /// </summary>
     public TMP_Dropdown allyDeck;
+    /// <summary>
+    /// The dropdown for the enemy deck.
+    /// </summary>
     public TMP_Dropdown enemyDeck;
     /// <summary>
     /// Loads the next Game Scene, in this case the gwt scene.
