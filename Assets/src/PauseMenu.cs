@@ -21,6 +21,19 @@ public class PauseMenu : MonoBehaviour
     // A - Can this be more simple?  
     // B - I guess we'll never know.
     {
+        ResetBoardAndDecks();
+
+        // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void GetBackToMainMenu()
+    {
+        ResetBoardAndDecks();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    private static void ResetBoardAndDecks()
+    {
         var board = Board._instance;
         var cardsQuanto = CardsQuanto._instance;
 
@@ -36,10 +49,8 @@ public class PauseMenu : MonoBehaviour
 
         // Reinitialize decks
         board.decks = board.InitDecks(cardsQuanto);
-
-        // Reload the current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
     public void QuitGame()
     {
         Application.Quit();
