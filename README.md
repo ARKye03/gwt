@@ -1,8 +1,9 @@
-# gwt
+# Gwent
 
-If you are reading this, it means that you are seeing old commits, get out!
+- Unity 2022.3.19f1
 
 ## Docs
+Check [docs](https://arkye03.github.io/gwt/) or:
 
 ```sh
 make docs
