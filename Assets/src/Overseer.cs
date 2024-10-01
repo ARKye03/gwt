@@ -16,6 +16,7 @@ public class Board : MonoBehaviour
     public RoundManager roundManager;
     public GameObject pauseMenu;
     public CardHoverManager cardHoverManager;
+    public List<Stack<Card>> decks;
 
     [Header("<----------AllyPlayer---------->")]
     public Player allyPlayer;
@@ -49,26 +50,10 @@ public class Board : MonoBehaviour
     }
     void Start()
     {
-        var cardsQuanto = CardsQuanto.Instance;
+        var cardsQuanto = CardsQuanto._instance;
+        ValidateCardsQuanto(cardsQuanto);
 
-        if (cardsQuanto == null)
-        {
-            Debug.LogError("CardsQuanto instance is null");
-            return;
-        }
-
-        if (cardsQuanto.CardsOfIdanai == null || cardsQuanto.CardsOfYudivain == null || cardsQuanto.CardsOfCelai == null)
-        {
-            Debug.LogError("CardsQuanto card lists are not initialized");
-            return;
-        }
-
-        List<Stack<Card>> decks = new()
-        {
-            cardsQuanto.CardsOfIdanai,
-            cardsQuanto.CardsOfCelai,
-            cardsQuanto.CardsOfYudivain
-        };
+        decks = InitDecks(cardsQuanto);
 
 #if DEBUG
         allyPlayer.Name = "Ally Player";
@@ -102,6 +87,32 @@ public class Board : MonoBehaviour
         // Update hand panel visibility at the start of the game
         UpdateHandPanelVisibility();
     }
+
+    private static void ValidateCardsQuanto(CardsQuanto cardsQuanto)
+    {
+        if (cardsQuanto == null)
+        {
+            Debug.LogError("CardsQuanto instance is null");
+            return;
+        }
+
+        if (cardsQuanto.CardsOfIdanai == null || cardsQuanto.CardsOfYudivain == null || cardsQuanto.CardsOfCelai == null)
+        {
+            Debug.LogError("CardsQuanto card lists are not initialized");
+            return;
+        }
+    }
+
+    public List<Stack<Card>> InitDecks(CardsQuanto cardsQuanto)
+    {
+        return new()
+        {
+            cardsQuanto.CardsOfIdanai,
+            cardsQuanto.CardsOfCelai,
+            cardsQuanto.CardsOfYudivain
+        };
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
